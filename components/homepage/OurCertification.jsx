@@ -9,7 +9,7 @@ const OurCertification = () => {
                     <p className="text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
                         Our Certification
                     </p>
-                    <h2 className='text-2xl md:text-3xl lg:text-4xl text-white font-bold capitalize mb-4 leading-12'>
+                    <h2 className='text-center text-2xl md:text-3xl lg:text-4xl text-white font-bold capitalize mb-4 leading-12'>
                         Backed by Standards. <span className='text-[#38A0A7]'>Trusted by Professionals</span>
                     </h2>
                     <div className='flex items-center justify-center flex-row w-full gap-10'>

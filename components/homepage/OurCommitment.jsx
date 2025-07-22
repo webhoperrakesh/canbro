@@ -38,11 +38,11 @@ const OurCommitment = () => {
                         Our <span className='text-[#38A0A7]'>Commitment</span>
                     </h2>
                     {/* Features Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-center w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 items-center w-fit md:w-full lgw-full">
                         {features.map((item, index) => (
                             <div
                                 key={index}
-                                className="flex flex-row items-center text-center justify-center gap-4"
+                                className="flex flex-row items-center text-center justify-start md:justify-center lg:justify-center gap-4"
                             >
                                 <Image
                                     src={item.imgSrc}

@@ -16,7 +16,7 @@ const Whoweare = () => {
                                 priority
                             />
                         </div>
-                        <div className='md:col-span-7 pl-10'>
+                        <div className='md:col-span-7 md:pl-0 lg:pl-10'>
                             <p className="text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
                                 who we are
                             </p>

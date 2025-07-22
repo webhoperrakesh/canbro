@@ -5,6 +5,9 @@ import FeatureProducts from '@/components/homepage/FeatureProducts'
 import OurCertification from "@/components/homepage/OurCertification"
 import OurCommitment from "@/components/homepage/OurCommitment"
 import PharmaDivision from "@/components/homepage/PharmaDivision"
+import EnquirySection from "@/components/homepage/EnquirySection"
+import BlogsSection from "@/components/homepage/BlogsSection"
+import AmplurCVSlider from "@/components/homepage/VisualAidsSection"
 
 export default function Home() {
   return (
@@ -14,7 +17,10 @@ export default function Home() {
    <Whoweare />
    <FeatureProducts />
    <OurCertification />
+   <AmplurCVSlider />
    <OurCommitment />
+   <EnquirySection />
+   <BlogsSection />
    <PharmaDivision />
    </>
   );
