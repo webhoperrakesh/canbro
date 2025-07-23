@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { FaArrowRight, FaArrowLeft  } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Image from "next/image"
 
 interface SlideData {
@@ -83,95 +83,94 @@ export default function AmplurCVSlider() {
 
   return (
     <section id='visual-aids'>
-            <div className='container mx-auto px-4 py-12 md:py-15'>
+      <div className='container mx-auto px-4 py-12 md:py-15'>
         {/* Header Badge */}
-      <div className="text-center">
-         <p className="inline-block text-sm text-white uppercase bg-[#38A0A7] rounded-full py-2 px-4 mb-4">
-          {currentData.badge}
+        <div className="text-center">
+          <p className="inline-block text-sm text-white uppercase bg-[#38A0A7] rounded-full py-2 px-4 mb-4">
+            {currentData.badge}
           </p>
-      </div>
+        </div>
 
-      {/* Main Title */}
-      <div className="text-center mb-8">
-        <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#38A0A7] capitalize'>
-          <span className="text-[#212088]">{currentData.title.main} </span>{currentData.title.highlight}
-        </h2>
-      </div>
+        {/* Main Title */}
+        <div className="text-center mb-8">
+          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#38A0A7] capitalize'>
+            <span className="text-[#212088]">{currentData.title.main} </span>{currentData.title.highlight}
+          </h2>
+        </div>
 
-      {/* Slider Container */}
-      <div className="relative">
-        <div className="bg-white rounded-3xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row min-h-[500px]">
-            {/* Left Section - Product Info */}
-            <div className="bg-[url(/images/slider-bg-1.png)] bg-auto bg-center bg-no-repeat text-white p-8 lg:p-12 lg:w-7/12 flex flex-col justify-center rounded-2xl" style={{ backgroundSize: "100% 100%" }}>
-              <h2 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">{currentData.product.name}</h2>
+        {/* Slider Container */}
+        <div className="relative">
+          <div className="bg-white rounded-3xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row lg:min-h-[500px]">
+              {/* Left Section - Product Info */}
+              <div className="bg-[url(/images/slider-bg-1.png)] bg-auto bg-center bg-no-repeat flex flex-col items-start justify-center text-white p-8 lg:p-12 lg:w-3/5 lg:pr-28" style={{ backgroundSize: "100% 100%" }}>
+                <h2 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">{currentData.product.name}</h2>
 
-              <p className="text-sm md:text-base mb-6 opacity-90">{currentData.product.composition}</p>
+                <p className="text-sm md:text-base mb-6 opacity-90">{currentData.product.composition}</p>
 
-              <ul className="space-y-3 mb-8">
-                {currentData.product.indications.map((indication, index) => (
-                  <li key={index} className="flex items-center text-sm md:text-base">
-                    <div className="w-2 h-2 bg-white rounded-full mr-3 flex-shrink-0"></div>
-                    {indication}
-                  </li>
-                ))}
-              </ul>
+                <ul className="space-y-3 mb-8">
+                  {currentData.product.indications.map((indication, index) => (
+                    <li key={index} className="flex items-center text-sm md:text-base">
+                      <div className="w-2 h-2 bg-white rounded-full mr-3 flex-shrink-0"></div>
+                      {indication}
+                    </li>
+                  ))}
+                </ul>
 
-              <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-2 w-fit">
-                Read more...
-              </button>
-            </div>
+                <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-2 w-fit">
+                  Read more...
+                </button>
+              </div>
 
-            {/* Right Section - Product Image */}
-            <div className="lg:w-5/12 flex items-center justify-center">
-              <div className="relative w-full h-full min-h-[300px]">
-                <Image
-                  src={currentData.productImage || "/placeholder.svg"}
-                  alt={`${currentData.product.name} product packaging`}
-                  fill
-                  className="object-contain"
-                  priority
-                />
+              {/* Right Section - Product Image */}
+              <div className="hidden lg:w-1/2 lg:flex items-center justify-center lg:-ml-30 z-10">
+                <div className="relative w-full min-h-[360px] flex items-center justify-center h-auto">
+                  <Image
+                    src={currentData.productImage || "/placeholder.svg"}
+                    alt={`${currentData.product.name} product packaging`}
+                    fill
+                    className="w-full"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Navigation Controls */}
-        <div className="absolute right-0 top-0 flex flex-row items-center gap-3">
-          {/* Dots Indicator */}
-          <div className="flex flex-row gap-2">
-            {slidesData.map((_, index) => (
+          {/* Navigation Controls */}
+          <div className="sm:mt-5 sm:justify-center lg:absolute right-0 top-0 flex flex-row items-center gap-3 z-20">
+            {/* Dots Indicator */}
+            <div className="flex flex-row gap-2">
+              {slidesData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? "bg-orange-500" : "bg-gray-300"
+                    }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Arrow Controls */}
+            <div className="flex flex-row gap-2">
               <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? "bg-orange-500" : "bg-gray-300"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          {/* Arrow Controls */}
-          <div className="flex flex-row gap-2">
-            <button
-              onClick={prevSlide}
-              className="w-10 h-10 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
-              aria-label="Previous slide"
-            >
-              <FaArrowLeft className="text-white" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="w-10 h-10 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
-              aria-label="Next slide"
-            >
-              <FaArrowRight className="text-white" />
-            </button>
+                onClick={prevSlide}
+                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
+                aria-label="Previous slide"
+              >
+                <FaArrowLeft className="text-white" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
+                aria-label="Next slide"
+              >
+                <FaArrowRight className="text-white" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

@@ -6,14 +6,16 @@ import OurCertification from "@/components/homepage/OurCertification"
 import OurCommitment from "@/components/homepage/OurCommitment"
 import PharmaDivision from "@/components/homepage/PharmaDivision"
 import EnquirySection from "@/components/homepage/EnquirySection"
-import BlogsSection from "@/components/homepage/BlogsSection"
+import BlogsSection from "@/components/homepage/BlogsSection";
 import AmplurCVSlider from "@/components/homepage/VisualAidsSection"
+import SpecilizationSection from "@/components/homepage/SpecilizationSection";
 
 export default function Home() {
   return (
    <>
    <HeroSection />
    <About />
+   <SpecilizationSection />
    <Whoweare />
    <FeatureProducts />
    <OurCertification />
