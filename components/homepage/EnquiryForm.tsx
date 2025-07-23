@@ -20,8 +20,6 @@ const EnquiryForm = () => {
 
     const onSubmit = (data: any) => {
         console.log('Form submitted:', data);
-        // Handle form submission here
-        // reset(); // Uncomment to reset form after submission
     };
 
     return (
