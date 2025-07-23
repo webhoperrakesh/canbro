@@ -18,7 +18,7 @@ const EnquiryForm = () => {
         }
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: any) => {
         console.log('Form submitted:', data);
         // Handle form submission here
         // reset(); // Uncomment to reset form after submission
@@ -122,7 +122,7 @@ const EnquiryForm = () => {
                 <div>
                     <textarea
                         placeholder="Message"
-                        rows="4"
+                        rows={4}
                         {...register("message", {
                             required: "Message is required",
                             minLength: {
