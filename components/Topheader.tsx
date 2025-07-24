@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiDownloadCloud } from "react-icons/fi";
 
-const Topheader = () => {
+const TopHeader = () => {
     return (
         <div className="flex items-center justify-between">
             <Link href="/">
@@ -62,4 +62,4 @@ const Topheader = () => {
     )
 }
 
-export default Topheader
+export default TopHeader

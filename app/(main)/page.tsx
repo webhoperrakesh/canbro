@@ -1,23 +1,24 @@
-import HeroSection from "@/components/homepage/HeroSection"
-import About from "@/components/homepage/About";
-import Whoweare from "@/components/homepage/Whoweare";
-import FeatureProducts from '@/components/homepage/FeatureProducts'
+import HeroSlider from "@/components/homepage/HeroSlider"
+import About from "@/components/homepage/About"
+import SpecilizationSection from "@/components/homepage/SpecilizationSection"
+import Whoweare from "@/components/homepage/Whoweare"
 import OurCertification from "@/components/homepage/OurCertification"
-import OurCommitment from "@/components/homepage/OurCommitment"
-import PharmaDivision from "@/components/homepage/PharmaDivision"
-import EnquirySection from "@/components/homepage/EnquirySection"
-import BlogsSection from "@/components/homepage/BlogsSection";
 import AmplurCVSlider from "@/components/homepage/VisualAidsSection"
-import SpecilizationSection from "@/components/homepage/SpecilizationSection";
+import OurCommitment from "@/components/homepage/OurCommitment"
+import EnquirySection from "@/components/homepage/EnquirySection"
+import BlogsSection from "@/components/homepage/BlogsSection"
+import PharmaDivision from "@/components/homepage/PharmaDivision"
+import ProductSlider from "@/components/homepage/ProductSlider"
+
 
 export default function Home() {
   return (
    <>
-   <HeroSection />
+   <HeroSlider />
    <About />
    <SpecilizationSection />
    <Whoweare />
-   <FeatureProducts />
+   <ProductSlider />
    <OurCertification />
    <AmplurCVSlider />
    <OurCommitment />

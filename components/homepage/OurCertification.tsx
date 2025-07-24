@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const OurCertification = () => {
     return (
-        <section className='bg-[url(/images/certificate-bg.png)] bg-auto bg-center bg-no-repeat' style={{ backgroundSize: "100% 100%" }} id='our-certificate'>
+        <section className='bg-[url(/images/certificate-bg.png)] bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%]' id='our-certificate'>
             <div className='container mx-auto px-4 py-12 md:py-15'>
                 <div className='flex flex-col justify-center items-center gap-4'>
                     <p className="text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">

@@ -59,7 +59,7 @@ const slidesData: SlideData[] = [
         "Sample Indication 5",
       ],
     },
-    productImage: "/images/product-1.png",
+    productImage: "/images/blog-3.png",
   },
 ]
 
@@ -103,7 +103,7 @@ export default function AmplurCVSlider() {
           <div className="bg-white rounded-3xl overflow-hidden">
             <div className="flex flex-col lg:flex-row lg:min-h-[500px]">
               {/* Left Section - Product Info */}
-              <div className="bg-[url(/images/slider-bg-1.png)] bg-auto bg-center bg-no-repeat flex flex-col items-start justify-center text-white p-8 lg:p-12 lg:w-3/5 lg:pr-28" style={{ backgroundSize: "100% 100%" }}>
+              <div className="bg-[url(/images/slider-bg-1.png)] bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%] flex flex-col items-start justify-center rounded-2xl text-white p-8 lg:p-12 lg:w-3/5 lg:pr-28" style={{ backgroundSize: "100% 100%" }}>
                 <h2 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">{currentData.product.name}</h2>
 
                 <p className="text-sm md:text-base mb-6 opacity-90">{currentData.product.composition}</p>
@@ -123,13 +123,13 @@ export default function AmplurCVSlider() {
               </div>
 
               {/* Right Section - Product Image */}
-              <div className="hidden lg:w-1/2 lg:flex items-center justify-center lg:-ml-30 z-10">
+              <div className="-ml-[98px] hidden lg:w-1/2 lg:flex items-center justify-center xl:-ml-30 z-10">
                 <div className="relative w-full min-h-[360px] flex items-center justify-center h-auto">
                   <Image
                     src={currentData.productImage || "/placeholder.svg"}
                     alt={`${currentData.product.name} product packaging`}
                     fill
-                    className="w-full"
+                    className="w-full rounded-2xl"
                     priority
                   />
                 </div>
@@ -138,9 +138,9 @@ export default function AmplurCVSlider() {
           </div>
 
           {/* Navigation Controls */}
-          <div className="sm:mt-5 sm:justify-center lg:absolute right-0 top-0 flex flex-row items-center gap-3 z-20">
+          <div className="mt-5 justify-center lg:absolute lg:mt-0 lg:justify-end right-0 top-0 flex flex-row items-center gap-3 z-20">
             {/* Dots Indicator */}
-            <div className="flex flex-row gap-2">
+            <div className="hidden lg:flex flex-row gap-2">
               {slidesData.map((_, index) => (
                 <button
                   key={index}

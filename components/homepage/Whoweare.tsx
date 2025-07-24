@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Whoweare = () => {
   return (
-    <section className='bg-[url(/images/whoweare-bg.png)] bg-auto bg-center bg-no-repeat' style={{ backgroundSize: "100% 100%" }} id='who-we-are' >
+    <section className='bg-[url(/images/whoweare-bg.png)] bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%]' id='who-we-are' >
                 <div className='container mx-auto px-4 py-12 md:py-15'>
                     <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
                         <div className='md:col-span-5'>

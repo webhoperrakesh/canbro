@@ -24,7 +24,7 @@ const About = () => {
                         <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#38A0A7] capitalize mb-4'>
                             <span className='text-[#212088]'>Canbro</span> Healthcare
                         </h2>
-                        <p className="text-sm text-[#3C3C3C] md:text-[14px] leading-[1.8rem] mb-12">
+                        <p className="mb-6 text-sm text-[#3C3C3C] md:text-[14px] leading-[1.8rem] lg:mb-12">
                             Canbro Healthcare is a trusted and leading pharmaceutical company specializing in high-quality Nephrology and Urology products in India. We are committed to delivering effective, patient-centric solutions for conditions related to the kidneys, ureters, bladder, and urethra. Our medicines are manufactured under strict QA/QC standards, ensuring optimal efficacy, safety, and consistent results for our consumers. With the rising demand for renal and urinary healthcare, we focus on innovation, quality, and reliability—earning the trust of healthcare professionals across the globe.
                         </p>
                         {/* Read More Button */}
