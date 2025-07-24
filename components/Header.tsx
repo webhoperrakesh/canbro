@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import TopHeader from './TopHeader'
+import TopHeader from './TopHeader';
 import { IoSearchSharp } from "react-icons/io5";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
@@ -27,7 +27,7 @@ const Header = () => {
     <header className="bg-white fixed top-0 w-full z-100">
       <div className='flex mx-auto w-full justify-between items-center'>
         <div className="container mx-auto px-4 py-3">
-          <TopHeader />
+         <TopHeader />
         </div>
       </div>
 
