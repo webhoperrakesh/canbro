@@ -143,147 +143,147 @@ export default function ProductSlider() {
   const nextProduct = getNextProduct()
 
   return (
-     <section id='feature-products'>
-    <div className='container mx-auto px-4 py-12 md:py-15'>
-      {/* Title */}
-      <div className="text-center mb-12">
-        <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-bold capitalize mb-4 leading-12 text-center'>
-                        Our <span className='text-[#38A0A7]'>Featured Products</span>
-                    </h2>
-      </div>
+    <section id='feature-products'>
+      <div className='container mx-auto px-4 py-12 md:py-15'>
+        {/* Title */}
+        <div className="text-center mb-12">
+          <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize mb-4 leading-12 text-center'>
+            Our <span className='text-[#38A0A7]'>Featured Products</span>
+          </h2>
+        </div>
 
-      {/* Slider Container */}
-      <div
-        className="relative overflow-hidden cursor-grab active:cursor-grabbing"
-        ref={sliderRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-      >
+        {/* Slider Container */}
         <div
-          className="transition-all duration-500 ease-out"
-          style={{
-            transform: `translateX(${(dragOffset / (sliderRef.current?.offsetWidth || 1)) * 100}px)`,
-          }}
+          className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+          ref={sliderRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
         >
-          <div className="flex items-center justify-center min-h-[500px] px-4">
-            {/* Left Product Image - Previous Product */}
-            <div
-              className="hidden lg:block flex-shrink-0 mr-8 transform transition-all duration-500 cursor-pointer group"
-              onClick={handleLeftImageClick}
-            >
-              <div className="relative">
-                <img
-                  src={previousProduct.mainImage || "/placeholder.svg"}
-                  alt={`Previous product - ${previousProduct.name}`}
-                  className="w-48 h-64 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300 opacity-60 group-hover:opacity-90"
-                  draggable={false}
-                />
-                {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-all duration-300 rounded-lg"></div> */}
-              </div>
-              {/* <div className="text-center mt-3">
+          <div
+            className="transition-all duration-500 ease-out"
+            style={{
+              transform: `translateX(${(dragOffset / (sliderRef.current?.offsetWidth || 1)) * 100}px)`,
+            }}
+          >
+            <div className="flex items-center justify-center min-h-[500px] px-4">
+              {/* Left Product Image - Previous Product */}
+              <div
+                className="hidden lg:block flex-shrink-0 mr-8 transform transition-all duration-500 cursor-pointer group"
+                onClick={handleLeftImageClick}
+              >
+                <div className="relative">
+                  <img
+                    src={previousProduct.mainImage || "/placeholder.svg"}
+                    alt={`Previous product - ${previousProduct.name}`}
+                    className="w-48 h-64 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300 opacity-60 group-hover:opacity-90"
+                    draggable={false}
+                  />
+                  {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-all duration-300 rounded-lg"></div> */}
+                </div>
+                {/* <div className="text-center mt-3">
                 <p className="text-sm text-gray-600 font-medium group-hover:text-blue-600 transition-colors">
                   {previousProduct.name}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">Previous</p>
               </div> */}
-            </div>
-
-            {/* Center Content - Current Product */}
-            <div className="flex items-center justify-center flex-1 transition-all duration-500 rounded-2xl overflow-hidden">
-              {/* Center Image */}
-              <div className="flex-shrink-0 w-1/2">
-                <img
-                  src={currentProduct.mainImage || "/placeholder.svg"}
-                  alt={`Current product - ${currentProduct.name}`}
-                  className="w-64 h-80 object-contain shadow-2xl"
-                  draggable={false}
-                />
               </div>
 
-              {/* Product Info Card */}
+              {/* Center Content - Current Product */}
+              <div className="flex items-center justify-center flex-1 transition-all duration-500 rounded-2xl overflow-hidden">
+                {/* Center Image */}
+                <div className="flex-shrink-0 w-1/2">
+                  <img
+                    src={currentProduct.mainImage || "/placeholder.svg"}
+                    alt={`Current product - ${currentProduct.name}`}
+                    className="w-64 h-80 object-contain shadow-2xl"
+                    draggable={false}
+                  />
+                </div>
+
+                {/* Product Info Card */}
+                <div
+                  className={`${currentProduct.color} text-white p-8 max-w-md shadow-2xl w-1/2`}
+                >
+                  <h3 className="text-2xl font-bold mb-2">{currentProduct.name}</h3>
+                  <div className="w-12 h-0.5 bg-white mb-4"></div>
+                  <h4 className="text-lg font-medium mb-4">{currentProduct.subtitle}</h4>
+                  <p className="text-sm leading-relaxed opacity-90">{currentProduct.description}</p>
+                </div>
+              </div>
+
+              {/* Right Product Image - Next Product */}
               <div
-                className={`${currentProduct.color} text-white p-8 max-w-md shadow-2xl w-1/2`}
+                className="hidden lg:block flex-shrink-0 ml-8 transform transition-all duration-500 cursor-pointer group"
+                onClick={handleRightImageClick}
               >
-                <h3 className="text-2xl font-bold mb-2">{currentProduct.name}</h3>
-                <div className="w-12 h-0.5 bg-white mb-4"></div>
-                <h4 className="text-lg font-medium mb-4">{currentProduct.subtitle}</h4>
-                <p className="text-sm leading-relaxed opacity-90">{currentProduct.description}</p>
-              </div>
-            </div>
-
-            {/* Right Product Image - Next Product */}
-            <div
-              className="hidden lg:block flex-shrink-0 ml-8 transform transition-all duration-500 cursor-pointer group"
-              onClick={handleRightImageClick}
-            >
-              <div className="relative">
-                <img
-                  src={nextProduct.mainImage || "/placeholder.svg"}
-                  alt={`Next product - ${nextProduct.name}`}
-                  className="w-48 h-64 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300 opacity-60 group-hover:opacity-90"
-                  draggable={false}
-                />
-                {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-all duration-300 rounded-lg"></div> */}
-              </div>
-              {/* <div className="text-center mt-3">
+                <div className="relative">
+                  <img
+                    src={nextProduct.mainImage || "/placeholder.svg"}
+                    alt={`Next product - ${nextProduct.name}`}
+                    className="w-48 h-64 object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300 opacity-60 group-hover:opacity-90"
+                    draggable={false}
+                  />
+                  {/* <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-all duration-300 rounded-lg"></div> */}
+                </div>
+                {/* <div className="text-center mt-3">
                 <p className="text-sm text-gray-600 font-medium group-hover:text-blue-600 transition-colors">
                   {nextProduct.name}
                 </p>
                 <p className="text-xs text-gray-400 mt-1">Next</p>
               </div> */}
+              </div>
+            </div>
+
+            {/* Mobile Product Preview */}
+            <div className="lg:hidden flex justify-center space-x-6 mt-8">
+              <div className="text-center cursor-pointer" onClick={handleLeftImageClick}>
+                <img
+                  src={previousProduct.mainImage || "/placeholder.svg"}
+                  alt={`Previous - ${previousProduct.name}`}
+                  className="w-20 h-28 object-contain drop-shadow-md opacity-60 hover:opacity-90 transition-opacity"
+                  draggable={false}
+                />
+                <p className="text-xs text-gray-600 mt-2">{previousProduct.name}</p>
+                <p className="text-xs text-gray-400">Previous</p>
+              </div>
+              <div className="text-center cursor-pointer" onClick={handleRightImageClick}>
+                <img
+                  src={nextProduct.mainImage || "/placeholder.svg"}
+                  alt={`Next - ${nextProduct.name}`}
+                  className="w-20 h-28 object-contain drop-shadow-md opacity-60 hover:opacity-90 transition-opacity"
+                  draggable={false}
+                />
+                <p className="text-xs text-gray-600 mt-2">{nextProduct.name}</p>
+                <p className="text-xs text-gray-400">Next</p>
+              </div>
             </div>
           </div>
 
-          {/* Mobile Product Preview */}
-          <div className="lg:hidden flex justify-center space-x-6 mt-8">
-            <div className="text-center cursor-pointer" onClick={handleLeftImageClick}>
-              <img
-                src={previousProduct.mainImage || "/placeholder.svg"}
-                alt={`Previous - ${previousProduct.name}`}
-                className="w-20 h-28 object-contain drop-shadow-md opacity-60 hover:opacity-90 transition-opacity"
-                draggable={false}
-              />
-              <p className="text-xs text-gray-600 mt-2">{previousProduct.name}</p>
-              <p className="text-xs text-gray-400">Previous</p>
-            </div>
-            <div className="text-center cursor-pointer" onClick={handleRightImageClick}>
-              <img
-                src={nextProduct.mainImage || "/placeholder.svg"}
-                alt={`Next - ${nextProduct.name}`}
-                className="w-20 h-28 object-contain drop-shadow-md opacity-60 hover:opacity-90 transition-opacity"
-                draggable={false}
-              />
-              <p className="text-xs text-gray-600 mt-2">{nextProduct.name}</p>
-              <p className="text-xs text-gray-400">Next</p>
-            </div>
-          </div>
+          {/* Navigation Arrows */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-blue-800 hover:bg-blue-700 text-white border-blue-800 rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={prevSlide}
+            disabled={isTransitioning}
+          >
+            <FaArrowLeft className="h-6 w-6" />
+          </button>
+
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-blue-800 hover:bg-blue-700 text-white border-blue-800 rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={nextSlide}
+            disabled={isTransitioning}
+          >
+            <FaArrowRight className="h-6 w-6" />
+          </button>
         </div>
 
-        {/* Navigation Arrows */}
-        <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-blue-800 hover:bg-blue-700 text-white border-blue-800 rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300"
-          onClick={prevSlide}
-          disabled={isTransitioning}
-        >
-          <FaArrowLeft className="h-6 w-6" />
-        </button>
-
-        <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-blue-800 hover:bg-blue-700 text-white border-blue-800 rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300"
-          onClick={nextSlide}
-          disabled={isTransitioning}
-        >
-          <FaArrowRight className="h-6 w-6" />
-        </button>
-      </div>
-
-      {/* Product Navigation */}
-      {/* <div className="flex justify-center mt-6 space-x-4">
+        {/* Product Navigation */}
+        {/* <div className="flex justify-center mt-6 space-x-4">
         <button
           onClick={prevSlide}
           className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
@@ -301,7 +301,7 @@ export default function ProductSlider() {
           <FaArrowRight className="w-4 h-4" />
         </button>
       </div> */}
-    </div>
+      </div>
     </section>
   )
 }

@@ -141,7 +141,7 @@ const EnquiryForm = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-200 flex items-center justify-center gap-2 mt-6"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-full transition-colors duration-200 flex items-center justify-center gap-2 mt-6"
                 >
                     Submit
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

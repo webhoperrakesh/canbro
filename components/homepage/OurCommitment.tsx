@@ -34,7 +34,7 @@ const OurCommitment = () => {
         <section className='bg-[#F6F6F6]' id='our-commitment'>
             <div className='container mx-auto px-4 py-8'>
                 <div className='flex flex-col justify-center items-center gap-4'>
-                    <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-bold capitalize mb-4 leading-12'>
+                    <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize mb-4 leading-12'>
                         Our <span className='text-[#38A0A7]'>Commitment</span>
                     </h2>
                     {/* Features Grid */}

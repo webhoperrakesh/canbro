@@ -43,7 +43,7 @@ const EnquirySection = () => {
                     {/* Left Side - Company Information */}
                     <div className="lg:w-1/2 text-white">
                         <div className="mb-8">
-                            <h1 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight">
+                            <h1 className="text-2xl lg:text-[28px] font-semibold mb-4 leading-tight">
                                 For Pharma Solutions, Support & Business Enquiries
                             </h1>
                             <p className="text-sm lg:text-base leading-relaxed">

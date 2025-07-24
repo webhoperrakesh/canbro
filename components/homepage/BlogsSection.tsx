@@ -34,7 +34,7 @@ const BlogsSection = () => {
             our blogs
           </p>
 
-          <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-bold capitalize leading-12'>
+          <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize leading-12'>
             Our Latest <span className='text-[#38A0A7]'>Blogs</span>
           </h2>
 

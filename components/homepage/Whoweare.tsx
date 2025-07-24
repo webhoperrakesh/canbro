@@ -20,10 +20,10 @@ const Whoweare = () => {
                             <p className="text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
                                 who we are
                             </p>
-                            <h2 className='text-2xl md:text-3xl lg:text-4xl text-white font-bold capitalize mb-4 leading-12'>
+                            <h2 className='text-2xl md:text-3xl lg:text-4xl text-white font-semibold capitalize mb-4 leading-12'>
                                 Best <span className='text-[#38A0A7]'>Nephrology & Urology</span><br />PCD franchise Healthcare
                             </h2>
-                            <p className="text-sm md:text-[14px] text-white leading-[1.8rem] lg:mb-12">
+                            <p className="text-sm md:text-[16px] font-medium text-white leading-[1.8rem] lg:mb-12">
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s . only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s .
                             </p>
                         </div>

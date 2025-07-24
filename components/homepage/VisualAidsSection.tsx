@@ -93,7 +93,7 @@ export default function AmplurCVSlider() {
 
         {/* Main Title */}
         <div className="text-center mb-8">
-          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-[#38A0A7] capitalize'>
+          <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize'>
             <span className="text-[#212088]">{currentData.title.main} </span>{currentData.title.highlight}
           </h2>
         </div>
@@ -106,18 +106,18 @@ export default function AmplurCVSlider() {
               <div className="bg-[url(/images/slider-bg-1.png)] bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%] flex flex-col items-start justify-center rounded-2xl text-white p-8 lg:p-12 lg:w-3/5 lg:pr-28" style={{ backgroundSize: "100% 100%" }}>
                 <h2 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">{currentData.product.name}</h2>
 
-                <p className="text-sm md:text-base mb-6 opacity-90">{currentData.product.composition}</p>
+                <p className="text-sm lg:text-[18px] font-semibold mb-6 opacity-90">{currentData.product.composition}</p>
 
                 <ul className="space-y-3 mb-8">
                   {currentData.product.indications.map((indication, index) => (
-                    <li key={index} className="flex items-center text-sm md:text-base">
+                    <li key={index} className="flex items-center text-sm lg:text-[18px]">
                       <div className="w-2 h-2 bg-white rounded-full mr-3 flex-shrink-0"></div>
                       {indication}
                     </li>
                   ))}
                 </ul>
 
-                <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-2 w-fit">
+                <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 w-fit">
                   Read more...
                 </button>
               </div>

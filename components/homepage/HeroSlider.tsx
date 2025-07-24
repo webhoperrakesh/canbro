@@ -103,7 +103,7 @@ export default function HeroSlider() {
               </h1>
               <p
                 key={`description-${currentSlide}`}
-                className="text-sm md:text-[14px] max-w-md mb-8 animate-fade-in-up animation-delay-400"
+                className="text-sm md:text-[16px] font-medium max-w-md mb-8 animate-fade-in-up animation-delay-400"
               >
                 {slides[currentSlide].description}
               </p>

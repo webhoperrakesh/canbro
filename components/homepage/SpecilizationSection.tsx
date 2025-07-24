@@ -72,7 +72,7 @@ const SpecilizationSection = () => {
                     <p className="inline-block text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
                         OUR PRODUCT CATEGORY
                     </p>
-                    <h2 className='text-center text-2xl md:text-3xl lg:text-4xl text-[#19065f] font-bold capitalize mb-4 leading-12'>
+                    <h2 className='text-center text-2xl md:text-3xl lg:text-4xl text-[#19065f] font-semibold capitalize mb-4 leading-12'>
                         Specialized Renal & <span className="text-teal-500">Urology Portfolio</span>
                     </h2>
                 </div>
@@ -114,7 +114,7 @@ const SpecilizationSection = () => {
 
                                 {/* Description */}
                                 <p
-                                    className='text-sm mb-6 leading-relaxed text-gray-600'>
+                                    className='text-sm lg:text-[14px] font-medium mb-6 leading-relaxed text-gray-600'>
                                     {product.description}
                                 </p>
 
