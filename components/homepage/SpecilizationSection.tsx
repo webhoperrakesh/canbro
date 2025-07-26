@@ -81,7 +81,7 @@ const SpecilizationSection = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 lg:pt-4">
                     {products.map((product) => (
                         <div
-                            key={product.id} className='relative card flex rounded-2xl group transition-all duration-300 border-0 bg-[url(/images/card-bg.png)] bg-center bg-no-repeat bg-cover lg:bg-[length:100%_100%]'>
+                            key={product.id} className='relative card flex rounded-2xl group transition-all duration-300 border-0 bg-white lg:bg-transparent lg:bg-[url(/images/card-bg.png)] lg:bg-center lg:bg-no-repeat bg-cover lg:bg-[length:100%_100%]'>
                             <div className="p-6 flex flex-col justify-between">
                                 {/* Icon */}
                                 <div className="flex items-center justify-end -mb-4">
@@ -125,7 +125,7 @@ const SpecilizationSection = () => {
                                     <Link href="#" className='text-sm font-medium text-[#19065f]'>
                                         <span className='w-[10px] h-[10px] inline-block bg-[#19065f] rounded-full hover:cursor-pointer'></span> Read More
                                     </Link>
-                                    <button className='absolute right-0 bottom-0 flex items-center justify-center w-10 h-10 rounded-full p-0 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:cursor-pointer'>
+                                    <button className='lg:absolute right-0 bottom-0 flex items-center justify-center w-10 h-10 rounded-full p-0 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:cursor-pointer'>
                                         <GoArrowUpRight className="w-4 h-4" />
                                     </button>
                                 </div>
