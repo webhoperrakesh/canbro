@@ -30,7 +30,7 @@ const BlogsSection = () => {
       <div className='container mx-auto px-4 py-10 md:py-10 lg:py-0'>
         {/* Header Section */}
         <div className="text-center lg:text-left mb-8">
-          <p className="mx-auto lg:mx-0 text-sm text-white uppercase bg-[#38A0A7] rounded-full w-fit py-2 px-4 mb-4">
+          <p className="mx-auto lg:mx-0 text-sm lg:font-[16px] font-medium text-white uppercase bg-[#38A0A7] rounded-full w-fit py-2 px-4 mb-4">
             our blogs
           </p>
 
@@ -59,7 +59,7 @@ const BlogsSection = () => {
 
               {/* Blog Content */}
               <div className="py-4">
-                <h3 className="text-lg sm:text-lg font-semibold text-[#333333] mb-4 leading-tight">{post.title}</h3>
+                <h3 className="text-lg sm:text-lg font-semibold text-[#333333] mb-4 leading-tight line-clamp-2">{post.title}</h3>
                 <Link
                   href={post.readMoreLink}
                   className="inline-flex items-center underline text-[#212088] hover:cursor-pointer font-medium transition-colors duration-200"

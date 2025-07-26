@@ -18,9 +18,16 @@ const navItems = [
 const Header = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen)
   }
 
   return (
@@ -54,22 +61,70 @@ const Header = () => {
 
               {/* Contact Us Button and Search - Desktop */}
              
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-200">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-200 hover:cursor-pointer">
                 Contact Us
               </button>
-              <button className="p-2 border-2 border-#fff rounded-full hover:cursor-pointer transition-colors duration-200">
+
+
+               {/* Search Overlay */}
+           <div className="relative">
+            {isSearchOpen && (
+              <div className="absolute top-14 right-0 bg-white rounded-lg shadow-lg border p-4 z-50 animate-in slide-in-from-top-2 duration-200">
+                <div className="flex items-center space-x-2">
+                  <IoSearchSharp className="h-5 w-5 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="flex-1 border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
+                    autoFocus
+                  />
+                  <button
+                    onClick={toggleSearch}
+                    className="text-gray-400 hover:text-gray-600 h-8 w-8"
+                  >
+                    <IoMdClose className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+
+              <button className="p-2 border-2 border-#fff rounded-full hover:cursor-pointer transition-colors duration-200" onClick={toggleSearch}>
                 <IoSearchSharp className="h-5 w-5" />
               </button>
+              </div>
+
             </div>
 
            
 
             {/* Mobile menu button */}
             <div className="lg:hidden w-full flex justify-between items-center space-x-4">
-              <button className="p-2 rounded-full hover:bg-indigo-800 transition-colors duration-200">
+              <div className="relative">
+            {isSearchOpen && (
+              <div className="absolute top-14 bg-white rounded-lg shadow-lg border p-4 z-50 animate-in slide-in-from-top-2 duration-200">
+                <div className="flex items-center space-x-2">
+                  <IoSearchSharp className="h-5 w-5 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="flex-1 border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
+                    autoFocus
+                  />
+                  <button
+                    onClick={toggleSearch}
+                    className="text-gray-400 hover:text-gray-600 h-8 w-8"
+                  >
+                    <IoMdClose className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+              <button className="p-2 rounded-full hover:bg-indigo-800 transition-colors duration-200 hover:cursor-pointer" onClick={toggleSearch}>
                 <IoSearchSharp className="h-5 w-5" />
               </button>
-              <button onClick={toggleMenu} className="p-2 rounded-md hover:bg-indigo-800 transition-colors duration-200">
+              </div>
+
+              <button onClick={toggleMenu} className="p-2 rounded-md hover:bg-indigo-800 transition-colors duration-200 hover:cursor-pointer">
                 {isMenuOpen ? <IoMdClose className="h-6 w-6" /> : <IoIosMenu className="h-6 w-6" />}
               </button>
             </div>

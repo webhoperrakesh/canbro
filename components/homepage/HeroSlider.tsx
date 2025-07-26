@@ -109,7 +109,7 @@ export default function HeroSlider() {
               </p>
               <Link
                 href={slides[currentSlide].buttonLink}
-                className="inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-8 py-2 transition-all duration-300 hover:scale-105 animate-fade-in-up animation-delay-600"
+                className="inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 transition-all duration-300 hover:scale-105 animate-fade-in-up animation-delay-600"
               >
                 {slides[currentSlide].buttonText}
               </Link>
@@ -119,7 +119,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation Arrows */}
-      <button
+      {/* <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
         aria-label="Previous slide"
@@ -133,7 +133,7 @@ export default function HeroSlider() {
         aria-label="Next slide"
       >
         <BiChevronRight className="w-6 h-6" />
-      </button>
+      </button> */}
 
       {/* Slide Indicators */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-3">
@@ -141,7 +141,7 @@ export default function HeroSlider() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 hover:cursor-pointer ${
               index === currentSlide
                 ? "bg-orange-500 scale-125 shadow-lg"
                 : "bg-white/50 hover:bg-white/70 hover:scale-110"

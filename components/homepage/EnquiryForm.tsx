@@ -1,6 +1,7 @@
 "use client"
 
 import { useForm } from "react-hook-form"
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const EnquiryForm = () => {
     const {
@@ -26,14 +27,14 @@ const EnquiryForm = () => {
         <div className="bg-white rounded-2xl relative shadow-2xl p-6 lg:p-8">
             {/* Orange Tab */}
             <div className="mb-6">
-                <div className="hidden lg:block absolute -left-[5.5rem] lg:-left-[6.02rem] top-20 -rotate-90 bg-orange-500 text-white px-6 py-3 rounded-t-2xl">
-                    <div className="text-xs lg:text-sm font-medium">ENQUIRY FORM</div>
+                <div className="hidden lg:block absolute -left-[5.5rem] lg:-left-[7.09rem] top-25 -rotate-90 bg-orange-500 text-white px-6 py-3 rounded-t-2xl">
+                    <div className="text-xs lg:text-[18px] font-semibold uppercase">ENQUIRY FORM</div>
                 </div>
                 <div className="pt-4">
-                    <h2 className="text-xl lg:text-2xl font-bold text-[#EF7F1B] mb-2">
+                    <h2 className="text-xl lg:text-[26px] font-bold text-[#EF7F1B] mb-2">
                         Get Enquiry About PCD Pharma
                     </h2>
-                    <p className="text-[#3C3C3C] text-sm">
+                    <p className="text-[#3C3C3C] text-sm lg:text-[16px]">
                         We Would like to hear from you
                     </p>
                 </div>
@@ -141,12 +142,10 @@ const EnquiryForm = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-full transition-colors duration-200 flex items-center justify-center gap-2 mt-6"
+                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-full flex items-center justify-center gap-2 mt-6 transition-all duration-300 hover:scale-105 hover:cursor-pointer"
                 >
                     Submit
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                   <FaArrowRight className="" />
                 </button>
             </form>
         </div>

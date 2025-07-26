@@ -17,7 +17,7 @@ const Whoweare = () => {
                             />
                         </div>
                         <div className='md:col-span-7 md:pl-0 lg:pl-10'>
-                            <p className="text-sm text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
+                            <p className="text-sm lg:font-[16px] font-medium text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">
                                 who we are
                             </p>
                             <h2 className='text-2xl md:text-3xl lg:text-4xl text-white font-semibold capitalize mb-4 leading-12'>

@@ -86,7 +86,7 @@ export default function AmplurCVSlider() {
       <div className='container mx-auto px-4 py-12 md:py-15'>
         {/* Header Badge */}
         <div className="text-center">
-          <p className="inline-block text-sm text-white uppercase bg-[#38A0A7] rounded-full py-2 px-4 mb-4">
+          <p className="inline-block text-sm lg:font-[16px] font-medium text-white uppercase bg-[#38A0A7] rounded-full py-2 px-4 mb-4">
             {currentData.badge}
           </p>
         </div>
@@ -117,14 +117,14 @@ export default function AmplurCVSlider() {
                   ))}
                 </ul>
 
-                <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 w-fit">
+                <button className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 w-fit transition-all duration-300 hover:scale-105 hover:cursor-pointer">
                   Read more...
                 </button>
               </div>
 
               {/* Right Section - Product Image */}
               <div className="-ml-[98px] hidden lg:w-1/2 lg:flex items-center justify-center xl:-ml-30 z-10">
-                <div className="relative w-full min-h-[360px] flex items-center justify-center h-auto">
+                <div className="relative w-full min-h-[400px] flex items-center justify-center h-auto">
                   <Image
                     src={currentData.productImage || "/placeholder.svg"}
                     alt={`${currentData.product.name} product packaging`}
@@ -156,17 +156,17 @@ export default function AmplurCVSlider() {
             <div className="flex flex-row gap-2">
               <button
                 onClick={prevSlide}
-                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
+                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:cursor-pointer"
                 aria-label="Previous slide"
               >
-                <FaArrowLeft className="text-white" />
+                <FaArrowLeft className="text-white group-hover:scale-110 transition-transform" />
               </button>
               <button
                 onClick={nextSlide}
-                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center"
+                className="w-8 h-8 rounded-full p-0 bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:cursor-pointer"
                 aria-label="Next slide"
               >
-                <FaArrowRight className="text-white" />
+                <FaArrowRight className="text-white group-hover:scale-110 transition-transform" />
               </button>
             </div>
           </div>

@@ -23,8 +23,8 @@ const PharmaDivision = () => {
             <div className='container mx-auto px-4 py-8'>
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                     {/* Left side - Text content */}
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 leading-tight">
+                    <div className="text-center lg:text-left flex-2">
+                        <h1 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight">
                             Innovating Through
                             <br />
                             Our Specialty <span className="text-teal-600 font-bold">Pharma <br />
@@ -32,7 +32,7 @@ const PharmaDivision = () => {
                         </h1>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center">
+                    <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-between flex-3">
                         {divisions.map((division, index) => (
                             <Image
                                 key={index}

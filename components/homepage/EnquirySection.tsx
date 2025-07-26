@@ -46,7 +46,7 @@ const EnquirySection = () => {
                             <h1 className="text-2xl lg:text-[28px] font-semibold mb-4 leading-tight">
                                 For Pharma Solutions, Support & Business Enquiries
                             </h1>
-                            <p className="text-sm lg:text-base leading-relaxed">
+                            <p className="text-sm lg:text-[16px] leading-relaxed">
                                 We're here to answer your queries related to contract manufacturing,
                                 formulations, and product availability. Reach out to us for detailed
                                 information, pricing, or partnership opportunities.

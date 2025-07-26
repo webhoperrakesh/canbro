@@ -54,7 +54,7 @@ const Footer = () => {
             </div>
 
             <div className="mb-6">
-              <p className="md:mr-20 text-[#fff] text-sm leading-relaxed mb-2 text-justify" style={{hyphens: "auto"}}>
+              <p className="md:mr-20 text-[#fff] text-sm lg:text-[14px] font-medium leading-relaxed mb-2 text-justify" style={{hyphens: "auto"}}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               </p>
             </div>
@@ -78,13 +78,13 @@ const Footer = () => {
 
           {/* Company Links */}
           <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-white uppercase">company</h3>
+            <h3 className="text-[16px] font-medium mb-6 text-white uppercase">company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-white capitalize transition-colors text-sm flex items-center"
+                    className="text-white capitalize transition-colors text-sm lg:[14px] font-medium flex items-center"
                   >
                     <span className="mr-2 text-cyan-300">›</span> {link.label}
                   </Link>
@@ -95,13 +95,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-white uppercase">quick links</h3>
+            <h3 className="text-[16px] font-medium mb-6 text-white uppercase">quick links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-white capitalize transition-colors text-sm flex items-center"
+                    className="text-white capitalize transition-colors text-sm lg:[14px] font-medium flex items-center"
                   >
                     <span className="mr-2 text-cyan-300">›</span> {link.label}
                   </Link>
@@ -117,7 +117,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <PiMapPinLineBold className="w-5 h-5 text-cyan-300 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-white text-sm leading-relaxed">
+                  <p className="text-white text-sm lg:text-[16px] font-medium leading-relaxed">
                     NH1 Karnal-132001 State : Haryana
                     <br />
                     Country : India
@@ -129,8 +129,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <BsTelephone className="w-5 h-5 text-cyan-300 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-white text-sm mb-1">PCD Pharma Franchise</p>
-                  <p className="text-white text-sm">+91-9306012364, +91-9992222198</p>
+                  <p className="text-white text-sm lg:text-[16px] font-medium mb-1">PCD Pharma Franchise</p>
+                  <p className="text-white text-sm lg:text-[16px] font-medium">+91-9306012364, +91-9992222198</p>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ const Footer = () => {
                 <div>
                   <a
                     href="mailto:canbrohc@gmail.com"
-                    className="text-white transition-colors text-sm"
+                    className="text-white transition-colors text-sm lg:text-[16px] font-medium"
                   >
                     canbrohc@gmail.com
                   </a>

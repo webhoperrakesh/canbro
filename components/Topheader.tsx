@@ -16,7 +16,7 @@ const TopHeader = () => {
                 />
             </Link>
 
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
                 {/* Working Days */}
                 <div className="flex items-center space-x-2">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center">
@@ -53,9 +53,9 @@ const TopHeader = () => {
                 </div>
             </div>
 
-            <button className="bg-[#19065F] text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer">
+            <button className="bg-[#19065F] capitalize text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer">
                 <FiDownloadCloud size={20} className='text-white' />
-                Download Product List
+                <span className='hidden md:block'>download</span> product list
             </button>
         </div>
     )
