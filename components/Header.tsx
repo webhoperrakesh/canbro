@@ -107,7 +107,7 @@ const Header = () => {
                   <input
                     type="text"
                     placeholder="Search..."
-                    className="flex-1 border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
+                    className="flex-1 w-[190px] border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
                     autoFocus
                   />
                   <button
