@@ -157,7 +157,7 @@ const Footer = () => {
       <div className="bg-[#11105C] py-4" style={{marginTop: "-1px"}}>
         <div className="container mx-auto px-4">
           <p className="text-center text-white text-sm">
-            Copyright by © 2015-2025 canbrohealthcare | Web Development and Marketing By{" "}
+            Copyright by © 2018-{new Date().getFullYear()} canbrohealthcare | Web Development and Marketing By{" "}
             <span className="text-orange-400 font-semibold uppercase"><span className='text-[#4375c0]'>WEB</span>HOPERS</span>
           </p>
         </div>
