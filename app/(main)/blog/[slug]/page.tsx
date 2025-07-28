@@ -4,8 +4,10 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import Sidebar from '@/components/Sidebar'
 import { blogPosts } from '@/fakeData/blogData'
 
-const Page = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params
+type Params = Promise<{ slug: string }>
+
+const Page = async ({ params }: { params: Params }) => {
+  const { slug } = await params
 
   const latestPosts = blogPosts.slice(0, 6)
 
