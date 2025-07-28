@@ -5,7 +5,7 @@ import TopHeader from './Topheader';
 import { IoSearchSharp } from "react-icons/io5";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import Link from 'next/link';
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 
 
