@@ -10,10 +10,10 @@ import Link from 'next/link';
 
 const navItems = [
   { name: "Home", href: "/", active: true },
-  { name: "About us", href: "#" },
+  { name: "About us", href: "/about-us" },
   { name: "Our Products", href: "#" },
   { name: "PCD Pharma Franchise", href: "#" },
-  { name: "Our Certificates", href: "#" },
+  { name: "Our Certificates", href: "/our-certificate" },
 ]
 
 const Header = () => {

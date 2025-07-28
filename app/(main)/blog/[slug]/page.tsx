@@ -33,7 +33,7 @@ const Page = async ({ params }: { params: Params }) => {
                 src={post.image || 'https://placehold.co/800x400?text=No+Image'}
                 alt={post.title}
                 width={800}
-                height={400}
+                height={300}
                 priority
                 className="w-full h-auto mb-6 rounded-xl object-cover shadow"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

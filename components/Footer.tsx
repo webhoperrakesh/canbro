@@ -12,7 +12,7 @@ import { BiMessageRoundedDetail } from "react-icons/bi";
 
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "About us", href: "#" },
+  { label: "About us", href: "/about-us" },
   { label: "Our Products", href: "#" },
   { label: "PCD Pharma Franchise", href: "#" },
 ];

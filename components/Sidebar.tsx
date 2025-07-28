@@ -13,12 +13,12 @@ type Post = {
 const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
 
     return (
-        <aside className="border-l pl-6 border-[#022169]">
+        <aside className="lg:border-l lg:pl-6 lg:border-[#022169]">
             <h2 className="text-xl font-semibold mb-4">Latest Posts</h2>
             <ul className="space-y-4">
                 {latestPosts.map((item: Post) => (
                     <li key={item.id}>
-                        <Link href={`/blogs/${item.slug}`} className="block group">
+                        <Link href={`/blog/${item.slug}`} className="block group">
                             <div className="flex gap-4 items-center">
                                     <Image
                                         src={item.image || 'https://placehold.co/64x64.png?text=No+Image'}
@@ -30,7 +30,7 @@ const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
                                         loading="lazy"
                                     />
                                 <div>
-                                    <h3 className="text-sm text-[#19065f] font-medium line-clamp-2 transition-colors">
+                                    <h3 className="text-sm lg:text-[16px] text-[#3C3C3C] font-medium line-clamp-2 transition-colors hover:text-[#212088]">
                                         {item.title || ''}
                                     </h3>
                                 </div>
