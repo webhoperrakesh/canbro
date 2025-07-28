@@ -5,6 +5,7 @@ import TopHeader from './Topheader';
 import { IoSearchSharp } from "react-icons/io5";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import Link from 'next/link';
+import { useRouter, usePathname } from "next/navigation";
 
 
 
@@ -25,11 +26,11 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-
-
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen)
   }
+
+  const currentPath = usePathname();
 
   return (
     <header className="bg-white fixed top-0 w-full z-100">
@@ -46,18 +47,22 @@ const Header = () => {
               {/* Desktop Navigation */}
 
               <div className="hidden lg:flex w-full items-center lg:justify-center xl:justify-between lg:space-x-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`px-3 py-2 lg:text-[16px] xl:text-lg font-medium transition-colors duration-200 ${item.active
-                      ? "text-[#38A0A7]"
-                      : "text-white hover:text-[#38A0A7]"
+                {navItems.map((item: any, index: any) => {
+                  const isActive = item.href === currentPath;
+
+                  return (
+                    <Link
+                      key={item.name || index}
+                      href={item.href}
+                      className={`px-3 py-2 lg:text-[16px] xl:text-lg font-medium transition-colors duration-200 ${
+                        isActive ? "text-[#38A0A7]" : "text-white hover:text-[#38A0A7]"
                       }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
+
 
 
                 {/* Contact Us Button and Search - Desktop */}
