@@ -1,8 +1,9 @@
 import EnquiryForm from "./EnquiryForm"
-import { FaFacebookF, FaYoutube , FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaFacebookF, FaYoutube, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { IoMailSharp } from "react-icons/io5";
 import { RiMapPin2Fill } from "react-icons/ri";
+import Link from "next/link";
 
 
 const socialIcons = [
@@ -90,12 +91,13 @@ const EnquirySection = () => {
                             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                             <div className="flex gap-3">
                                 {socialIcons.map((item, index) => (
-                                    <div
+                                    <Link
+                                        href="#"
                                         key={index}
                                         className={`w-10 h-10 ${item.bgColor} rounded-full flex items-center justify-center ${item.hoverColor} transition-colors cursor-pointer`}
                                     >
                                         {item.icon}
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -103,8 +105,8 @@ const EnquirySection = () => {
 
                     {/* Right Side - Contact Form */}
                     <div className="lg:w-1/2 lg:relative">
-                       <div className="relatine w-full lg:absolute">
-                        <EnquiryForm />
+                        <div className="relatine w-full lg:absolute">
+                            <EnquiryForm />
                         </div>
                     </div>
                 </div>

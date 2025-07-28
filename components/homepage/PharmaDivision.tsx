@@ -24,12 +24,12 @@ const PharmaDivision = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                     {/* Left side - Text content */}
                     <div className="text-center lg:text-left flex-2">
-                        <h1 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight">
+                        <h2 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight">
                             Innovating Through
                             <br />
                             Our Specialty <span className="text-teal-600 font-bold">Pharma <br />
                                 Divisions</span>
-                        </h1>
+                        </h2>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-between flex-3">

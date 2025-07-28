@@ -4,6 +4,11 @@ import Link from 'next/link'
 import { FiDownloadCloud } from "react-icons/fi";
 
 const TopHeader = () => {
+
+    const handleDownload = () => {
+        window.open("/pdf/file-sample_150kB.pdf", "_blank"); // Adjust path as needed
+    };
+
     return (
         <div className="flex items-center justify-between">
             <Link href="/">
@@ -53,7 +58,9 @@ const TopHeader = () => {
                 </div>
             </div>
 
-            <button className="bg-[#19065F] capitalize text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer">
+            <button
+                onClick={handleDownload}
+                className="bg-[#19065F] capitalize text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer">
                 <FiDownloadCloud size={20} className='text-white' />
                 <span className='hidden md:block'>download</span> product list
             </button>

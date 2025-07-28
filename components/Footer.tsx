@@ -1,24 +1,27 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaFacebookF, FaGooglePlusG, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaGooglePlusG, FaYoutube, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { PiMapPinLineBold } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
+import { BiMessageRoundedDetail } from "react-icons/bi";
 
 const companyLinks = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   { label: "About us", href: "#" },
   { label: "Our Products", href: "#" },
   { label: "PCD Pharma Franchise", href: "#" },
 ];
 
 const quickLinks = [
-  { label: "Blog", href: "#" },
-  { label: "Contact Us", href: "#" },
-  { label: "Privacy policy", href: "#" },
-  { label: "Terms & Condition", href: "#" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact" },
+  { label: "Privacy policy", href: "/privacy-policy" },
+  { label: "Terms & Condition", href: "/terms-and-condition" },
 ];
 
 
@@ -30,6 +33,18 @@ const socialLinks = [
   { icon: <FaXTwitter className="w-5 h-5 text-[#212088]" />, href: "#" },
 ];
 
+
+const handleWhatsAppClick = () => {
+    // Replace with your WhatsApp number
+    const phoneNumber = "919306012364"
+    const message = "Hello! I'd like to get in touch."
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank")
+  }
+
+  const handleEmailClick = () => {
+    // Replace with your email
+    window.location.href = "mailto:canbrohc@gmail.com"
+  }
 
 
 const Footer = () => {
@@ -154,7 +169,7 @@ const Footer = () => {
     </footer>
 
     {/* Copyright Section */}
-      <div className="bg-[#11105C] py-4" style={{marginTop: "-1px"}}>
+      <div className="bg-[#19065f] py-4" style={{marginTop: "-1px"}}>
         <div className="container mx-auto px-4">
           <p className="text-center text-white text-sm">
             Copyright by © 2018-{new Date().getFullYear()} canbrohealthcare | Web Development and Marketing By{" "}
@@ -162,6 +177,29 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+     <div className="fixed -right-[30px] top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
+        {/* WhatsApp Button */}
+        <button
+          onClick={handleWhatsAppClick}
+          className="w-[100px] h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-start group hover:cursor-pointer"
+          aria-label="Contact via WhatsApp"
+        >
+          <FaWhatsapp className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+        </button>
+
+        {/* Email Button */}
+        <button
+          onClick={handleEmailClick}
+          className="w-[100px] h-14 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-start group hover:cursor-pointer"
+          aria-label="Contact via Email"
+        >
+          <BiMessageRoundedDetail className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+        </button>
+      </div>
+
+
+
       </>
 
 

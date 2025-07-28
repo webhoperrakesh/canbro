@@ -1,0 +1,288 @@
+"use client"
+
+import React from 'react'
+import { useForm, Controller } from "react-hook-form"
+import { FaArrowRight } from "react-icons/fa";
+
+
+type ContactFormValues = {
+  name: string
+  email: string
+  contact: string
+  city: string
+  message: string
+  drugLicense: "yes" | "no"
+  gstNo: "yes" | "no"
+}
+
+const ContactForm = () => {
+
+  const form = useForm<ContactFormValues>({
+    defaultValues: {
+      name: "",
+      email: "",
+      contact: "",
+      city: "",
+      message: "",
+      drugLicense: "no",
+      gstNo: "no",
+    },
+  })
+
+  const onSubmit = (values: ContactFormValues) => {
+    console.log(values)
+    // Handle form submission logic here
+    alert("Form submitted successfully! Check console for data.")
+    form.reset() // Reset form after submission
+  }
+
+  return (
+    <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <Controller
+            control={form.control}
+            name="name"
+            rules={{
+              required: "Name is required",
+              minLength: {
+                value: 2,
+                message: "Name must be at least 2 characters",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                id="name"
+                type="text"
+                placeholder="Enter your name"
+                className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
+                {...field}
+              />
+            )}
+          />
+          {form.formState.errors.name && (
+            <p className="text-red-500 text-sm">{form.formState.errors.name.message}</p>
+          )}
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email
+          </label>
+          <Controller
+            control={form.control}
+            name="email"
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid email address",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
+                {...field}
+              />
+            )}
+          />
+          {form.formState.errors.email && (
+            <p className="text-red-500 text-sm">{form.formState.errors.email.message}</p>
+          )}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
+            Contact Number
+          </label>
+          <Controller
+            control={form.control}
+            name="contact"
+            rules={{
+              required: "Contact number is required",
+              minLength: {
+                value: 10,
+                message: "Contact number must be at least 10 digits",
+              },
+              pattern: {
+                value: /^[0-9+\-\s()]+$/,
+                message: "Invalid contact number format",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                id="contact"
+                type="tel"
+                placeholder="Enter your contact number"
+                className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
+                {...field}
+              />
+            )}
+          />
+          {form.formState.errors.contact && (
+            <p className="text-red-500 text-sm">{form.formState.errors.contact.message}</p>
+          )}
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+            City
+          </label>
+          <Controller
+            control={form.control}
+            name="city"
+            rules={{
+              required: "City is required",
+              minLength: {
+                value: 2,
+                message: "City must be at least 2 characters",
+              },
+            }}
+            render={({ field }) => (
+              <input
+                id="city"
+                type="text"
+                placeholder="Enter your city"
+                className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
+                {...field}
+              />
+            )}
+          />
+          {form.formState.errors.city && (
+            <p className="text-red-500 text-sm">{form.formState.errors.city.message}</p>
+          )}
+        </div>
+      </div>
+      <div className="space-y-2">
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          Message
+        </label>
+        <Controller
+          control={form.control}
+          name="message"
+          rules={{
+            required: "Message is required",
+            minLength: {
+              value: 10,
+              message: "Message must be at least 10 characters",
+            },
+          }}
+          render={({ field }) => (
+            <textarea
+              id="message"
+              placeholder="Enter your message"
+              rows={5}
+              className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700 resize-vertical"
+              {...field}
+            />
+          )}
+        />
+        {form.formState.errors.message && (
+          <p className="text-red-500 text-sm">{form.formState.errors.message.message}</p>
+        )}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">Do you have Drug License?</label>
+          <Controller
+            control={form.control}
+            name="drugLicense"
+            rules={{
+              required: "Please select an option",
+            }}
+            render={({ field }) => (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="drug-license-yes"
+                    type="radio"
+                    value="yes"
+                    checked={field.value === "yes"}
+                    onChange={field.onChange}
+                    className="h-4 w-4 text-canbroTeal focus:ring-canbroTeal border-gray-300"
+                  />
+                  <label htmlFor="drug-license-yes" className="text-sm text-gray-700">
+                    Yes
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="drug-license-no"
+                    type="radio"
+                    value="no"
+                    checked={field.value === "no"}
+                    onChange={field.onChange}
+                    className="h-4 w-4 text-canbroTeal focus:ring-canbroTeal border-gray-300"
+                  />
+                  <label htmlFor="drug-license-no" className="text-sm text-gray-700">
+                    No
+                  </label>
+                </div>
+              </div>
+            )}
+          />
+          {form.formState.errors.drugLicense && (
+            <p className="text-red-500 text-sm">{form.formState.errors.drugLicense.message}</p>
+          )}
+        </div>
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">Do you have GST No.?</label>
+          <Controller
+            control={form.control}
+            name="gstNo"
+            rules={{
+              required: "Please select an option",
+            }}
+            render={({ field }) => (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="gst-yes"
+                    type="radio"
+                    value="yes"
+                    checked={field.value === "yes"}
+                    onChange={field.onChange}
+                    className="h-4 w-4 text-canbroTeal focus:ring-canbroTeal border-gray-300"
+                  />
+                  <label htmlFor="gst-yes" className="text-sm text-gray-700">
+                    Yes
+                  </label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="gst-no"
+                    type="radio"
+                    value="no"
+                    checked={field.value === "no"}
+                    onChange={field.onChange}
+                    className="h-4 w-4 text-canbroTeal focus:ring-canbroTeal border-gray-300"
+                  />
+                  <label htmlFor="gst-no" className="text-sm text-gray-700">
+                    No
+                  </label>
+                </div>
+              </div>
+            )}
+          />
+          {form.formState.errors.gstNo && (
+            <p className="text-red-500 text-sm">{form.formState.errors.gstNo.message}</p>
+          )}
+        </div>
+      </div>
+      <button
+                          type="submit"
+                          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-full flex items-center justify-center gap-2 mt-6 transition-all duration-300 hover:scale-105 hover:cursor-pointer"
+                      >
+                          Submit
+                         <FaArrowRight className="" />
+                      </button>
+    </form>
+  )
+}
+
+export default ContactForm

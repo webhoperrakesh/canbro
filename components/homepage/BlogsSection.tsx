@@ -1,30 +1,10 @@
 import React from 'react'
 import Image from "next/image"
 import Link from "next/link"
+import { blogPosts } from '@/fakeData/blogData'
+
 
 const BlogsSection = () => {
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Best Thiosalchicoside Manufacturer In India",
-      image: "/images/blog-1.png",
-      readMoreLink: "#",
-    },
-    {
-      id: 2,
-      title: "Best Dabigatran Capsules 110 / 150 Mg Manufacturers In India",
-      image: "/images/blog-2.png",
-      readMoreLink: "#",
-    },
-    {
-      id: 3,
-      title: "Top 10 Injection Manufacturing Companies In India",
-      image: "/images/blog-3.png",
-      readMoreLink: "#",
-    },
-  ]
-
   return (
     <section id='latest-blogs'>
       <div className='container mx-auto px-4 py-10 md:py-10 lg:py-0'>
@@ -42,7 +22,7 @@ const BlogsSection = () => {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {blogPosts.map((post) => (
+          {blogPosts.slice(0, 3).map((post) => (
             <article
               key={post.id}
               className="bg-white rounded-lg overflow-hidden"
