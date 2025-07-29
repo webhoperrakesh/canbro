@@ -13,7 +13,7 @@ const navItems = [
   { name: "Home", href: "/", active: true },
   { name: "About us", href: "/about-us" },
   { name: "Our Products", href: "#" },
-  { name: "PCD Pharma Franchise", href: "#" },
+  { name: "PCD Pharma Franchise", href: "/pcd-pharma-franchise" },
   { name: "Our Certificates", href: "/our-certificate" },
 ]
 
@@ -142,11 +142,14 @@ const Header = () => {
             {isMenuOpen && (
               <div className="lg:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1 border-t border-indigo-800">
-                  {navItems.map((item) => (
+                  {navItems.map((item) => {
+
+                  const isActive = item.href === currentPath;
+                    return (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${item.active
+                      className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${isActive
                         ? "text-[#38A0A7]"
                         : "text-white hover:text-[#38A0A7]"
                         }`}
@@ -154,11 +157,13 @@ const Header = () => {
                     >
                       {item.name}
                     </Link>
-                  ))}
+                    );
+})}
                   <div className="pt-4 pb-2">
                     <Link
                       href="/contact"
-                      className="w-[160px] bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-full font-medium transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="inline-block w-fit bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full font-medium transition-colors duration-200"
                     >
                       Contact Us
                     </Link>

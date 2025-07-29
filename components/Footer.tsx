@@ -14,7 +14,7 @@ const companyLinks = [
   { label: "Home", href: "/" },
   { label: "About us", href: "/about-us" },
   { label: "Our Products", href: "#" },
-  { label: "PCD Pharma Franchise", href: "#" },
+  { label: "PCD Pharma Franchise", href: "/pcd-pharma-franchise" },
 ];
 
 const quickLinks = [

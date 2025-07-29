@@ -59,8 +59,8 @@ const ContactUs = () => {
               <div className="flex items-start justify-center space-x-4">
                 <PiMapPinLine className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-gray-900">Our Address</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-[#38A0A7] font-bold text-xl">Our Address</h3>
+                  <p className="text-gray-600">
                     NH-I Karnal-132001
                     <br />
                     State: Haryana
@@ -75,9 +75,9 @@ const ContactUs = () => {
               <div className="flex items-start justify-center space-x-4">
                 <TfiEmail className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-gray-900">PCD Pharma Franchise</h3>
-                  <p className="text-gray-700">canbrohc@gmail.com</p>
-                  <p className="text-gray-700 flex items-center">
+                  <h3 className="text-[#38A0A7] font-bold text-xl">PCD Pharma Franchise</h3>
+                  <p className="text-gray-600">canbrohc@gmail.com</p>
+                  <p className="text-gray-600 flex items-center">
                     +91-9306022364, +91-9992222198
                   </p>
                 </div>
@@ -88,9 +88,9 @@ const ContactUs = () => {
               <div className="flex items-start justify-center space-x-4">
                 <PiClock className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-gray-900">Office Hours</h3>
-                  <p className="text-gray-700">Monday to Saturday</p>
-                  <p className="text-gray-700 flex items-center">
+                  <h3 className="text-[#38A0A7] font-bold text-xl">Office Hours</h3>
+                  <p className="text-gray-600">Monday to Saturday</p>
+                  <p className="text-gray-600 flex items-center">
                     9:00 am - 6:00 pm
                   </p>
                 </div>
@@ -99,7 +99,7 @@ const ContactUs = () => {
 
           </div>
           <div className="mt-10 text-center">
-            <p className="inline-block text-sm lg:font-[16px] font-medium text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-4">Follow Us</p>
+            <p className="inline-block text-sm lg:font-[16px] font-medium text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-6">Follow Us</p>
             <div className="flex justify-center space-x-6">
 
               {socialIcons.map((item, index) => (
@@ -115,15 +115,16 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className='bg-[#F6F6F6]'>
+        <div className='bg-[#38a0a7]'>
           <div className='container mx-auto px-4 py-12 md:py-15'>
             <div className="flex items-center justify-center">
               {/* Empty column for spacing on left */}
               {/* Form in the middle column */}
               <div className="lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10">
                 <div className="pb-6 text-center">
-                  <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
-                  <span className='text-[#212088]'>Send Us</span> a Message</h2>
+                  <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
+                  Send Us a Message
+                  </h2>
                   <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
                 </div>
                 <div className="pt-6">

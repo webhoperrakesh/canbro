@@ -53,7 +53,7 @@ const OurCommitment = () => {
                                     priority
                                 />
                                 <div className="text-left">
-                                    <h3 className="text-teal-500 font-bold text-lg uppercase">{item.heading}</h3>
+                                    <h3 className="text-[#38A0A7] font-bold text-lg uppercase">{item.heading}</h3>
                                     <p className="text-gray-800 font-semibold text-2xl capitalize">{item.subheading}</p>
                                 </div>
                             </div>
