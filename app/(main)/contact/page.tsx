@@ -57,9 +57,11 @@ const ContactUs = () => {
 
             <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
               <div className="flex items-start justify-center space-x-4">
-                <PiMapPinLine className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
+                <div className='w-12 h-12  mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
+                <PiMapPinLine className="h-6 w-6 shrink-0 text-white" />
+                </div>
                 <div>
-                  <h3 className="text-[#38A0A7] font-bold text-xl">Our Address</h3>
+                  <h3 className="text-[#19065f] font-bold text-xl">Our Address</h3>
                   <p className="text-gray-600">
                     NH-I Karnal-132001
                     <br />
@@ -73,9 +75,11 @@ const ContactUs = () => {
 
             <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
               <div className="flex items-start justify-center space-x-4">
-                <TfiEmail className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
+                <div className='w-12 h-12 mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
+                <TfiEmail className="h-6 w-6 text-white shrink-0" />
+                </div>
                 <div>
-                  <h3 className="text-[#38A0A7] font-bold text-xl">PCD Pharma Franchise</h3>
+                  <h3 className="text-[#19065f] font-bold text-xl">PCD Pharma Franchise</h3>
                   <p className="text-gray-600">canbrohc@gmail.com</p>
                   <p className="text-gray-600 flex items-center">
                     +91-9306022364, +91-9992222198
@@ -86,9 +90,11 @@ const ContactUs = () => {
 
             <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
               <div className="flex items-start justify-center space-x-4">
-                <PiClock className="h-8 w-8 text-[#38A0A7] mt-1 shrink-0" />
+                <div className='w-12 h-12 rounded-full mt-1 flex items-center justify-center bg-[#38A0A7]'>
+                <PiClock className="h-6 w-6 text-white shrink-0" />
+                </div>
                 <div>
-                  <h3 className="text-[#38A0A7] font-bold text-xl">Office Hours</h3>
+                  <h3 className="text-[#19065f] font-bold text-xl">Office Hours</h3>
                   <p className="text-gray-600">Monday to Saturday</p>
                   <p className="text-gray-600 flex items-center">
                     9:00 am - 6:00 pm
