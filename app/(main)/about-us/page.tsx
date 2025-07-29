@@ -42,8 +42,8 @@ const AboutUsPage = () => {
                 alt='About Us'
                 priority
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#ff6900] text-white p-4 rounded-lg">
-                <div className="text-2xl font-bold">15+</div>
+              <div className="hidden md:block absolute -bottom-6 -right-6 bg-[#ff6900] text-white p-4 rounded-lg">
+                <div className="text-2xl font-bold">7+</div>
                 <div className="text-sm">Years Experience</div>
               </div>
             </div>
