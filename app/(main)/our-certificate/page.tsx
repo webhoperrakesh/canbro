@@ -127,7 +127,7 @@ const [selectedCertificate, setSelectedCertificate] = useState<(typeof certifica
     <>
     <Breadcrumbs title="Our Certificate" bgImage="/images/slider-bg-1.png" />
     {/* Header Section */}
-          <div className="bg-white">
+          {/* <div className="bg-white">
              <div className='container mx-auto px-4 py-12 md:py-15'>
               <div className="text-center">
                 <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
@@ -136,6 +136,20 @@ const [selectedCertificate, setSelectedCertificate] = useState<(typeof certifica
                 <p className="text-sm text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90 max-w-3xl mx-auto">
                   We maintain the highest standards of quality and compliance through our comprehensive certifications from
                   regulatory authorities.
+                </p>
+              </div>
+            </div>
+          </div> */}
+
+          <div className="bg-white">
+             <div className='container mx-auto px-4 py-12 md:py-15'>
+              <div className="text-center">
+                 <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
+                  <span className='text-[#212088]'>Commitment to</span> Quality & Compliance
+                  </h2>
+                <p className="text-sm text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90 max-w-3xl mx-auto">
+                  Our certifications demonstrate our unwavering commitment to maintaining the highest standards in
+                  pharmaceutical manufacturing and laboratory practices, ensuring product quality and safety.
                 </p>
               </div>
             </div>
@@ -229,7 +243,7 @@ const [selectedCertificate, setSelectedCertificate] = useState<(typeof certifica
           </Modal>
     
           {/* Additional Info Section */}
-          <div className="bg-white">
+          {/* <div className="bg-white">
              <div className='container mx-auto px-4 py-12 md:py-15'>
               <div className="text-center">
                  <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
@@ -241,7 +255,7 @@ const [selectedCertificate, setSelectedCertificate] = useState<(typeof certifica
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
     </>
     
   )
