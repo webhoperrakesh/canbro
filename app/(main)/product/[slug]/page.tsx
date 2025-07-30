@@ -51,11 +51,11 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             </nav>
                             <div className="rounded-lg bg-white shadow overflow-hidden">
                                 <Image
-                                    src={product.imageUrl}
+                                    src={product.imageUrl || 'https://placehold.co/600x400.png?text=No+Image'}
                                     alt={product.name}
                                     width={800}
                                     height={800}
-                                    className="w-full h-auto max-h-[500px] object-cover"
+                                    className="w-full h-auto max-h-[500px] object-cover aspect-[1/1]"
                                 />
                             </div>
                         </div>
@@ -69,8 +69,8 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
                             {/* Categories */}
                             <div className="mb-6">
-                                <h2 className="font-semibold text-sm text-gray-600 mb-1">Categories:</h2>
-                                <div className="flex flex-wrap gap-2">
+                                <h3 className="text-[#19065f] text-[18px] font-bold mt-4 mb-2">Categories:</h3>
+                                <div className="flex flex-wrap gap-2 mt-2">
                                     {productCategories.map((cat) => (
                                         <Link
                                             key={cat.id}
@@ -83,19 +83,22 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                                 </div>
                             </div>
 
+                            {product.additioninfo.length > 0 && (
                             <div>
-                                <h3 className="text-lg font-semibold mt-4 mb-2">Additional Info:</h3>
-                                <ul className="space-y-1">
+                                <h3 className="text-[#19065f] text-[18px] font-bold mt-4 mb-2">Additional Info:</h3>
+                                <ul className="space-y-1 text-sm text-[#3C3C3C] md:text-[16px] font-medium">
                                     {product.additioninfo.map((info, index) => (
                                         <li key={index} className="py-1 mb-2">
-                                            <p><strong className='text-[#19065f] text-[18px] font-bold'>Brand:</strong> {info.brandName}</p>
-                                            <p><strong className='text-[#19065f] text-[18px] font-bold'>Composition:</strong> {info.composition}</p>
-                                            <p><strong className='text-[#19065f] text-[18px] font-bold'>Pack:</strong> {info.pack}</p>
+                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Brand:</strong> {info.brandName}</p>
+                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Composition:</strong> {info.composition}</p>
+                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Pack:</strong> {info.pack}</p>
                                         </li>
                                     ))}
                                 </ul>
                                 <div className="w-full h-[1px] bg-gray-300 mb-3"></div>
                             </div>
+                             )}
+
 
                             <div className="mt-6 flex items-center justify-start gap-4">
                                 <Link href="/products" className="text-blue-500 hover:underline text-sm">
@@ -107,13 +110,21 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             </div>
                         </div>
                     </div>
+
                     {/* Optional: Full Description */}
-                    <div className="mt-12">
-                        <h2 className='text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize leading-12'>
-                            Product <span className='text-[#38A0A7]'>Description</span>
-                        </h2>
-                        <p className="text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem]">{product.description}</p>
-                    </div>
+                    {product.description && (
+                        <div className="mt-12 space-y-4">
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize leading-tight">
+                                Product <span className="text-[#38A0A7]">Description</span>
+                            </h2>
+                            <p className="text-[#3C3C3C] text-sm md:text-base font-medium leading-relaxed">
+                                {product.description}
+                            </p>
+                        </div>
+                    )}
+
+
+
 
                     {/* Related Products */}
                     {relatedProducts.length > 0 && (
@@ -130,7 +141,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                     )}
                 </div>
 
-                 <aside className="md:col-span-1">
+                <aside className="md:col-span-1">
                     <CategorySidebar />
                 </aside>
 
