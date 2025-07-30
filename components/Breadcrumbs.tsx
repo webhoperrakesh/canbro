@@ -21,11 +21,23 @@ const Breadcrumbs: React.FC<BannerProps> = ({ title, bgImage }) => {
     const pathname = usePathname();
     const pathSegments = pathname.split("/").filter(Boolean);
 
-    const breadcrumbs = pathSegments.map((segment, index) => {
-        const href = "/" + pathSegments.slice(0, index + 1).join("/");
-        const label = decodeURIComponent(segment.replace(/-/g, " "));
-        return { href, label };
-    });
+    // const breadcrumbs = pathSegments.map((segment, index) => {
+    //     const href = "/" + pathSegments.slice(0, index + 1).join("/");
+    //     const label = decodeURIComponent(segment.replace(/-/g, " "));
+    //     return { href, label };
+    // });
+
+    const breadcrumbs = [];
+
+if (pathSegments.length > 0) {
+
+  // Add only the last segment
+  const lastSegment = pathSegments[pathSegments.length - 1];
+  breadcrumbs.push({
+    href: pathname,
+    label: decodeURIComponent(lastSegment.replace(/-/g, " ")),
+  });
+}
 
     const backgroundStyle = bgImage
         ? { backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" }
@@ -35,7 +47,7 @@ const Breadcrumbs: React.FC<BannerProps> = ({ title, bgImage }) => {
         <div className="text-white text-center bg-cover bg-center relative breadcrumbs-section" style={backgroundStyle}>
              <h1 className={`text-center mb-2 text-2xl md:text-3xl lg:text-4xl font-semibold capitalize ${!bgImage ? 'text-white' : ''}`}>{title}</h1>  
             <nav className="text-sm " aria-label="breadcrumbs">
-                <ol className="flex flex-row flex-wrap items-center justify-center gap-2 text-lg ">
+                <ol className="flex flex-row flex-wrap items-center justify-center gap-2 text-lg">
                     <li>
                         <Link className={`hover:underline text-white ${!bgImage ? 'text-white' : ''}`} href="/">
                             Home

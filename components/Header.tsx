@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { name: "Home", href: "/", active: true },
   { name: "About us", href: "/about-us" },
-  { name: "Our Products", href: "#" },
+  { name: "Our Products", href: "/products" },
   { name: "PCD Pharma Franchise", href: "/pcd-pharma-franchise" },
   { name: "Our Certificates", href: "/our-certificate" },
 ]

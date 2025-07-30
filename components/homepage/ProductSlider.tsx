@@ -149,7 +149,7 @@ export default function ProductSlider() {
                         alt={`Current product - ${currentProduct.name}`}
                         width={400}
                         height={500}
-                        className="w-full max-w-[250px] md:max-w-[300px] lg:max-w-[350px] h-auto object-contain drop-shadow-2xl"
+                        className="w-[250px] max-w-[250px] md:max-w-[300px] lg:max-w-[350px] h-auto object-contain drop-shadow-2xl"
                         draggable={false}
                         priority
                       />

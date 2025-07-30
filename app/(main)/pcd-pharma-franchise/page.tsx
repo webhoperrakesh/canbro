@@ -102,7 +102,7 @@ const PharmaFranchise = () => {
                                             height={200}
                                             className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                                        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" /> */}
                                         <h3 className="absolute bottom-4 left-4 text-sm lg:font-[16px] font-medium text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6">
                                             {service.title}
                                         </h3>

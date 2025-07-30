@@ -14,7 +14,7 @@ const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
 
     return (
         <aside className="lg:border-l lg:pl-6 lg:border-[#022169]">
-            <h2 className="text-xl font-semibold mb-4">Latest Posts</h2>
+            <h2 className="text-xl mb-4 lg:text-[16px] xl:text-lg font-medium text-[#212088]">Latest Posts</h2>
             <ul className="space-y-4">
                 {latestPosts.map((item: Post) => (
                     <li key={item.id}>
