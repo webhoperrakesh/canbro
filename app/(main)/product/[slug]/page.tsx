@@ -14,7 +14,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
     const product = products.find((p) => p.slug === slug);
 
     if (!product) {
-        return <div className="p-8 text-center text-red-500">Product not found</div>;
+        return <div className="p-8 text-center flex items-center justify-center text-red-500 min-h-[50vh]">Product not found</div>;
     }
 
     const productCategories = categories.filter((cat) =>
