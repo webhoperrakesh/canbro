@@ -43,35 +43,38 @@ const ContactUs = () => {
       <Breadcrumbs title="Contact us" bgImage="/images/slider-bg-1.png" />
       <section id='contact-us'>
         <div className='container mx-auto px-4 py-12 md:py-15'>
-            
 
-          <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
-            <div className='md:col-span-6'>
-
-             <div className="pb-6 text-left">
+    
+          {/* Contact Information (Full Width) */}
+        
+          <div className="pb-6 text-center">
             <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
               <span className='text-[#212088]'>Contact</span> Information
             </h2>
             <p className="mb-6 text-sm text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Find all the ways to get in touch with us.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="grid grid-rows-1 md:grid-rows-1 lg:grid-rows-1 gap-8">
-
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
+            <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
+              <div className="flex items-start justify-center space-x-4">
                 <div className='w-12 h-12  mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
                 <PiMapPinLine className="h-6 w-6 shrink-0 text-white" />
                 </div>
                 <div>
                   <h3 className="text-[#19065f] font-bold text-xl">Our Address</h3>
                   <p className="text-gray-600">
-                    NH-I Karnal-132001 State: Haryana<br />Country: India
+                    NH-I Karnal-132001
+                    <br />
+                    State: Haryana
+                    <br />
+                    Country: India
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
+            <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
+              <div className="flex items-start justify-center space-x-4">
                 <div className='w-12 h-12 mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
                 <TfiEmail className="h-6 w-6 text-white shrink-0" />
                 </div>
@@ -85,8 +88,8 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
+            <div className='lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10'>
+              <div className="flex items-start justify-center space-x-4">
                 <div className='w-12 h-12 rounded-full mt-1 flex items-center justify-center bg-[#38A0A7]'>
                 <PiClock className="h-6 w-6 text-white shrink-0" />
                 </div>
@@ -100,9 +103,10 @@ const ContactUs = () => {
               </div>
             </div>
 
-            <div className="text-left">
-            <p className="text-lg text-[#19065f] font-semibold mb-4">Follow Us</p>
-            <div className="flex justify-start space-x-3">
+          </div>
+          <div className="mt-10 text-center">
+            <p className="inline-block text-sm lg:font-[16px] font-medium text-white uppercase bg-orange-500 rounded-full w-max py-2 px-6 mb-6">Follow Us</p>
+            <div className="flex justify-center space-x-6">
 
               {socialIcons.map((item, index) => (
                 <Link href="#"
@@ -115,19 +119,14 @@ const ContactUs = () => {
 
             </div>
           </div>
+        </div>
 
-          </div>
-
-          </div>
-          
-             
-
-            </div>
-            <div className='md:col-span-6'>
-                <div className="flex items-center justify-center">
+        <div className='bg-[#38a0a7]'>
+          <div className='container mx-auto px-4 py-12 md:py-15'>
+            <div className="flex items-center justify-center">
               {/* Empty column for spacing on left */}
               {/* Form in the middle column */}
-              <div className="lg:col-span-1 bg-white shadow-2xl border border-gray-100 rounded-xl p-8 md:p-10">
+              <div className="lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10">
                 <div className="pb-6 text-center">
                   <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
                   Send Us a Message
@@ -140,12 +139,10 @@ const ContactUs = () => {
               </div>
 
             </div>
-            </div>
-            </div>  
-
+          </div>
         </div>
 
-    
+
         <div className='container mx-auto px-4 py-12 md:py-15'>
           {/* Our Location Map (Full Width) */}
           {/* <div className="bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10 lg:p-12"> */}
