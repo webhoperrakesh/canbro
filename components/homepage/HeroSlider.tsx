@@ -13,7 +13,7 @@ const slides = [
       "We use only the best quality materials on the market in order to provide the best products to our patients, so don't worry about anything and leave yourself.",
     buttonText: "Read More",
     buttonLink: "/",
-    backgroundImage: "/images/hero-bg.png",
+    backgroundImage: "/images/CANBRO-1.png",
   },
   {
     id: 2,
@@ -23,18 +23,18 @@ const slides = [
       "Our state-of-the-art facilities and experienced medical professionals ensure you receive the highest standard of care with personalized treatment plans.",
     buttonText: "Learn More",
     buttonLink: "/",
-    backgroundImage: "/images/hero-bg.png",
+    backgroundImage: "/images/CANBRO-2.png",
   },
-  {
-    id: 3,
-    subtitle: "Dedicated to",
-    title: "Patient-Centered\nHealthcare",
-    description:
-      "We prioritize your comfort and well-being with comprehensive medical services designed to meet your individual needs and health goals.",
-    buttonText: "Discover More",
-    buttonLink: "/",
-    backgroundImage: "/images/hero-bg.png",
-  },
+  // {
+  //   id: 3,
+  //   subtitle: "Dedicated to",
+  //   title: "Patient-Centered\nHealthcare",
+  //   description:
+  //     "We prioritize your comfort and well-being with comprehensive medical services designed to meet your individual needs and health goals.",
+  //   buttonText: "Discover More",
+  //   buttonLink: "/",
+  //   backgroundImage: "/images/CANBRO-2.png",
+  // },
 ]
 
 export default function HeroSlider() {
@@ -79,9 +79,8 @@ export default function HeroSlider() {
       {/* Overlay for better text readability */}
       {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
 
-      <div className="container mx-auto px-4 py-12 md:py-26 lg:py-30 relative z-20">
+      {/* <div className="container mx-auto px-4 py-12 md:py-26 lg:py-30 relative z-20">
         <div className="flex flex-col md:flex-row items-center">
-          {/* Left content - Text */}
           <div className="w-full md:w-1/2 text-white z-10 mb-10 md:mb-0">
             <div className="transition-all duration-700 ease-in-out transform">
               <p
@@ -116,7 +115,7 @@ export default function HeroSlider() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Navigation Arrows */}
       {/* <button
