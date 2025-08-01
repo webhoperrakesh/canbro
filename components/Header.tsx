@@ -7,17 +7,39 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 
+type MenuItem = {
+  id: number;
+  title: string;
+  url: string;
+  icon: string;
+  target: string;
+  has_child: number;
+};
 
+type Menu = {
+  id: number;
+  name: string;
+  slug: string;
+  items: MenuItem[];
+};
 
-const navItems = [
-  { name: "Home", href: "/", active: true },
-  { name: "About us", href: "/about-us" },
-  { name: "Our Products", href: "/products" },
-  { name: "PCD Pharma Franchise", href: "/pcd-pharma-franchise" },
-  { name: "Our Certificates", href: "/our-certificate" },
-]
+type Logo = {
+  value: string;
+};
 
-const Header = () => {
+type HeaderProps = {
+  mainMenu: Menu;
+  logo: Logo[];
+  topHeaderData: {
+    settings:{
+      phone: string;
+      business_hours: string;
+      contact_email: string;
+    }
+    };
+};
+
+const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -32,11 +54,15 @@ const Header = () => {
 
   const currentPath = usePathname();
 
+  const logoImg = logo
+    ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${logo[0].value}`
+    : "https://placehold.co/200x100.png";
+
   return (
     <header className="bg-white fixed top-0 w-full z-100">
       <div className='flex mx-auto w-full justify-between items-center'>
         <div className="container mx-auto px-4 py-3">
-          <TopHeader />
+          <TopHeader logo={logoImg} workingHour = {topHeaderData?.settings?.business_hours} email = {topHeaderData?.settings?.contact_email} phone = {topHeaderData?.settings?.phone} />
         </div>
       </div>
 
@@ -47,18 +73,17 @@ const Header = () => {
               {/* Desktop Navigation */}
 
               <div className="hidden lg:flex w-full items-center lg:justify-center xl:justify-between lg:space-x-4">
-                {navItems.map((item: any, index: any) => {
-                  const isActive = item.href === currentPath;
+                {mainMenu?.items.map((item: any, index: any) => {
+                  const isActive = item.url === currentPath;
 
                   return (
                     <Link
-                      key={item.name || index}
-                      href={item.href}
-                      className={`px-3 py-2 lg:text-[16px] xl:text-lg font-medium transition-colors duration-200 ${
-                        isActive ? "text-[#38A0A7]" : "text-white hover:text-[#38A0A7]"
-                      }`}
+                      key={item.title || index}
+                      href={item.url}
+                      className={`px-3 py-2 lg:text-[16px] xl:text-lg font-medium transition-colors duration-200 ${isActive ? "text-[#38A0A7]" : "text-white hover:text-[#38A0A7]"
+                        }`}
                     >
-                      {item.name}
+                      {item.title}
                     </Link>
                   );
                 })}
@@ -66,7 +91,6 @@ const Header = () => {
 
 
                 {/* Contact Us Button and Search - Desktop */}
-
                 <Link
                   href="/contact"
                   className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-200 hover:cursor-pointer">
@@ -142,23 +166,23 @@ const Header = () => {
             {isMenuOpen && (
               <div className="lg:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1 border-t border-indigo-800">
-                  {navItems.map((item) => {
+                  {mainMenu?.items.map((item: any, index: any) => {
 
-                  const isActive = item.href === currentPath;
+                    const isActive = item.url === currentPath;
                     return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${isActive
-                        ? "text-[#38A0A7]"
-                        : "text-white hover:text-[#38A0A7]"
-                        }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
+                      <Link
+                        key={item.title || index}
+                        href={item.url}
+                        className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${isActive
+                          ? "text-[#38A0A7]"
+                          : "text-white hover:text-[#38A0A7]"
+                          }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
                     );
-})}
+                  })}
                   <div className="pt-4 pb-2">
                     <Link
                       href="/contact"

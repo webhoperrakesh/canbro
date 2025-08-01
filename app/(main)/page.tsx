@@ -1,4 +1,4 @@
-import HeroSlider from "@/components/homepage/HeroSlider"
+import NewHeroSlider from "@/components/homepage/NewHeroSlider"
 import About from "@/components/homepage/About"
 import SpecilizationSection from "@/components/homepage/SpecilizationSection"
 import Whoweare from "@/components/homepage/Whoweare"
@@ -11,10 +11,16 @@ import PharmaDivision from "@/components/homepage/PharmaDivision"
 import ProductSlider from "@/components/homepage/ProductSlider"
 
 
-export default function Home() {
+export default async function Home() {
+
+  const homepageData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blocks`);
+  const blockData = await homepageData.json();
+
+  const data = blockData.data || {};
+
   return (
    <>
-   <HeroSlider />
+   {data.heroslider && <NewHeroSlider sliderData = {data.heroslider} />}
    <About />
    <SpecilizationSection />
    <Whoweare />

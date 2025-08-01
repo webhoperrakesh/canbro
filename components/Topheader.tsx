@@ -3,17 +3,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiDownloadCloud } from "react-icons/fi";
 
-const TopHeader = () => {
+type TopHeaderProps = {
+    logo: string;
+    workingHour: string;
+    email: string;
+    phone: string;
+};
+
+const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
 
     const handleDownload = () => {
-        window.open("/pdf/file-sample_150kB.pdf", "_blank"); // Adjust path as needed
+        window.open("/pdf/file-sample_150kB.pdf", "_blank");
     };
 
     return (
         <div className="flex items-center justify-between">
             <Link href="/">
                 <Image
-                    src="/images/logo.png"
+                    src={logo}
                     alt="CANBRO Nephrology and Urology Care"
                     width={200}
                     height={100}
@@ -23,6 +30,7 @@ const TopHeader = () => {
 
             <div className="hidden lg:flex items-center space-x-8">
                 {/* Working Days */}
+                {workingHour && 
                 <div className="flex items-center space-x-2">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center">
                         <Image
@@ -35,14 +43,17 @@ const TopHeader = () => {
                     </div>
                     <div className='flex flex-col gap-0.5'>
                         <div className="text-sm font-semibold text-[#000]">Working Days</div>
-                        <div className="text-xs text-[#3C3C3C]">Mon-Sat: 9:00 to 6:00</div>
+                        <div className="text-xs text-[#3C3C3C]">{workingHour}</div>
                     </div>
                 </div>
+                }
             </div>
 
             {/* PCD Pharma Franchise */}
             <div className="hidden md:flex items-center space-x-2">
-                <div className="flex items-center justify-center">
+                 {(email || phone) && (
+                <div className="flex items-center justify-center gap-4">
+                    <div>
                     <Image
                         src="/images/building.png"
                         alt="building"
@@ -50,12 +61,20 @@ const TopHeader = () => {
                         height={30}
                         className="object-contain"
                     />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                    <div className="text-sm font-semibold text-[#000]">
+                        PCD Pharma Franchise
+                    </div>
+                    {email && <div className="text-xs text-[#3C3C3C]">{email}</div>}
+                    {phone &&
+                    <div className="text-xs text-[#3C3C3C]">
+                       {phone}
+                    </div>
+                   }
+                    </div>
                 </div>
-                <div className='flex flex-col gap-0.5'>
-                    <div className="text-sm font-semibold text-[#000]">PCD Pharma Franchise</div>
-                    <div className="text-xs text-[#3C3C3C]">canbrohc@gmail.com</div>
-                    <div className="text-xs text-[#3C3C3C]">+91-93060-12364 / +91-99922-22198</div>
-                </div>
+                )}
             </div>
 
             <button

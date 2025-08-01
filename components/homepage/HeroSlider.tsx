@@ -25,16 +25,16 @@ const slides = [
     buttonLink: "/",
     backgroundImage: "/images/CANBRO-2.png",
   },
-  // {
-  //   id: 3,
-  //   subtitle: "Dedicated to",
-  //   title: "Patient-Centered\nHealthcare",
-  //   description:
-  //     "We prioritize your comfort and well-being with comprehensive medical services designed to meet your individual needs and health goals.",
-  //   buttonText: "Discover More",
-  //   buttonLink: "/",
-  //   backgroundImage: "/images/CANBRO-2.png",
-  // },
+  {
+    id: 3,
+    subtitle: "Dedicated to",
+    title: "Patient-Centered\nHealthcare",
+    description:
+      "We prioritize your comfort and well-being with comprehensive medical services designed to meet your individual needs and health goals.",
+    buttonText: "Discover More",
+    buttonLink: "/",
+    backgroundImage: "/images/CANBRO-2.png",
+  },
 ]
 
 export default function HeroSlider() {
@@ -62,7 +62,7 @@ export default function HeroSlider() {
   }
 
   return (
-    <section className="relative h-auto md:h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
+    <section className="relative h-[35vh] md:h-[50vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
       {/* Background Images with Smooth Transitions */}
       {slides.map((slide, index) => (
         <div
@@ -79,7 +79,7 @@ export default function HeroSlider() {
       {/* Overlay for better text readability */}
       {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
 
-      {/* <div className="container mx-auto px-4 py-12 md:py-26 lg:py-30 relative z-20">
+      <div className="container mx-auto px-4 py-12 md:py-26 lg:py-30 relative z-20">
         <div className="flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 text-white z-10 mb-10 md:mb-0">
             <div className="transition-all duration-700 ease-in-out transform">
@@ -115,10 +115,10 @@ export default function HeroSlider() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       {/* Navigation Arrows */}
-      {/* <button
+      <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm"
         aria-label="Previous slide"
@@ -132,7 +132,7 @@ export default function HeroSlider() {
         aria-label="Next slide"
       >
         <BiChevronRight className="w-6 h-6" />
-      </button> */}
+      </button>
 
       {/* Slide Indicators */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex space-x-3">
