@@ -13,24 +13,26 @@ import ProductSlider from "@/components/homepage/ProductSlider"
 
 export default async function Home() {
 
-  const homepageData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blocks`);
+  const homepageData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blocks`, {
+    next: { revalidate: 3600 },
+  });
   const blockData = await homepageData.json();
 
   const data = blockData.data || {};
 
   return (
-   <>
-   {data.heroslider && <NewHeroSlider sliderData = {data.heroslider} />}
-   <About />
-   <SpecilizationSection />
-   <Whoweare />
-   <ProductSlider />
-   <OurCertification />
-   <AmplurCVSlider />
-   <OurCommitment />
-   <EnquirySection />
-   <BlogsSection />
-   <PharmaDivision />
-   </>
+    <>
+      {data.heroslider && <NewHeroSlider sliderData={data.heroslider} />}
+      <About />
+      <SpecilizationSection />
+      <Whoweare />
+      <ProductSlider />
+      <OurCertification />
+      <AmplurCVSlider />
+      <OurCommitment />
+      <EnquirySection />
+      <BlogsSection />
+      <PharmaDivision />
+    </>
   );
 }
