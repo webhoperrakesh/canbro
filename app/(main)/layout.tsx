@@ -15,7 +15,7 @@ export default async function RootLayout({
 }>) {
 
   const menus = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus/`, {
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
   const menusRes = await menus.json();
 

@@ -17,6 +17,9 @@ type ContactFormValues = {
 
 const ContactForm = () => {
 
+  const [response, setResponse] = React.useState<string | null>(null);
+  const [loading, setLoading] = React.useState(false);
+
   const form = useForm<ContactFormValues>({
     defaultValues: {
       name: "",
@@ -29,11 +32,42 @@ const ContactForm = () => {
     },
   })
 
-  const onSubmit = (values: ContactFormValues) => {
-    console.log(values)
-    // Handle form submission logic here
-    alert("Form submitted successfully! Check console for data.")
-    form.reset() // Reset form after submission
+  const onSubmit = async (values: ContactFormValues) => {
+    setLoading(true); // Show loading state
+    setResponse(null);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiry`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY || '',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.contact,
+          city: values.city,
+          message: values.message,
+          drugLicense: values.drugLicense,
+          gstNo: values.gstNo,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        setResponse('Message sent successfully!');
+        form.reset()
+      } else {
+        setResponse(result.message || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setResponse('An error occurred. Please try again.');
+    }
+    finally {
+      setLoading(false); // Reset loading state
+    }
   }
 
   return (
@@ -176,7 +210,7 @@ const ContactForm = () => {
             <textarea
               id="message"
               placeholder="Enter your message"
-              rows={5}
+              rows={4}
               className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700 resize-vertical"
               {...field}
             />
@@ -275,12 +309,14 @@ const ContactForm = () => {
         </div>
       </div>
       <button
-                          type="submit"
-                          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-3 rounded-full flex items-center justify-center gap-2 mt-6 transition-all duration-300 hover:scale-105 hover:cursor-pointer"
-                      >
-                          Submit
-                         <FaArrowRight className="" />
-                      </button>
+        type="submit"
+        disabled={loading}
+        className={`w-full ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600'} text-white font-semibold px-10 py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:cursor-pointer`}
+      >
+        {loading ? 'Please wait...' : 'Submit'}
+        <FaArrowRight className="" />
+      </button>
+      {response && <p className="mt-4">{response}</p>}
     </form>
   )
 }

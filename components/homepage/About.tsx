@@ -28,7 +28,7 @@ const About = () => {
                             Canbro Healthcare is a trusted and leading pharmaceutical company specializing in high-quality Nephrology and Urology products in India. We are committed to delivering effective, patient-centric solutions for conditions related to the kidneys, ureters, bladder, and urethra. Our medicines are manufactured under strict QA/QC standards, ensuring optimal efficacy, safety, and consistent results for our consumers. With the rising demand for renal and urinary healthcare, we focus on innovation, quality, and reliability—earning the trust of healthcare professionals across the globe.
                         </p>
                         {/* Read More Button */}
-                        <Link href="/" className="inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 transition-all duration-300 hover:scale-105">
+                        <Link href="/about-us" className="inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 transition-all duration-300 hover:scale-105">
                             Read More
                         </Link>
 

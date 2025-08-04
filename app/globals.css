@@ -105,6 +105,14 @@ custom-font-style p {
   line-height: 1.8rem;
 }
 
+.custom-heading-color-blue span{
+  color: #212088;
+}
+
+.custom-heading-color-light span{
+  color: #38A0A7;
+}
+
 @media (min-width: 768px) {
   .custom-font-style p {
     font-size: 16px; 

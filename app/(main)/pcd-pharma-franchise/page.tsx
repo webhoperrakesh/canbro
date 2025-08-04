@@ -1,12 +1,31 @@
 import React from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Image from 'next/image'
-import ContactForm from '../contact/ContactForm';
+import ContactForm from '@/components/ContactForm';
 import { BiCheckCircle } from 'react-icons/bi';
 import { LuAward } from "react-icons/lu";
 import { featureList } from "@/fakeData/fakeDatas"
+import { Metadata } from 'next';
+import { getPageData } from '@/utils/getPageData';
 
-const PharmaFranchise = () => {
+export async function generateMetadata(): Promise<Metadata> {
+
+    const data = await getPageData('pcd-pharma-franchise');
+    const seo = data.meta.seo_meta;
+
+    return {
+        title: seo.seo_title || 'Default Title',
+        description: seo.seo_description || 'Default Description',
+        robots: seo.index === 'index' ? 'index,follow' : 'noindex,nofollow',
+    };
+}
+
+const PharmaFranchise = async () => {
+
+    const pageData = await getPageData('pcd-pharma-franchise');
+
+    if (!pageData.customFields || pageData.customFields.length === 0) return null;
+
     return (
         <>
             <Breadcrumbs title='PCD Pharma Franchise' bgImage='/images/slider-bg-1.png' />
@@ -15,35 +34,20 @@ const PharmaFranchise = () => {
                 <div className='container mx-auto px-4 py-12 md:py-15'>
                     <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
                         <div className='md:col-span-7 md:pr-0 lg:pr-10'>
-                            <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
-                                <span className='text-[#212088]'>PCD Pharma</span> Franchise
-                            </h2>
-                            <div className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </p>
-                                <p>
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                    laborum.
-                                </p>
-                                <p>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                                    sunt explicabo.
-                                </p>
-                            </div>
+                            <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4 custom-heading-color-blue' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].heading ?? '' }} />
+                            <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].content ?? '' }} />
+
                         </div>
                         <div className="md:col-span-5 relative">
                             <Image
-                                src="https://placehold.co/800x800.png?text=No\nImage"
-                                alt="Business Meeting"
-                                width={500}
-                                height={500}
-                                className='rounded-lg w-full h-auto object-cover'
+                                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${pageData.customFields[0].image}` || "https://placehold.co/800x800.png?text=No\nImage"}
+                                width={800}
+                                height={800}
+                                className='w-full h-auto object-cover rounded-2xl'
+                                alt='About Us'
+                                priority
                             />
+
                             {/* <div className="absolute -bottom-6 -left-6 bg-[#ff6900] text-white p-4 rounded-lg">
                                 <div className="text-2xl font-bold">15+</div>
                                 <div className="text-sm">Years Experience</div>
@@ -88,36 +92,44 @@ const PharmaFranchise = () => {
                 <div className='bg-[#38a0a7]'>
                     <div className='container mx-auto px-4 py-12 md:py-15'>
 
-                      <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
-                        <div className='md:col-span-6 md:pr-0 lg:pr-10'>
-                          <div className="lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10">
-                                <div className="pb-6 text-center">
-                                    <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
-                                        Send Us a Message
-                                    </h2>
-                                    <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
-                                </div>
-                                <div className="pt-6">
-                                    <ContactForm />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="md:col-span-6 relative">
-                           <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white capitalize mb-4'>
-                                Why Choose Us
-                            </h2>
-                            <div className="space-y-4">
-                                {featureList.map((feature, index) => (
-                                    <div key={index} className="flex items-center space-x-3">
-                                        <BiCheckCircle className="h-5 w-5 text-white flex-shrink-0" />
-                                        <span className="text-sm text-white md:text-[16px] font-medium">
-                                            {feature}
-                                        </span>
+                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
+                            <div className='md:col-span-6 md:pr-0 lg:pr-10'>
+                                <div className="lg:col-span-1 bg-white shadow-lg border border-gray-100 rounded-2xl p-8 md:p-10">
+                                    <div className="pb-6 text-center">
+                                        <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
+                                            Send Us a Message
+                                        </h2>
+                                        <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
                                     </div>
-                                ))}
+                                    <div className="pt-6">
+                                        <ContactForm />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <div className="md:col-span-6 relative">
+                                 <Image
+                                src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${pageData.customFields[1].image}` || "https://placehold.co/800x800.png?text=No\nImage"}
+                                width={800}
+                                height={800}
+                                className='w-[90%] h-auto object-cover rounded-2xl'
+                                alt='About Us'
+                                priority
+                            />
+                                {/* <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white capitalize mb-4'>
+                                    Why Choose Us
+                                </h2>
+                                <div className="space-y-4">
+                                    {featureList.map((feature, index) => (
+                                        <div key={index} className="flex items-center space-x-3">
+                                            <BiCheckCircle className="h-5 w-5 text-white flex-shrink-0" />
+                                            <span className="text-sm text-white md:text-[16px] font-medium">
+                                                {feature}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div> */}
+                            </div>
                         </div>
 
                         <div className="flex items-center justify-center">

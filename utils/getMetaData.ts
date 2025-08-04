@@ -1,0 +1,24 @@
+import { notFound } from "next/navigation";
+
+export type SeoMeta = {
+  seo_title: string;
+  seo_description: string;
+  index: "index" | "noindex";
+};
+
+export type ApiResponse = {
+    seo_meta: SeoMeta;
+};
+
+
+export async function getMetaData(slug: string): Promise<ApiResponse> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/metadata/${slug}`, {
+   next: { revalidate: 3600 },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch page data');
+  }
+
+  return res.json();
+}

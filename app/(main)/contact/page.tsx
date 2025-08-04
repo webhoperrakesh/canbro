@@ -2,150 +2,146 @@ import React from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Link from "next/link"
 import MapEmbed from '@/components/MapEmbed';
-import { FaFacebookF, FaYoutube, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
-import { PiMapPinLine, PiClock  } from "react-icons/pi";
+import { PiMapPinLine, PiClock } from "react-icons/pi";
 import { TfiEmail } from "react-icons/tfi";
-import ContactForm from './ContactForm';
+import ContactForm from '@/components/ContactForm';
+import getIconComponent from '@/utils/getIconComponent';
 
+const ContactUs = async () => {
 
-const socialIcons = [
-  {
-    icon: <FaFacebookF className="w-5 h-5" />,
-    bgColor: "bg-blue-600",
-    hoverColor: "hover:bg-blue-700",
-  },
-  {
-    icon: <FaYoutube className="w-5 h-5" />,
-    bgColor: "bg-red-500",
-    hoverColor: "hover:bg-red-600",
-  },
-  {
-    icon: <FaXTwitter className="w-5 h-5" />,
-    bgColor: "bg-black",
-    hoverColor: "hover:bg-gray-800",
-  },
-  {
-    icon: <FaInstagram className="w-5 h-5" />,
-    bgColor: "bg-pink-500",
-    hoverColor: "hover:bg-pink-600",
-  },
-  {
-    icon: <FaLinkedinIn className="w-5 h-5" />,
-    bgColor: "bg-blue-700",
-    hoverColor: "hover:bg-blue-800",
-  },
-];
+  const [contactInfo, socialLinks] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/settings`, {
+      next: { revalidate: 3600 },
+    }).then((res) => res.json()),
 
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/menus/social`, {
+      next: { revalidate: 3600 },
+    }).then((res) => res.json()),
+  ]);
 
-const ContactUs = () => {
   return (
     <>
       <Breadcrumbs title="Contact us" bgImage="/images/slider-bg-1.png" />
       <section id='contact-us'>
         <div className='container mx-auto px-4 py-12 md:py-15'>
-            
+
 
           <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
             <div className='md:col-span-6'>
 
-             <div className="pb-6 text-left">
-            <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
-              <span className='text-[#212088]'>Contact</span> Information
-            </h2>
-            <p className="mb-6 text-sm text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Find all the ways to get in touch with us.</p>
+              <div className="pb-6 text-left">
+                <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#38A0A7] capitalize mb-4'>
+                  <span className='text-[#212088]'>Contact</span> Information
+                </h2>
+                <p className="mb-6 text-sm text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Find all the ways to get in touch with us.</p>
 
-            <div className="grid grid-rows-1 md:grid-rows-1 lg:grid-rows-1 gap-8">
+                <div className="grid grid-rows-1 md:grid-rows-1 lg:grid-rows-1 gap-8">
 
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
-                <div className='w-12 h-12  mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
-                <PiMapPinLine className="h-6 w-6 shrink-0 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-[#19065f] font-bold text-xl">Our Address</h3>
-                  <p className="text-gray-600">
-                    NH-I Karnal-132001 State: Haryana<br />Country: India
-                  </p>
+                  {contactInfo.settings.address && (
+                    <div className='lg:col-span-1 py-4'>
+                      <div className="flex items-start justify-start space-x-4">
+                        <div className='w-12 h-12  mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
+                          <PiMapPinLine className="h-6 w-6 shrink-0 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-[#19065f] font-bold text-xl">Our Address</h3>
+                          <p className="text-gray-600 max-w-[270px]">
+                            {contactInfo.settings.address}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {(contactInfo.settings.contact_email || contactInfo.settings.phone) && (
+                    <div className='lg:col-span-1 py-4'>
+                      <div className="flex items-start justify-start space-x-4">
+                        <div className='w-12 h-12 mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
+                          <TfiEmail className="h-6 w-6 text-white shrink-0" />
+                        </div>
+                        <div>
+                          <h3 className="text-[#19065f] font-bold text-xl">PCD Pharma Franchise</h3>
+                          <p className="text-gray-600">
+                            <Link href={`mailto:${contactInfo.settings.contact_email}`}>
+                              {contactInfo.settings.contact_email}
+                            </Link>
+                          </p>
+                          <p className="text-gray-600 flex items-center">
+                            <Link href={`tel:${contactInfo?.settings?.phone.split(',')[0].replace(/-/g, "")}`}>{contactInfo?.settings?.phone.split(',')[0]}</Link>, <Link href={`tel:${contactInfo?.settings?.phone.split(',')[1].replace(/-/g, "")}`}>{contactInfo?.settings?.phone.split(',')[1]}</Link>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {contactInfo.settings.business_hours && (
+                    <div className='lg:col-span-1 py-4'>
+                      <div className="flex items-start justify-start space-x-4">
+                        <div className='w-12 h-12 rounded-full mt-1 flex items-center justify-center bg-[#38A0A7]'>
+                          <PiClock className="h-6 w-6 text-white shrink-0" />
+                        </div>
+                        <div>
+                          <h3 className="text-[#19065f] font-bold text-xl">Office Hours</h3>
+                          <p className="text-gray-600">{contactInfo?.settings?.business_hours}</p>
+                          {/* <p className="text-gray-600 flex items-center">
+                          9:00 am - 6:00 pm
+                        </p> */}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="text-left">
+                    <p className="text-lg text-[#19065f] font-semibold mb-4">Follow Us</p>
+                    <div className="flex justify-start space-x-3">
+
+                      {socialLinks.items.map((item: any, index: number) => {
+                        const Icon = getIconComponent(item.icon);
+                        return (
+                          <Link
+                             key={index}
+                             href={item.url}
+                             target="_blank"
+                            className={`w-10 h-10 text-white ${item.css_class} rounded-full flex items-center justify-center transition-colors cursor-pointer`}
+                          >
+                            {Icon && (
+                          <span className="text-white">
+                            <Icon size={20} />
+                          </span>
+                        )}
+                          </Link>
+                        );
+                      })}
+
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
-                <div className='w-12 h-12 mt-1 rounded-full flex items-center justify-center bg-[#38A0A7]'>
-                <TfiEmail className="h-6 w-6 text-white shrink-0" />
-                </div>
-                <div>
-                  <h3 className="text-[#19065f] font-bold text-xl">PCD Pharma Franchise</h3>
-                  <p className="text-gray-600">canbrohc@gmail.com</p>
-                  <p className="text-gray-600 flex items-center">
-                    +91-9306022364, +91-9992222198
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className='lg:col-span-1 py-4'>
-              <div className="flex items-start justify-start space-x-4">
-                <div className='w-12 h-12 rounded-full mt-1 flex items-center justify-center bg-[#38A0A7]'>
-                <PiClock className="h-6 w-6 text-white shrink-0" />
-                </div>
-                <div>
-                  <h3 className="text-[#19065f] font-bold text-xl">Office Hours</h3>
-                  <p className="text-gray-600">Monday to Saturday</p>
-                  <p className="text-gray-600 flex items-center">
-                    9:00 am - 6:00 pm
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-left">
-            <p className="text-lg text-[#19065f] font-semibold mb-4">Follow Us</p>
-            <div className="flex justify-start space-x-3">
-
-              {socialIcons.map((item, index) => (
-                <Link href="#"
-                  key={index}
-                  className={`w-10 h-10 text-white ${item.bgColor} rounded-full flex items-center justify-center ${item.hoverColor} transition-colors cursor-pointer`}
-                >
-                  {item.icon}
-                </Link>
-              ))}
-
-            </div>
-          </div>
-
-          </div>
-
-          </div>
-          
-             
 
             </div>
             <div className='md:col-span-6'>
-                <div className="flex items-center justify-center">
-              {/* Empty column for spacing on left */}
-              {/* Form in the middle column */}
-              <div className="lg:col-span-1 bg-white shadow-2xl border border-gray-100 rounded-xl p-8 md:p-10">
-                <div className="pb-6 text-center">
-                  <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
-                  Send Us a Message
-                  </h2>
-                  <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
+              <div className="flex items-center justify-center">
+                {/* Empty column for spacing on left */}
+                {/* Form in the middle column */}
+                <div className="lg:col-span-1 bg-white shadow-2xl border border-gray-100 rounded-xl p-8 md:p-10">
+                  <div className="pb-6 text-center">
+                    <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[#EF7F1B] capitalize mb-4'>
+                      Send Us a Message
+                    </h2>
+                    <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
+                  </div>
+                  <div className="pt-6">
+                    <ContactForm />
+                  </div>
                 </div>
-                <div className="pt-6">
-                  <ContactForm />
-                </div>
-              </div>
 
+              </div>
             </div>
-            </div>
-            </div>  
+          </div>
 
         </div>
 
-    
+
         <div className='container mx-auto px-4 py-12 md:py-15'>
           {/* Our Location Map (Full Width) */}
           {/* <div className="bg-white shadow-lg border border-gray-100 rounded-xl p-8 md:p-10 lg:p-12"> */}

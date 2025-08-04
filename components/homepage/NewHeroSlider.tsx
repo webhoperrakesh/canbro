@@ -34,7 +34,10 @@ export default function NewHeroSlider({ sliderData }: HeroSectionProps) {
         setCurrentSlide(index)
     }
 
+    if (!sliderItems.length) return null;
+
     return (
+
         <section className="relative h-[35vh] md:h-[50vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden">
             {sliderItems.map((slide: any, index: any) => (
                 <img
@@ -66,5 +69,6 @@ export default function NewHeroSlider({ sliderData }: HeroSectionProps) {
                 {currentSlide + 1} / {sliderItems.length}
             </div>
         </section>
+
     )
 }

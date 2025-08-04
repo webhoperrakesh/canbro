@@ -49,7 +49,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                                     <li className="text-gray-900 font-medium">{product.name}</li>
                                 </ol>
                             </nav>
-                            <div className="rounded-lg bg-white shadow overflow-hidden">
+                            <div className="rounded-2xl bg-white shadow overflow-hidden">
                                 <Image
                                     src={product.imageUrl || 'https://placehold.co/600x400.png?text=No+Image'}
                                     alt={product.name}

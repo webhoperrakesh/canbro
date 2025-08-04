@@ -11,7 +11,7 @@ export function CategorySidebar() {
   const pathname = usePathname()
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
       <div
         className="flex items-center justify-between cursor-pointer p-6 bg-[#19065f] text-white"
         onClick={() => setIsExpanded(!isExpanded)}

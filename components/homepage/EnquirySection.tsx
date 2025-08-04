@@ -1,9 +1,9 @@
-import EnquiryForm from "./EnquiryForm"
 import { FaFacebookF, FaYoutube, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { IoMailSharp } from "react-icons/io5";
 import { RiMapPin2Fill } from "react-icons/ri";
 import Link from "next/link";
+import ContactForm from "../ContactForm";
 
 
 const socialIcons = [
@@ -37,7 +37,7 @@ const socialIcons = [
 
 const EnquirySection = () => {
     return (
-        <section className='bg-[#38A0A7] lg:mb-22' id='who-we-are' >
+        <section className='bg-[#38A0A7] lg:mb-35' id='who-we-are' >
             <div className='container mx-auto px-4 py-16 md:py-16'>
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-7xl mx-auto">
 
@@ -106,7 +106,24 @@ const EnquirySection = () => {
                     {/* Right Side - Contact Form */}
                     <div className="lg:w-1/2 lg:relative">
                         <div className="relatine w-full lg:absolute">
-                            <EnquiryForm />
+
+                            {/* Orange Tab */}
+                            <div className="bg-white rounded-2xl relative shadow-2xl p-6 lg:p-8">
+                                <div className="mb-6">
+                                    <div className="hidden lg:block absolute -left-[5.5rem] lg:-left-[7.09rem] top-25 -rotate-90 bg-orange-500 text-white px-6 py-3 rounded-t-2xl">
+                                        <div className="text-xs lg:text-[18px] font-semibold uppercase">ENQUIRY FORM</div>
+                                    </div>
+                                    <div className="pt-4">
+                                        <h2 className="text-xl lg:text-[26px] font-bold text-[#EF7F1B] mb-2">
+                                            Get Enquiry About PCD Pharma
+                                        </h2>
+                                        <p className="text-[#3C3C3C] text-sm lg:text-[16px]">
+                                            We Would like to hear from you
+                                        </p>
+                                    </div>
+                                </div>
+                                <ContactForm />
+                            </div>
                         </div>
                     </div>
                 </div>

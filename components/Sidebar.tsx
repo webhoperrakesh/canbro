@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 type Post = {
     id: number;
-    title: string;
+    name: string;
     image: string,
     slug: string,
     readMoreLink: string
@@ -22,7 +22,7 @@ const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
                             <div className="flex gap-4 items-center">
                                     <Image
                                         src={item.image || 'https://placehold.co/64x64.png?text=No+Image'}
-                                        alt={item.title || 'Blog post'}
+                                        alt={item.name || 'Blog post'}
                                         width={80}
                                         height={80}
                                         className="w-20 h-20 rounded-lg object-cover"
@@ -31,7 +31,7 @@ const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
                                     />
                                 <div>
                                     <h3 className="text-sm lg:text-[16px] text-[#3C3C3C] font-medium line-clamp-2 transition-colors hover:text-[#212088]">
-                                        {item.title || ''}
+                                        {item.name ?? ''}
                                     </h3>
                                 </div>
                             </div>

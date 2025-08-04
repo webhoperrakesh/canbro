@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import BlogCard from '@/components/BlogCard'
 
 type Post = {
     id: number;
-    title: string;
+    name: string;
     image: string,
     slug: string,
     readMoreLink: string
@@ -36,33 +35,8 @@ const ClientLoadMore = ({ allPosts }: { allPosts: Post[] }) => {
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {visiblePosts.map((post: any) => (
-                    <article
-                        key={post.id}
-                        className="bg-white rounded-lg overflow-hidden"
-                    >
-                        {/* Blog Image */}
-                        <div className="relative h-48 sm:h-52 lg:h-60 overflow-hidden">
-                            <Image
-                                src={post.image || 'https://placehold.co/600x400.png?text=No+Image'}
-                                alt={post.title || 'Blog post'}
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-300"
-                                loading="lazy"
-                            />
-                        </div>
-
-                        {/* Blog Content */}
-                        <div className="py-4">
-                            <h3 className="text-lg sm:text-lg font-semibold text-[#333333] mb-4 leading-tight line-clamp-2">{post.title}</h3>
-                            <Link
-                                href={post.readMoreLink}
-                                className="inline-flex items-center underline text-[#212088] hover:cursor-pointer font-medium transition-colors duration-200"
-                            >
-                                Read More...
-                            </Link>
-                        </div>
-                    </article>
+                {visiblePosts.map((post: Post) => (
+                    <BlogCard key={post.id} post={post} />
                 ))}
             </div>
             {canLoadMore && (
@@ -70,7 +44,7 @@ const ClientLoadMore = ({ allPosts }: { allPosts: Post[] }) => {
                     <button
                         onClick={handleLoadMore}
                         disabled={isLoading}
-                        className="mt-8 inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 transition-all duration-300 hover:cursor-pointer hover:scale-105 disabled:cursor-not-allowed"
+                        className={`mt-8 inline-block text-sm md:text-[16px] ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600'} text-white rounded-full px-10 py-3 transition-all duration-300 hover:cursor-pointer hover:scale-105 disabled:cursor-not-allowed`}
                     >
                         {isLoading ? 'Loading...' : 'Load More'}
                     </button>
