@@ -43,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           src={imageUrl}
           alt={product.title}
           fill
-          className="object-cover hover:scale-105 transition-transform duration-300"
+          className="object-fill hover:scale-105 transition-transform duration-300"
         />
       </div>
 
