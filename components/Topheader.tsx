@@ -13,7 +13,7 @@ type TopHeaderProps = {
 const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
 
     const handleDownload = () => {
-        window.open("/pdf/file-sample_150kB.pdf", "_blank");
+        window.open("/pdf/NEPHROLOGY-&-UROLOGY-GLOSSARY.pdf", "_blank");
     };
 
     return (
