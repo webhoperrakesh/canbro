@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 export type SeoMeta = {
   seo_title: string;
   seo_description: string;

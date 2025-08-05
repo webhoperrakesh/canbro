@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export const Blogs = async () => {
+export default async function Blogs() {
 
     try {
         const [postRes] = await Promise.allSettled([
@@ -70,5 +70,3 @@ export const Blogs = async () => {
         );
     }
 }
-
-export default Blogs

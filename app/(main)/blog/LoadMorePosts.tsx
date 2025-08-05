@@ -8,7 +8,6 @@ type Post = {
     name: string;
     image: string,
     slug: string,
-    readMoreLink: string
 };
 
 const ClientLoadMore = ({ allPosts }: { allPosts: Post[] }) => {

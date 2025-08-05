@@ -5,7 +5,7 @@ import MapEmbed from '@/components/MapEmbed';
 import { FaFacebookF, FaYoutube, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { PiMapPinLine, PiClock  } from "react-icons/pi";
 import { TfiEmail } from "react-icons/tfi";
-import ContactForm from './ContactForm';
+import ContactForm from '@/components/ContactForm';
 
 
 const socialIcons = [

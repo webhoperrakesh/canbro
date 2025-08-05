@@ -6,8 +6,7 @@ type Post = {
     id: number;
     name: string;
     image: string,
-    slug: string,
-    readMoreLink: string
+    slug: string
 };
 
 const Sidebar = ({ latestPosts }: { latestPosts: Post[] }) => {
