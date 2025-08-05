@@ -3,17 +3,36 @@ import Image from "next/image"
 import Link from 'next/link'
 
 type Product = {
-  id: number
-  name: string
-  slug: string
-  imageUrl: string
+  id: number;
+  title: string;
+  slug: string;
+  image: string | null;
+  status: {
+    value: string;
+    label: string;
+  };
+  categories: {
+    id: number;
+    title: string;
+    slug: string;
+  }[];
 }
 
 type ProductCardProps = {
-  product: Product
+  product: Product;
 }
 
+
+
+
 const ProductCard = ({ product }: ProductCardProps) => {
+
+  const imageUrl = product.image
+    ? product.image.startsWith('http')
+      ? product.image
+      : `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL || ''}/${product.image}`
+    : 'https://placehold.co/600x400.png?text=No+Image';
+
   return (
      <Link
      href={`/product/${product.slug}`}
@@ -21,8 +40,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer">
       <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-50 to-teal-50">
         <Image
-          src={product.imageUrl || "https://placehold.co/600x400.png?text=No+Image"}
-          alt={product.name}
+          src={imageUrl}
+          alt={product.title}
           fill
           className="object-cover hover:scale-105 transition-transform duration-300"
         />
@@ -30,7 +49,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <div className="p-6">
         <div className="text-center">
-          <h3 className="text-[#19065f] text-[18px] font-bold m">{product.name}</h3>
+          <h3 className="text-[#19065f] text-[18px] font-bold m">{product.title}</h3>
         </div>
       </div>
     </div>

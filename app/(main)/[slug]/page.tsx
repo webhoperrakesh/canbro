@@ -2,6 +2,7 @@ import React from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { getPageData } from '@/utils/getPageData'
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 type Params = Promise<{ slug: string }>
 
@@ -23,9 +24,7 @@ const page = async ({ params }: { params: Params }) => {
 
     const dynamicData = await getPageData(slug);
 
-    if (!dynamicData.pageData || dynamicData.pageData.length === 0) return null;
-
-    console.log(dynamicData.pageData.length);
+    if (!dynamicData.pageData || dynamicData.pageData.length === 0) return notFound();
 
     return (
         <>

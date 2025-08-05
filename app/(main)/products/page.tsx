@@ -1,9 +1,49 @@
-import { products } from '@/fakeData/productsFakeData'
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductCard from '@/components/ProductCard';
 import { CategorySidebar } from '@/components/CategorySidebar';
 
-export default function ProductsPage() {
+type Product = {
+  id: number;
+  title: string;
+  slug: string;
+  price?: number;
+  image: string | null;
+  short_description?: string;
+  status: {
+    value: string;
+    label: string;
+  };
+  categories: {
+    id: number;
+    title: string;
+    slug: string;
+  }[];
+};
+
+type ProductResponse = {
+  success: boolean;
+  data: Product[];
+  message: string;
+};
+
+export default async function ProductsPage() {
+
+  let products: Product[] = [];
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) throw new Error('Failed to fetch products');
+
+    const json: ProductResponse = await res.json();
+    products = json.data;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    products = [];
+  }
+  
     return (
         <>
             <Breadcrumbs title="Products" bgImage="/images/slider-bg-1.png" />
