@@ -3,6 +3,24 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import ProductCard from '@/components/ProductCard'
 import { CategorySidebar } from '@/components/CategorySidebar'
 import { notFound } from 'next/navigation'
+import { getMetaData } from '@/utils/getMetaData'
+import { Metadata } from 'next'
+
+
+type Params = Promise<{ slug: string }>
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+
+    const { slug } = await params;
+    const data = await getMetaData(slug,'Category');
+    const seo = data.seo_meta;
+
+    return {
+        title: seo.seo_title || 'Default Title',
+        description: seo.seo_description || 'Default Description',
+        robots: seo.index === 'index' ? 'index,follow' : 'noindex,nofollow',
+    };
+}
 
 type Category = {
   id: number;
@@ -46,7 +64,6 @@ type ProductResponse = {
   message: string;
 };
 
-type Params = Promise<{ slug: string }>
 
 const ProductCategoryPage = async ({ params }: { params: Params }) => {
 

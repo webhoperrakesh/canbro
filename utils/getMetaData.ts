@@ -9,8 +9,8 @@ export type ApiResponse = {
 };
 
 
-export async function getMetaData(slug: string): Promise<ApiResponse> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/metadata/${slug}`, {
+export async function getMetaData(slug: string, type: string): Promise<ApiResponse> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/metadata/${slug}?reference_type=${type}`, {
    next: { revalidate: 3600 },
   });
 

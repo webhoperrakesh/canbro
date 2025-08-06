@@ -122,7 +122,7 @@ const SpecilizationSection = () => {
 
                                 {/* Read More Button */}
                                 <div className="flex items-center justify-between">
-                                    <Link href="#" className='text-sm font-medium text-[#19065f]'>
+                                    <Link href="/products" className='text-sm font-medium text-[#19065f]'>
                                         <span className='w-[10px] h-[10px] inline-block bg-[#19065f] rounded-full hover:cursor-pointer'></span> Read More
                                     </Link>
                                     <button className='lg:absolute right-0 bottom-0 flex items-center justify-center w-10 h-10 rounded-full p-0 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:cursor-pointer'>

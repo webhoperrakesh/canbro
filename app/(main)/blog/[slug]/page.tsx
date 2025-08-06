@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   const { slug } = await params;
 
-  const data = await getMetaData(slug);
+  const data = await getMetaData(slug,'Post');
   const seo = data.seo_meta;
 
   return {

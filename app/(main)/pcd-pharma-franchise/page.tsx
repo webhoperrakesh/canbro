@@ -2,9 +2,6 @@ import React from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import Image from 'next/image'
 import ContactForm from '@/components/ContactForm';
-import { BiCheckCircle } from 'react-icons/bi';
-import { LuAward } from "react-icons/lu";
-import { featureList } from "@/fakeData/fakeDatas"
 import { Metadata } from 'next';
 import { getPageData } from '@/utils/getPageData';
 

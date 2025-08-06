@@ -5,10 +5,25 @@ import Image from 'next/image';
 import { RiArrowRightDoubleFill } from "react-icons/ri";
 import { CategorySidebar } from '@/components/CategorySidebar';
 import { notFound } from 'next/navigation';
+import { getMetaData } from '@/utils/getMetaData';
+import { Metadata } from 'next';
+import SendEnquiry from '@/components/SendEnquiry';
 
-type Params = Promise<{ slug: string }>;
+type Params = Promise<{ slug: string }>
 
-export type Category = {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+    const { slug } = await params;
+    const data = await getMetaData(slug, 'Product');
+    const seo = data.seo_meta;
+
+    return {
+        title: seo.seo_title || 'Default Title',
+        description: seo.seo_description || 'Default Description',
+        robots: seo.index === 'index' ? 'index,follow' : 'noindex,nofollow',
+    };
+}
+
+type Category = {
     id: number;
     title: string;
     slug: string;
@@ -137,30 +152,35 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                                 </div>
                             }
 
-                            {(product.brand_name || product.composition || product.pack) &&
-                                <div>
-                                    <h3 className="text-[#19065f] text-[18px] font-bold mt-4 mb-2">Additional Info:</h3>
-                                    <ul className="space-y-1 text-sm text-[#3C3C3C] md:text-[16px] font-medium">
-                                        <li className="py-1 mb-2">
-                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Brand:</strong> {product.brand_name}</p>
-                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Composition:</strong> {product.composition}</p>
-                                            <p><strong className='text-[#19065f] text-[16px] font-semibold'>Pack:</strong> {product.pack}</p>
-                                        </li>
-
-                                    </ul>
-                                    <div className="w-full h-[1px] bg-gray-300 mb-3"></div>
+                            {(product.brand_name || product.composition || product.pack) && (
+                                <div className="mt-4">
+                                    <h3 className="text-[#19065f] text-lg font-bold mb-2">Additional Info</h3>
+                                    <div className="space-y-2 text-sm text-[#3C3C3C] md:text-base font-medium">
+                                        {product.brand_name && (
+                                            <p>
+                                                <span className="text-[#19065f] font-semibold">Brand:</span> {product.brand_name}
+                                            </p>
+                                        )}
+                                        {product.composition && (
+                                            <p>
+                                                <span className="text-[#19065f] font-semibold">Composition:</span> {product.composition}
+                                            </p>
+                                        )}
+                                        {product.pack && (
+                                            <p>
+                                                <span className="text-[#19065f] font-semibold">Pack:</span> {product.pack}
+                                            </p>
+                                        )}
+                                    </div>
+                                    <div className="w-full h-px bg-gray-300 my-3"></div>
                                 </div>
-                            }
+                            )}
 
 
 
                             <div className="mt-6 flex items-center justify-start gap-4">
-                                <Link href="/products" className="text-blue-500 hover:underline text-sm">
-                                    ← Back to Products
-                                </Link>
-                                <button className="inline-block text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 transition-all duration-300 hover:scale-105 hover:cursor-pointer">
-                                    Send An Enquiry
-                                </button>
+                                
+                                <SendEnquiry subject = {product.title} />
                             </div>
                         </div>
                     </div>
@@ -171,7 +191,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             <h2 className="text-2xl md:text-3xl lg:text-4xl text-[#212088] font-semibold capitalize leading-tight">
                                 Product <span className="text-[#38A0A7]">Description</span>
                             </h2>
-                            <div className="text-[#3C3C3C] text-sm md:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: product.long_dec }} />                                                           
+                            <div className="text-[#3C3C3C] text-sm md:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: product.long_dec }} />
                         </div>
                     )}
 

@@ -7,22 +7,11 @@ type Product = {
   title: string;
   slug: string;
   image: string | null;
-  status: {
-    value: string;
-    label: string;
-  };
-  categories: {
-    id: number;
-    title: string;
-    slug: string;
-  }[];
 }
 
 type ProductCardProps = {
   product: Product;
 }
-
-
 
 
 const ProductCard = ({ product }: ProductCardProps) => {
@@ -38,18 +27,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
      href={`/product/${product.slug}`}
      >
      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer">
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-50 to-teal-50">
+      <div className="relative aspect-[1/1] bg-gradient-to-br from-gray-50 to-teal-50">
         <Image
           src={imageUrl}
           alt={product.title}
           fill
           className="object-fill hover:scale-105 transition-transform duration-300"
+          placeholder="blur"
+            blurDataURL="https://placehold.co/600x400.png"
+            loading="lazy"
         />
       </div>
 
-      <div className="p-6">
+      <div className="p-4">
         <div className="text-center">
-          <h3 className="text-[#19065f] text-[18px] font-bold m">{product.title}</h3>
+          <h3 className="text-[#19065f] text-[18px] font-bold m uppercase">{product.title}</h3>
         </div>
       </div>
     </div>

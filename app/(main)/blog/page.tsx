@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
 
-    const data = await getMetaData('blog');
+    const data = await getMetaData('blog','Page');
     const seo = data.seo_meta;
 
     return {

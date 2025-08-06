@@ -4,6 +4,20 @@ import React, { useState } from 'react'
 import { LuFileCheck, LuAward, LuShield, LuZoomIn } from "react-icons/lu";
 import { IoCloseOutline } from "react-icons/io5";
 import Image from 'next/image';
+import { Metadata } from 'next';
+import { getPageData } from '@/utils/getPageData';
+
+export async function generateMetadata(): Promise<Metadata> {
+
+    const data = await getPageData('our-certificate');
+    const seo = data.meta.seo_meta;
+
+    return {
+        title: seo.seo_title || 'Default Title',
+        description: seo.seo_description || 'Default Description',
+        robots: seo.index === 'index' ? 'index,follow' : 'noindex,nofollow',
+    };
+}
 
 
 type Certificate = {

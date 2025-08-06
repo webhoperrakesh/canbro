@@ -21,8 +21,6 @@ const AboutCoreValues = async () => {
 
     if (!repeaterFields || repeaterFields.length === 0) return null;
 
-    console.log(repeaterFields)
-
     return (
         <div className="bg-[#f6f6f6]">
             <div className='container mx-auto px-4 py-12 md:py-15'>
