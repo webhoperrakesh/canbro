@@ -93,7 +93,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
     return (
         <div className='container mx-auto px-4 py-12 md:py-15'>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <div className="md:col-span-3">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 
