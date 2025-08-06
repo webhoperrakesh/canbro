@@ -24,7 +24,7 @@ const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
                     alt="CANBRO Nephrology and Urology Care"
                     width={200}
                     height={100}
-                    className="object-contain"
+                    className="object-contain main-logo"
                 />
             </Link>
 
