@@ -141,8 +141,8 @@ const ProductSliderClient = ({ products }: ProductsProps) => {
                                         {currentProduct.title}
                                     </h3>
 
-                                    <div className="flex items-baseline mb-4 lg:mb-6 gap-4">
-                                        <div className="w-12 lg:w-16 h-0.5 bg-white/80" />
+                                    <div className="flex items-start mb-4 lg:mb-6 gap-4">
+                                        <div className="w-12 lg:w-16 h-0.5 bg-white/80 mt-[14px]" />
 
                                         <h4 className="text-base md:text-lg lg:text-[22px] font-medium leading-relaxed opacity-95 lg:line-clamp-2">
                                             {currentProduct.composition}

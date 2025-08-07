@@ -109,9 +109,9 @@ const SpecilizationSection = async () => {
 
                 {/* View All Products Button */}
                 <div className="text-center">
-                    <button className="inline-flex items-center justify-center w-12 h-12 border-1 border-grey-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:cursor-pointer group mb-4">
+                    <Link href={`/products`} className="inline-flex items-center justify-center w-12 h-12 border-1 border-grey-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:cursor-pointer group mb-4">
                         <GoPlus size={20} className="text-gray-600 group-hover:text-teal-500 transition-colors duration-300" />
-                    </button>
+                    </Link>
                     <div className="text-gray-600">View all Products</div>
                 </div>
             </div>
