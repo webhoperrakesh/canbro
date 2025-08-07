@@ -1,12 +1,4 @@
 import CategorySidebarClient from "./CategorySidebarClient";
-// import { categories } from "@/fakeData/productsFakeData"
-
-type Category = {
-  id: number;
-  title: string;
-  slug: string;
-};
-
 
 
 export async function CategorySidebar() {

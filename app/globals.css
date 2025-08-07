@@ -33,6 +33,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -105,23 +106,52 @@ custom-font-style p {
   line-height: 1.8rem;
 }
 
-.custom-heading-color-blue span{
+.custom-heading-color-blue span {
   color: #212088;
 }
 
-.custom-heading-color-light span{
+.custom-heading-color-light span {
   color: #38A0A7;
+}
+
+.place-a-query .custom-grid-cols {
+  grid-template-columns: 1fr !important;
+  gap: 4px;
+}
+
+.place-a-query form textarea {
+  height: 90px;
+}
+
+.place-a-query form {
+  gap: 10px !important;
+}
+
+.place-a-query form input,
+.place-a-query form textarea,
+.place-a-query form button {
+  padding: 10px !important;
+}
+
+.main-slider{
+  aspect-ratio: 16/6;
+  width: 100% !important;
+  height: auto !important;
 }
 
 @media (max-width: 480px) {
   .main-logo {
     width: 125px;
   }
+
+  body {
+    padding-top: 135px;
+  }
 }
 
 @media (min-width: 768px) {
   .custom-font-style p {
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
 

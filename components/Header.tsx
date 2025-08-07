@@ -1,11 +1,13 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TopHeader from './Topheader';
 import { IoSearchSharp } from "react-icons/io5";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import Link from 'next/link';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import HeaderSearchForm from './HeaderSearchForm';
+
 
 type MenuItem = {
   id: number;
@@ -39,10 +41,12 @@ type HeaderProps = {
     };
 };
 
+
 const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -50,6 +54,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen)
+    console.log("Search Toggled:", !isSearchOpen);
   }
 
   const currentPath = usePathname();
@@ -57,6 +62,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
   const logoImg = logo
     ? `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${logo[0].value}`
     : "https://placehold.co/200x100.png";
+
 
   return (
     <header className="bg-white fixed top-0 w-full z-100">
@@ -100,30 +106,17 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
 
                 {/* Search Overlay */}
                 <div className="relative">
-                  {isSearchOpen && (
-                    <div className="absolute top-14 right-0 bg-white rounded-lg shadow-lg border p-4 z-50 animate-in slide-in-from-top-2 duration-200">
-                      <div className="flex items-center space-x-2">
-                        <IoSearchSharp className="h-5 w-5 text-gray-400" />
-                        <input
-                          type="text"
-                          placeholder="Search..."
-                          className="flex-1 border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
-                          autoFocus
-                        />
-                        <button
-                          onClick={toggleSearch}
-                          className="text-gray-400 hover:text-gray-600 h-8 w-8"
-                        >
-                          <IoMdClose className="h-4 w-4" />
-                        </button>
-                      </div>
+                      {isSearchOpen && (
+                       <HeaderSearchForm toggleSearch={toggleSearch} rightClass = {true} inputWidth = {false} />
+                      )}
+                
+                      <button
+                        className="p-2 border-2 border-white rounded-full hover:cursor-pointer transition-colors duration-200"
+                        onClick={toggleSearch}
+                      >
+                        <IoSearchSharp className="h-5 w-5" />
+                      </button>
                     </div>
-                  )}
-
-                  <button className="p-2 border-2 border-#fff rounded-full hover:cursor-pointer transition-colors duration-200" onClick={toggleSearch}>
-                    <IoSearchSharp className="h-5 w-5" />
-                  </button>
-                </div>
 
               </div>
 
@@ -133,23 +126,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
               <div className="lg:hidden w-full flex justify-between items-center space-x-4">
                 <div className="relative">
                   {isSearchOpen && (
-                    <div className="absolute top-14 bg-white rounded-lg shadow-lg border p-4 z-50 animate-in slide-in-from-top-2 duration-200">
-                      <div className="flex items-center space-x-2">
-                        <IoSearchSharp className="h-5 w-5 text-gray-400" />
-                        <input
-                          type="text"
-                          placeholder="Search..."
-                          className="flex-1 w-[190px] border-none focus:ring-0 focus:outline-none text-black placeholder:text-gray-400"
-                          autoFocus
-                        />
-                        <button
-                          onClick={toggleSearch}
-                          className="text-gray-400 hover:text-gray-600 h-8 w-8"
-                        >
-                          <IoMdClose className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </div>
+                    <HeaderSearchForm toggleSearch={toggleSearch} rightClass = {false} inputWidth = {true} />
                   )}
                   <button className="p-2 rounded-full hover:bg-indigo-800 transition-colors duration-200 hover:cursor-pointer" onClick={toggleSearch}>
                     <IoSearchSharp className="h-5 w-5" />

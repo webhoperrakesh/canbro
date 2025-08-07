@@ -23,9 +23,9 @@ export default async function Home() {
   return (
     <>
       {data.heroslider && <NewHeroSlider sliderData={data.heroslider} />}
-      <About />
+      {data.homeaboutus &&<About AboutUsData = {data.homeaboutus} /> }
       <SpecilizationSection />
-      <Whoweare />
+      {data.whoweare &&<Whoweare WhoWeAreData = {data.whoweare} /> }
       <ProductSlider />
       <OurCertification />
       <AmplurCVSlider />

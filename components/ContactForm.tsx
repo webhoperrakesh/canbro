@@ -36,7 +36,7 @@ const ContactForm = () => {
     setLoading(true); // Show loading state
     setResponse(null);
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiry`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact/inquiry`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 custom-grid-cols">
         <div className="space-y-2">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             Name
@@ -130,7 +130,7 @@ const ContactForm = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 custom-grid-cols">
         <div className="space-y-2">
           <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
             Contact Number

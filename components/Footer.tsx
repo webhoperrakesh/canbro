@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FaWhatsapp } from "react-icons/fa6";
@@ -9,6 +9,7 @@ import { BsTelephone } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import getIconComponent from '@/utils/getIconComponent';
+import ContactForm from './ContactForm';
 
 
 type MenuItem = {
@@ -40,6 +41,7 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
 
@@ -236,6 +238,28 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
           <BiMessageRoundedDetail className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
         </button>
       </div>
+
+
+      <div className="fixed bottom-0 right-0 z-[1000] w-80">
+      {/* Toggle Header */}
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-[#19065f] text-white lg:text-[16px] xl:text-lg font-medium px-4 py-2 cursor-pointer rounded-t-lg"
+      >
+        PLACE A QUERY
+      </div>
+
+      {/* Form Container */}
+      <div
+        className={`transition-all duration-500 ease-in-out bg-white shadow-sm border border-gray-200 overflow-auto ${
+          isOpen ? 'max-h-[600px] p-4' : 'max-h-0 p-0'
+        }`}
+      >
+        <div className='place-a-query'>
+        <ContactForm />
+        </div>
+      </div>
+    </div>
 
 
 

@@ -34,7 +34,7 @@ const SendEnquiry = ({ subject }: SubjectProps) => {
     // Set subject when form is opened
     useEffect(() => {
         if (showform) {
-            form.setValue('subject', `Query About ${subject}`);
+            form.setValue('subject', `Enquiry About ${subject}`);
         }
     }, [showform, form, subject]);
 
@@ -62,7 +62,10 @@ const SendEnquiry = ({ subject }: SubjectProps) => {
             if (res.ok) {
                 setResponse('Message sent successfully!');
                 form.reset();
-                setShowForm(false);
+                setTimeout(() => {
+                  setShowForm(false);
+                  setResponse(null);
+                },2000)
             } else {
                 setResponse(result.message || 'Submission failed');
             }
