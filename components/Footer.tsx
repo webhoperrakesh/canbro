@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {FaWhatsapp } from "react-icons/fa6";
@@ -42,6 +42,7 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
 
   const handleWhatsAppClick = () => {
 
@@ -52,6 +53,28 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
   const handleEmailClick = () => {
     window.location.href = `mailto:${footerData?.settings?.contact_email}`
   }
+
+  // Handle click outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        formRef.current &&
+        !formRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -240,18 +263,18 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
       </div>
 
 
-      <div className="fixed bottom-0 right-0 z-[1000] w-80">
+      <div ref={formRef} className="hidden md:block fixed bottom-0 right-0 z-[1000] w-80">
       {/* Toggle Header */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#19065f] text-white lg:text-[16px] xl:text-lg font-medium px-4 py-2 cursor-pointer rounded-t-lg"
+        className="bg-[#19065f] uppercase text-center text-white lg:text-[16px] xl:text-lg font-medium px-4 py-2 cursor-pointer rounded-t-lg"
       >
-        PLACE A QUERY
+        place a query
       </div>
 
       {/* Form Container */}
       <div
-        className={`transition-all duration-500 ease-in-out bg-white shadow-sm border border-gray-200 overflow-auto ${
+        className={`transition-all duration-500 ease-in-out bg-white shadow-sm border border-gray-200 overflow-auto hide-scroll ${
           isOpen ? 'max-h-[600px] p-4' : 'max-h-0 p-0'
         }`}
       >

@@ -20,19 +20,33 @@ export default async function Home() {
 
   const data = blockData.data || {};
 
+  console.log(data);
+
   return (
     <>
-      {data.heroslider && <NewHeroSlider sliderData={data.heroslider} />}
-      {data.homeaboutus &&<About AboutUsData = {data.homeaboutus} /> }
+      {data.heroslider &&
+        <NewHeroSlider sliderData={data.heroslider} />
+      }
+      {data.homeaboutus &&
+        <About AboutUsData={data.homeaboutus} />
+      }
       <SpecilizationSection />
-      {data.whoweare &&<Whoweare WhoWeAreData = {data.whoweare} /> }
+      {data.whoweare &&
+        <Whoweare WhoWeAreData={data.whoweare} />
+      }
       <ProductSlider />
-      <OurCertification />
+      {data.ourcertification &&
+        <OurCertification OurCertificationData={data.ourcertification} />
+      }
       <AmplurCVSlider />
-      <OurCommitment />
+      {data.ourcommitment &&
+        <OurCommitment CommitmentData={data.ourcommitment} />
+      }
       <EnquirySection />
       <BlogsSection />
-      <PharmaDivision />
+      {data.pharmadivisions &&
+        <PharmaDivision DivisionsData={data.pharmadivisions} />
+      }
     </>
   );
 }

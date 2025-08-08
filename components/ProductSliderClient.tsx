@@ -120,7 +120,7 @@ const ProductSliderClient = ({ products }: ProductsProps) => {
                                 {/* Product Image */}
                                 <div className="lg:absolute lg:bottom-[-4rem] z-10 transform transition-transform duration-700 hover:scale-105">
                                     <Image
-                                        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${currentProduct.image}` || "/placeholder.svg"}
+                                        src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${currentProduct.image}` || "https://placehold.co/400x500.png?text=No+Image"}
                                         alt={`Current product - ${currentProduct.title}`}
                                         width={400}
                                         height={500}
@@ -166,7 +166,7 @@ const ProductSliderClient = ({ products }: ProductsProps) => {
                 >
                     <div className="relative p-4">
                         <Image
-                            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${nextProduct.image}` || "/placeholder.svg"}
+                            src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${nextProduct.image}` || "https://placehold.co/200x280.png?text=No+Image"}
                             alt={`Next product - ${nextProduct.title}`}
                             width={200}
                             height={280}

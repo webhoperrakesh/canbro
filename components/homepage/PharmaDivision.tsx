@@ -1,50 +1,68 @@
 import React from 'react'
 import Image from 'next/image'
 
-const divisions = [
-    {
-        imgSrc: "/images/division-1.png",
-        alt: "Nephrology and Urology Care",
-    },
-    {
-        imgSrc: "/images/division-2.png",
-        alt: "Cosmetology",
-    },
-    {
-        imgSrc: "/images/division-3.png",
-        alt: "Dermatology & Nutraceuticals",
-    },
-];
+type DivisionsItem = {
+    image: string;
+    heading: string;
+}
+
+type BlockData = {
+    heading: string;
+    repeater_fields: DivisionsItem[] | string;
+};
+
+type DivisionsSectionProps = {
+    DivisionsData: BlockData;
+};
+
+// const divisions = [
+//     {
+//         imgSrc: "/images/division-1.png",
+//         alt: "Nephrology and Urology Care",
+//     },
+//     {
+//         imgSrc: "/images/division-2.png",
+//         alt: "Cosmetology",
+//     },
+//     {
+//         imgSrc: "/images/division-3.png",
+//         alt: "Dermatology & Nutraceuticals",
+//     },
+// ];
 
 
-const PharmaDivision = () => {
+const PharmaDivision = ({ DivisionsData }: DivisionsSectionProps) => {
+
+    const { heading, repeater_fields } = DivisionsData;
+
+    const divisions = JSON.parse(repeater_fields as string);
+
     return (
         <section className='bg-[#F6F6F6]' id='pharma-division'>
             <div className='container mx-auto px-4 py-8'>
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                     {/* Left side - Text content */}
                     <div className="text-center lg:text-left flex-2">
-                        <h2 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight">
-                            Innovating Through
-                            <br />
-                            Our Specialty <span className="text-teal-600 font-bold">Pharma <br />
-                                Divisions</span>
-                        </h2>
+                       {heading &&
+                       <h2 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight" dangerouslySetInnerHTML={{ __html: heading }} />
+                       }
+
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-between flex-3">
-                        {divisions.map((division, index) => (
-                            <Image
-                                key={index}
-                                src={division.imgSrc}
-                                alt={division.alt}
-                                width={200}
-                                height={100}
-                                className="object-contain"
-                            />
-                        ))}
-                    </div>
-
+                    {divisions.length > 0 &&
+                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center justify-between flex-3">
+                            {divisions.map((item: any, index: number) => (
+                                <Image
+                                    key={index}
+                                    src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${item.image}` || "https://placehold.co/200x100.png?text=No\nImage"}
+                                    alt={item.heading}
+                                    width={200}
+                                    height={100}
+                                    className="object-contain"
+                                />
+                            ))}
+                        </div>
+                    }
                 </div>
             </div>
         </section>
