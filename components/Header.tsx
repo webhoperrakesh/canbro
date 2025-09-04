@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                     <Link
                       key={item.title || index}
                       href={item.url}
-                      className={`px-3 py-2 lg:text-[16px] xl:text-lg font-medium transition-colors duration-200 ${isActive ? "text-[#38A0A7]" : "text-white hover:text-[#38A0A7]"
+                      className={`px-3 py-2 lg:text-[16px] xl:text-lg font-normal transition-colors duration-200 ${isActive ? "text-[#38A0A7]" : "text-white hover:text-[#38A0A7]"
                         }`}
                     >
                       {item.title}
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                 {/* Contact Us Button and Search - Desktop */}
                 <Link
                   href="/contact"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium transition-colors duration-200 hover:cursor-pointer">
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-normal mr-0 transition-colors duration-200 hover:cursor-pointer">
                   Contact Us
                 </Link>
 
@@ -150,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                       <Link
                         key={item.title || index}
                         href={item.url}
-                        className={`block py-2 text-base font-medium transition-colors duration-200 ${isActive
+                        className={`block py-2 text-base font-normal transition-colors duration-200 ${isActive
                           ? "text-[#38A0A7]"
                           : "text-white hover:text-[#38A0A7]"
                           }`}
@@ -164,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                     <Link
                       href="/contact"
                       onClick={() => setIsMenuOpen(false)}
-                      className="inline-block w-fit bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-full font-medium transition-colors duration-200"
+                      className="inline-block w-fit bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-normal transition-colors duration-200"
                     >
                       Contact Us
                     </Link>

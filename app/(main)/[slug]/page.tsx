@@ -30,8 +30,8 @@ const page = async ({ params }: { params: Params }) => {
         <>
             <Breadcrumbs title={ dynamicData.pageData[0].name } bgImage="/images/slider-bg-1.png" />
             <div className='container mx-auto px-4 py-12 md:py-15'>
-                <div className='font-medium custom-font-style'>
-                    <div className='font-medium custom-font-style' dangerouslySetInnerHTML={{ __html: dynamicData?.pageData[0]?.content }} />
+                <div className='font-normal custom-font-style'>
+                    <div className='font-normal custom-font-style' dangerouslySetInnerHTML={{ __html: dynamicData?.pageData[0]?.content }} />
                 </div>
             </div>
         </>

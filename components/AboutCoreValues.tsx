@@ -56,7 +56,7 @@ const AboutCoreValues = async () => {
                                 </div>
 
                                 <h3 className="text-[#19065f] text-[18px] font-bold text-xl mb-3">{item.heading}</h3>
-                                <p className="leading-relaxed text-sm lg:text-[16px] font-medium text-gray-600 mb-2">{item.content}</p>
+                                <p className="leading-relaxed text-sm lg:text-[16px] font-normal text-gray-600 mb-2">{item.content}</p>
                             </div>
                         );
                     })}

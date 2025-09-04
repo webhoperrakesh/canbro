@@ -94,7 +94,7 @@ const SpecilizationSection = async () => {
 
                                 {/* Description */}
                                 <p
-                                    className='text-sm lg:text-[14px] font-medium mb-3 leading-relaxed text-gray-600 line-clamp-3'>
+                                    className='text-sm lg:text-[14px] font-small mb-3 leading-relaxed text-gray-600 line-clamp-3'>
                                     {category.short_desc}
                                 </p>
 

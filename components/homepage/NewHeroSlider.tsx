@@ -38,7 +38,8 @@ export default function NewHeroSlider({ sliderData }: HeroSectionProps) {
     if (!sliderItems.length) return null;
 
     return (
-        <section className="relative h-[30vh] sm:h-[35vh] md:h-[50vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[80vh] overflow-hidden main-slider">
+        <section className="relative overflow-hidden main-slider">
+        {/* <section className="relative h-[30vh] sm:h-[35vh] md:h-[50vh] lg:h-[65vh] xl:h-[75vh] 2xl:h-[80vh] overflow-hidden main-slider"> */}
             <div className="relative w-full h-full">
                 {sliderItems.map((slide: any, index: any) => (
                     <Image

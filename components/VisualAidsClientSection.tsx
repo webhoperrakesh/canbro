@@ -56,11 +56,11 @@ const VisualAidsClientSection = ({ slidesData }: ProductCardProps) => {
 
             <p className="text-sm lg:text-[20px] text-white font-semibold mb-6 opacity-90">{currentData.composition}</p>
 
-            <div className="space-y-3 mr-4 mb-8 line-clamp-6" dangerouslySetInnerHTML={{ __html: currentData.long_dec }} />
+            <div className="space-y-3 mr-4 mb-8 line-clamp-6 font-normal" dangerouslySetInnerHTML={{ __html: currentData.long_dec }} />
 
             <Link
               href={`/product/${currentData.slug}`}
-              className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-full px-10 py-3 w-fit transition-all duration-300 hover:scale-105 hover:cursor-pointer"
+              className="text-sm md:text-[16px] bg-orange-500 hover:bg-orange-600 text-white rounded-md px-6 py-3 w-fit transition-all duration-300 hover:scale-105 hover:cursor-pointer"
             >
               Read more...
             </Link>

@@ -97,9 +97,9 @@ custom-font-style p {
 
 .custom-font-style p {
   margin-bottom: 1.5rem;
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #3C3C3C;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.8rem;
 }
 

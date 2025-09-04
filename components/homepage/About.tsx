@@ -35,7 +35,7 @@ const About = ({ AboutUsData }: ABoutUsSectionProps) => {
                     </div>
                     <div className='md:col-span-7 md:pl-0 lg:pl-10'>
                         {sub_heading &&
-                            <p className="text-sm lg:font-[16px] font-medium text-white uppercase bg-[#38A0A7] rounded-full w-max py-2 px-6 mb-4">
+                            <p className="text-sm lg:font-[16px] font-small text-white uppercase bg-[#38A0A7] rounded-full w-max py-2 px-6 mb-4">
                                 {sub_heading}
                             </p>
                         }
@@ -45,7 +45,7 @@ const About = ({ AboutUsData }: ABoutUsSectionProps) => {
                         }
 
                         {description &&
-                            <p className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12">
+                            <p className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] lg:mb-12">
                                 {description}
                             </p>
                         }

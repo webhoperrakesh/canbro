@@ -45,7 +45,7 @@ const AboutUsPage = async () => {
 
               <h2 className='text-2xl md:text-3xl lg:text-[45px] font-semibold text-[#38A0A7] capitalize mb-4 custom-heading-color-blue' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].heading ?? '' }} />
                
-              <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].content ?? '' }} />
+              <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].content ?? '' }} />
                
             </div>
           </div>
@@ -59,7 +59,7 @@ const AboutUsPage = async () => {
               <p className="text-xl text-white font-semibold italic">
                 "{pageData.customFields[1].sub_heading}"
               </p>
-              <div className="max-w-5xl text-center mx-auto text-sm md:text-[16px] font-medium text-white leading-[1.8rem]" dangerouslySetInnerHTML={{ __html: pageData.customFields[1].content ?? '' }} />
+              <div className="max-w-5xl text-center mx-auto text-sm md:text-[16px] font-normal text-white leading-[1.8rem]" dangerouslySetInnerHTML={{ __html: pageData.customFields[1].content ?? '' }} />
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ const AboutUsPage = async () => {
               <h2 className='text-2xl md:text-3xl lg:text-[45px] font-semibold text-[#38A0A7] capitalize mb-4 custom-heading-color-blue' dangerouslySetInnerHTML={{ __html: pageData.customFields[2].heading ?? '' }}/>
                 
 
-              <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[2].content ?? '' }} />
+              <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[2].content ?? '' }} />
                 
             </div>
             <div className='md:col-span-5'>
