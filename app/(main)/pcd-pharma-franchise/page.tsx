@@ -95,7 +95,7 @@ const PharmaFranchise = async () => {
                                         </h2>
                                         <p className="text-[#3C3C3C] lg:text-[18px] font-semibold opacity-90">Have a question or need assistance? Fill out the form below.</p>
                                     </div>
-                                    <div className="pt-6">
+                                    <div className="">
                                         <ContactForm />
                                     </div>
                                 </div>

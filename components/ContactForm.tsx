@@ -139,7 +139,7 @@ const ContactForm = () => {
             control={form.control}
             name="contact"
             rules={{
-              required: "Contact number is required",
+              required: "Phone number is required",
               minLength: {
                 value: 10,
                 message: "Contact number must be at least 10 digits",
