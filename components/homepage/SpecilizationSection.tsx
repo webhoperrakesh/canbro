@@ -54,28 +54,26 @@ const SpecilizationSection = async () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 lg:pt-4">
                     {categories.slice(0,8).map((category: any, index: number) => (
                         <div
-                            key={index} className='relative card flex rounded-2xl group transition-all duration-300 border-0 bg-white lg:bg-transparent lg:bg-[url(/images/card-bg.png)] lg:bg-center lg:bg-no-repeat bg-cover lg:bg-[length:100%_100%]'>
+                            key={index} className='relative card flex rounded-2xl group transition-all duration-300 border-0 bg-white lg:bg-transparent lg:bg-[url(/images/card-bg.png)] lg:bg-center lg:bg-no-repeat bg-cover lg:bg-[length:100%_100%] hover:bg-[url(/images/hover-bg.png)]'>
                             <div className="p-6 flex flex-col justify-between w-full">
                                 {/* Icon */}
                                 <div className="flex justify-start items-end mb-3">
                                    
                                     {/* <div className="mb-3"> */}
-                                    <span className='text-sm lg:text-[14px] font-medium text-[#38a0a7]'>
+                                    <span className='text-sm lg:text-[14px] font-medium text-[#38a0a7] group-hover:text-white'>
                                         Nephrology & Urology Care
                                     </span>
                                 {/* </div> */}
 
-                                    <div
-                                        className='w-14 h-14'>
-
+                                    <div className='w-14 h-14'>
                                         <Image
                                             src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${category.image}` || "https://placehold.co/64x64.png?text=No+Image"}
                                             width={64}
                                             height={64}
                                             alt={category.title}
                                             priority
+                                            className="group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
                                         />
-
                                     </div>
                                 </div>
 
@@ -88,22 +86,22 @@ const SpecilizationSection = async () => {
 
                                 {/* Title */}
                                 <h3
-                                    className='text-[#19065f] text-[18px] font-bold mb-2 min-h-[3rem] flex items-center justify-start'>
+                                    className='text-[#212088] text-[18px] font-bold mb-2 min-h-[3rem] flex items-center justify-start group-hover:text-white'>
                                     {category.title}
                                 </h3>
 
                                 {/* Description */}
                                 <p
-                                    className='text-sm lg:text-[14px] font-small mb-3 leading-relaxed text-gray-600 line-clamp-3'>
+                                    className='text-sm lg:text-[14px] font-small mb-3 leading-relaxed text-gray-600 line-clamp-3 group-hover:text-white'>
                                     {category.short_desc}
                                 </p>
 
-                                <div className="w-25 lg:w-25 h-[1px] bg-gray-300 mb-3" />
+                                <div className="w-25 lg:w-25 h-[1px] bg-gray-300 mb-3 group-hover:text-white" />
 
                                 {/* Read More Button */}
                                 <div className="flex items-center justify-between">
-                                    <Link href={`/product-category/${category.slug}`} className='text-sm font-medium text-[#19065f]'>
-                                        <span className='w-[10px] h-[10px] inline-block bg-[#19065f] rounded-full hover:cursor-pointer'></span> Read More
+                                    <Link href={`/product-category/${category.slug}`} className='text-sm font-medium text-[#19065f] group-hover:text-white'>
+                                        <span className='w-[10px] h-[10px] inline-block bg-[#19065f] rounded-full hover:cursor-pointer group-hover:bg-white'></span> Read More
                                     </Link>
                                     <Link href={`/product-category/${category.slug}`} className='lg:absolute right-0 bottom-0 flex items-center justify-center w-10 h-10 rounded-full p-0 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:cursor-pointer'>
                                         <GoArrowUpRight className="w-4 h-4" />

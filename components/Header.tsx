@@ -72,13 +72,13 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
         </div>
       </div>
 
-      <nav className="bg-[#19065f] text-white">
+      <nav className="bg-[#19065F] text-white">
         <div className="container mx-auto">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+            <div className="flex items-center justify-between h-14">
               {/* Desktop Navigation */}
 
-              <div className="hidden lg:flex w-full items-center lg:justify-center xl:gap-[20px] lg:space-x-4">
+              <div className="hidden lg:flex w-full items-center lg:justify-center gap-[30px] lg:space-x-4">
                 {mainMenu?.items.map((item: any, index: any) => {
                   const isActive = item.url === currentPath;
 
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                 {/* Contact Us Button and Search - Desktop */}
                 <Link
                   href="/contact"
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-normal mr-0 transition-colors duration-200 hover:cursor-pointer">
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-normal transition-colors duration-200 hover:cursor-pointer">
                   Contact Us
                 </Link>
 
@@ -111,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                       )}
                 
                       <button
-                        className="p-2 border-2 border-white rounded-full hover:cursor-pointer transition-colors duration-200"
+                        className="p-2 border-2 border-white rounded-full hover:cursor-pointer transition-colors duration-200 lg:-ml-[20px]"
                         onClick={toggleSearch}
                       >
                         <IoSearchSharp className="h-5 w-5" />
@@ -164,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
                     <Link
                       href="/contact"
                       onClick={() => setIsMenuOpen(false)}
-                      className="inline-block w-fit bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-normal transition-colors duration-200"
+                      className="inline-block w-fit bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-normal transition-colors duration-200"
                     >
                       Contact Us
                     </Link>

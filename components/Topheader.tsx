@@ -22,7 +22,7 @@ const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
                 <Image
                     src={logo}
                     alt="CANBRO Nephrology and Urology Care"
-                    width={250}
+                    width={310}
                     height={100}
                     className="object-contain main-logo"
                 />
@@ -79,7 +79,7 @@ const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
 
             <button
                 onClick={handleDownload}
-                className="bg-[#19065F] capitalize text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer">
+                className="bg-[#19065F] capitalize text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 hover:cursor-pointer font-normal lg:font-[16px]">
                 <FiDownloadCloud size={20} className='text-white' />
                 <span className='hidden md:block'>download</span> product list
             </button>

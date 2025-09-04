@@ -181,6 +181,19 @@ custom-font-style p {
   }
 }
 
+@media (min-width: 481px) and (max-width: 1024px){
+ .main-logo {
+    width: 155px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px){
+ .main-logo {
+    width: 200px;
+  }
+}
+
+
 @media (min-width: 768px) {
   .custom-font-style p {
     font-size: 16px;
@@ -223,6 +236,6 @@ custom-font-style p {
 /* Extra extra large (≥1400px, Bootstrap 5 style) */
 @media (min-width: 1400px) {
   .container {
-    max-width: 1320px !important;
+    max-width: 1400px !important;
   }
 }
