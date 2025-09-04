@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import { PiMapPinLineBold } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
@@ -140,7 +140,15 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                           href={link.url}
                           className="text-white capitalize transition-colors text-sm lg:[14px] font-medium flex items-center"
                         >
-                          <span className="mr-2 text-cyan-300">›</span> {link.title}
+                          <span className="mr-2 text-cyan-300">
+                            <Image
+                              src="/images/footer-arrow.png"
+                              alt="clock"
+                              width={5}
+                              height={5}
+                              className="object-contain"
+                            />
+                          </span> {link.title}
                         </Link>
                       </li>
                     ))}
@@ -162,7 +170,13 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                           href={link.url}
                           className="text-white capitalize transition-colors text-sm lg:[14px] font-medium flex items-center"
                         >
-                          <span className="mr-2 text-cyan-300">›</span> {link.title}
+                          <span className="mr-2 text-cyan-300"><Image
+                            src="/images/footer-arrow.png"
+                            alt="clock"
+                            width={5}
+                            height={5}
+                            className="object-contain"
+                          /></span> {link.title}
                         </Link>
                       </li>
                     ))}
@@ -178,7 +192,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                 <div className="flex items-start space-x-3">
                   {footerData?.settings?.address &&
                     <>
-                      <PiMapPinLineBold className="w-5 h-5 text-cyan-300 mt-1 flex-shrink-0" />
+                      <PiMapPinLineBold className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-white text-sm lg:text-[16px] font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: footerData?.settings?.address }} />
                       </div>
@@ -190,7 +204,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                 <div className="flex items-start space-x-3">
                   {footerData?.settings?.phone &&
                     <>
-                      <BsTelephone className="w-5 h-5 text-cyan-300 mt-1 flex-shrink-0" />
+                      <BsTelephone className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
                       <div>
                         <p className="text-white text-sm lg:text-[16px] font-medium mb-1">PCD Pharma Franchise</p>
                         <p className="text-white text-sm lg:text-[16px] font-medium">
@@ -205,7 +219,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                 <div className="flex items-start space-x-3">
                   {footerData?.settings?.contact_email &&
                     <>
-                      <TfiEmail className="w-5 h-5 text-cyan-300 mt-1 flex-shrink-0" />
+                      <TfiEmail className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
                       <div>
                         <Link
                           href={`mailto:${footerData?.settings?.contact_email}`}
@@ -260,25 +274,24 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
 
 
       <div ref={formRef} className="hidden md:block fixed bottom-0 right-0 z-50 w-80">
-      {/* Toggle Header */}
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#19065f] uppercase text-center text-white lg:text-[16px] xl:text-lg font-medium px-4 py-2 cursor-pointer rounded-t-lg"
-      >
-        place a query
-      </div>
+        {/* Toggle Header */}
+        <div
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-[#19065f] uppercase text-center text-white lg:text-[16px] xl:text-lg font-medium px-4 py-2 cursor-pointer rounded-t-lg"
+        >
+          place a query
+        </div>
 
-      {/* Form Container */}
-      <div
-        className={`transition-all duration-500 ease-in-out bg-white shadow-sm border border-gray-200 overflow-auto hide-scroll ${
-          isOpen ? 'max-h-[500px] p-4' : 'max-h-0 p-0'
-        }`}
-      >
-        <div className='place-a-query'>
-        <ContactForm />
+        {/* Form Container */}
+        <div
+          className={`transition-all duration-500 ease-in-out bg-white shadow-sm border border-gray-200 overflow-auto hide-scroll ${isOpen ? 'max-h-[500px] p-4' : 'max-h-0 p-0'
+            }`}
+        >
+          <div className='place-a-query'>
+            <ContactForm />
+          </div>
         </div>
       </div>
-    </div>
 
 
 

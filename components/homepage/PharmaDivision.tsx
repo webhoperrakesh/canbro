@@ -28,7 +28,7 @@ const PharmaDivision = ({ DivisionsData }: DivisionsSectionProps) => {
                     {/* Left side - Text content */}
                     <div className="text-center lg:text-left flex-2">
                        {heading &&
-                       <h2 className="text-2xl lg:text-3xl xl:text-[45px] font-normal text-gray-900 leading-tight" dangerouslySetInnerHTML={{ __html: heading }} />
+                       <h2 className="text-2xl lg:text-3xl xl:text-[40px] font-normal text-gray-900 leading-tight" dangerouslySetInnerHTML={{ __html: heading }} />
                        }
 
                     </div>

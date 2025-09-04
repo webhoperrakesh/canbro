@@ -20,7 +20,7 @@ const [contactInfo, socialLinks] = await Promise.all([
 const EnquirySection = () => {
     return (
         <section className='bg-[#38A0A7] lg:mb-35' id='who-we-are' >
-            <div className='container mx-auto px-4 pt-16 md:pt-20 pb-16 md:pb-16'>
+            <div className='container mx-auto px-4 pt-16 md:pt-25 pb-16 md:pb-16'>
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-7xl mx-auto">
 
                     {/* Left Side - Company Information */}
@@ -37,12 +37,12 @@ const EnquirySection = () => {
                         </div>
 
                         {/* Contact Information */}
-                        <div className="space-y-4 mb-8">
+                        <div className="space-y-4 mb-8 flex gap-[12px] flex-col">
 
                             {contactInfo.settings.phone_2 &&
-                            <div className="flex items-start gap-3">
-                                <PiPhoneCallFill className="w-5 h-5 flex-shrink-0" />
-                                <div className="text-sm">
+                            <div className="flex items-center gap-3">
+                                <PiPhoneCallFill className="w-8 h-8 flex-shrink-0" />
+                                <div className="text-sm lg:text-[16px]">
                                     <div>
                                         <Link href={`tel:${contactInfo?.settings?.phone_2.split(',')[0].replace(/-/g, "")}`}>{contactInfo?.settings?.phone_2.split(',')[0]}</Link>,{' '}
                                         <Link href={`tel:${contactInfo?.settings?.phone_2.split(',')[1].replace(/-/g, "")}`}>{contactInfo?.settings?.phone_2.split(',')[1]}</Link>
@@ -52,9 +52,9 @@ const EnquirySection = () => {
                             }
 
                             {(contactInfo.settings.contact_email || contactInfo.settings.contact_email_2) && (
-                                <div className="flex items-start gap-3">
-                                    <IoMailSharp className="w-5 h-5 flex-shrink-0" />
-                                    <div className="text-sm">
+                                <div className="flex items-center gap-3">
+                                    <IoMailSharp className="w-8 h-8 flex-shrink-0" />
+                                    <div className="text-sm lg:text-[16px]">
                                         <div>
                                             <Link href={`mailto:${contactInfo.settings.contact_email}`}>
                                                 {contactInfo.settings.contact_email}
@@ -68,18 +68,18 @@ const EnquirySection = () => {
                             )}
 
                             {contactInfo.settings.address && (
-                                <div className="flex items-start gap-3">
-                                    <RiMapPin2Fill className="w-5 h-5 flex-shrink-0" />
-                                    <div className="text-sm">
+                                <div className="flex items-center gap-3">
+                                    <RiMapPin2Fill className="w-8 h-8 flex-shrink-0" />
+                                    <div className="text-sm lg:text-[16px]">
                                         <div>{contactInfo.settings.address}</div>
                                     </div>
                                 </div>
                             )}
 
                            {contactInfo.settings.phone && (
-                            <div className="flex items-start gap-3">
-                                <RiMapPin2Fill className="w-5 h-5 flex-shrink-0" />
-                                <div className="text-sm">
+                            <div className="flex items-center gap-3">
+                                <RiMapPin2Fill className="w-8 h-8 flex-shrink-0" />
+                                <div className="text-sm lg:text-[16px] flex gap-[8px]">
                                     <div className="font-semibold">PCD Pharma Franchise :</div>
                                     <div>
                                         <Link href={`tel:${contactInfo?.settings?.phone.split(',')[0].replace(/-/g, "")}`}>{contactInfo?.settings?.phone.split(',')[0]}</Link>,{' '}
@@ -93,7 +93,7 @@ const EnquirySection = () => {
 
                         {/* Social Media */}
                         {socialLinks.items.length > 0 &&
-                            <div>
+                            <div className="pl-[44px]">
                                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                                 <div className="flex gap-3">
 
@@ -128,7 +128,7 @@ const EnquirySection = () => {
                             {/* Orange Tab */}
                             <div className="bg-white rounded-2xl relative shadow-2xl p-6 lg:p-8">
                                 <div className="mb-6">
-                                    <div className="hidden lg:block absolute -left-[5.5rem] lg:-left-[8.15rem] top-30 -rotate-90 bg-orange-500 text-white px-10 py-3 rounded-t-3xl">
+                                    <div className="hidden lg:block absolute -left-[5.5rem] lg:-left-[8.12rem] top-30 -rotate-90 bg-orange-500 text-white px-10 py-3 rounded-t-3xl">
                                         <div className="text-xs lg:text-[18px] font-semibold uppercase">ENQUIRY FORM</div>
                                     </div>
                                     <div className="pt-4">
