@@ -72,11 +72,11 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 custom-grid-cols">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 custom-grid-cols">
         <div className="space-y-2">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          {/* <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             Name
-          </label>
+          </label> */}
           <Controller
             control={form.control}
             name="name"
@@ -91,7 +91,7 @@ const ContactForm = () => {
               <input
                 id="name"
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Your name"
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
                 {...field}
               />
@@ -102,9 +102,9 @@ const ContactForm = () => {
           )}
         </div>
         <div className="space-y-2">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          {/* <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email
-          </label>
+          </label> */}
           <Controller
             control={form.control}
             name="email"
@@ -119,7 +119,7 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Email address"
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
                 {...field}
               />
@@ -130,11 +130,11 @@ const ContactForm = () => {
           )}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 custom-grid-cols">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 custom-grid-cols">
         <div className="space-y-2">
-          <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
+          {/* <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
             Contact Number
-          </label>
+          </label> */}
           <Controller
             control={form.control}
             name="contact"
@@ -153,7 +153,7 @@ const ContactForm = () => {
               <input
                 id="contact"
                 type="tel"
-                placeholder="Enter your contact number"
+                placeholder="Phone number"
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
                 {...field}
               />
@@ -164,9 +164,9 @@ const ContactForm = () => {
           )}
         </div>
         <div className="space-y-2">
-          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+          {/* <label htmlFor="city" className="block text-sm font-medium text-gray-700">
             City
-          </label>
+          </label> */}
           <Controller
             control={form.control}
             name="city"
@@ -181,7 +181,7 @@ const ContactForm = () => {
               <input
                 id="city"
                 type="text"
-                placeholder="Enter your city"
+                placeholder="Your city"
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700"
                 {...field}
               />
@@ -193,9 +193,9 @@ const ContactForm = () => {
         </div>
       </div>
       <div className="space-y-2">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+        {/* <label htmlFor="message" className="block text-sm font-medium text-gray-700">
           Message
-        </label>
+        </label> */}
         <Controller
           control={form.control}
           name="message"
@@ -209,8 +209,8 @@ const ContactForm = () => {
           render={({ field }) => (
             <textarea
               id="message"
-              placeholder="Enter your message"
-              rows={4}
+              placeholder="Message"
+              rows={3}
               className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 focus:outline-none transition-all text-gray-700 resize-vertical"
               {...field}
             />

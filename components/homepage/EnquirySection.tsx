@@ -20,7 +20,7 @@ const [contactInfo, socialLinks] = await Promise.all([
 const EnquirySection = () => {
     return (
         <section className='bg-[#38A0A7] lg:mb-35' id='who-we-are' >
-            <div className='container mx-auto px-4 py-16 md:py-16'>
+            <div className='container mx-auto px-4 pt-16 md:pt-20 pb-16 md:pb-16'>
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-7xl mx-auto">
 
                     {/* Left Side - Company Information */}
