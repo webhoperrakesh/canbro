@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ mainMenu, logo, topHeaderData }) => {
   return (
     <header className="bg-white fixed top-0 w-full z-100">
       <div className='flex mx-auto w-full justify-between items-center'>
-        <div className="container mx-auto px-0 py-[18px] 2xl:max-w-[1500px]!">
+        <div className="container mx-auto px-4 md:px-0 py-[18px] 2xl:max-w-[1500px]!">
           <TopHeader logo={logoImg} workingHour = {topHeaderData?.settings?.business_hours} email = {topHeaderData?.settings?.contact_email} phone = {topHeaderData?.settings?.phone} />
         </div>
       </div>
