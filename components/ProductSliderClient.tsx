@@ -137,20 +137,20 @@ const ProductSliderClient = ({ products }: ProductsProps) => {
                             >
                                 {/* Background Decoration */}
                                 <div className="relative z-10">
-                                    <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 lg:mb-4 leading-tight lg:line-clamp-1">
+                                    <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-[36px] font-bold mb-3 lg:mb-4 leading-tight lg:line-clamp-1">
                                         {currentProduct.title}
                                     </h3>
 
                                     <div className="flex-wrap md:flex-nowrap flex items-start mb-4 lg:mb-6 gap-4">
                                         <div className="w-12 lg:w-16 h-0.5 bg-white/80 mt-[14px]" />
 
-                                        <h4 className="[word-wrap:anywhere] text-base md:text-lg lg:text-[22px] font-medium leading-relaxed opacity-95 lg:line-clamp-2">
+                                        <h4 className="[word-wrap:anywhere] text-base md:text-[22px] lg:text-[22px] font-medium leading-relaxed opacity-95 lg:line-clamp-2">
                                             {currentProduct.composition}
                                         </h4>
                                     </div>
 
 
-                                    <p className="text-sm md:text-base lg:text-lg leading-relaxed opacity-90 line-clamp-4 lg:line-clamp-5">
+                                    <p className="text-sm md:text-[16px] lg:text-[16px] leading-relaxed font-normal opacity-90 line-clamp-4 lg:line-clamp-5">
                                         {currentProduct.desc}
                                     </p>
                                 </div>

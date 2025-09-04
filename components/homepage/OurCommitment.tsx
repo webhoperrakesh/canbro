@@ -48,8 +48,8 @@ const OurCommitment = ({ CommitmentData }: CommitmentSectionProps) => {
                                         priority
                                     />
                                     <div className="text-left">
-                                        <h3 className="text-[#38A0A7] font-bold text-2xl uppercase">{item.heading}</h3>
-                                        <p className="text-gray-800 font-semibold text-3xl capitalize">{item.sub_heading}</p>
+                                        <h3 className="text-[#38A0A7] font-bold lg:text-[24px] uppercase">{item.heading}</h3>
+                                        <p className="text-gray-800 font-semibold lg:text-[30px] capitalize">{item.sub_heading}</p>
                                     </div>
                                 </div>
                             ))}

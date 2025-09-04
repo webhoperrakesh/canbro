@@ -21,7 +21,7 @@ const BlogCard = ({ post }: PostCardProps) => {
       className="bg-white overflow-hidden"
     >
       {/* Blog Image */}
-      <div className="relative h-58 sm:h-62 lg:h-70 overflow-hidden rounded-2xl">
+      <div className="relative h-60 lg:h-65 overflow-hidden rounded-2xl">
         <Image
           src={post.image || "https://placehold.co/600x400.png?text=No+Image"}
           alt={post.name}

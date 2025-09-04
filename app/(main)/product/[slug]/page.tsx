@@ -139,7 +139,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             {/* <div className="text-2xl text-green-600 font-semibold mb-4">₹{product.price}</div> */}
 
                             {product.desc &&
-                                <p className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem]">{product.desc}</p>
+                                <p className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem]">{product.desc}</p>
                             }
 
                             {/* Categories */}
@@ -201,7 +201,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             <h2 className="text-2xl md:text-3xl lg:text-[45px] text-[#212088] font-semibold capitalize leading-tight">
                                 Product <span className="text-[#38A0A7]">Description</span>
                             </h2>
-                            <div className="text-[#3C3C3C] text-sm md:text-base font-medium leading-relaxed product-description" dangerouslySetInnerHTML={{ __html: product.long_dec }} />
+                            <div className="text-[#3C3C3C] text-sm md:text-[16px] lg:font-[16px] font-normal leading-relaxed product-description" dangerouslySetInnerHTML={{ __html: product.long_dec }} />
                         </div>
                     )}
 

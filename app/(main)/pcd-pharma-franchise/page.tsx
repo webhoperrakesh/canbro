@@ -29,7 +29,7 @@ const PharmaFranchise = async () => {
                     <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-10 md:gap-6 items-center'>
                         <div className='md:col-span-7 md:pr-0 lg:pr-10'>
                             <h2 className='text-2xl md:text-3xl lg:text-[45px] font-semibold text-[#38A0A7] capitalize mb-4 custom-heading-color-blue' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].heading ?? '' }} />
-                            <div className='mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-medium leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].content ?? '' }} />
+                            <div className='mb-6 text-sm text-[#3C3C3C] lg:text-[16px] font-normal leading-[1.8rem] lg:mb-12' dangerouslySetInnerHTML={{ __html: pageData.customFields[0].content ?? '' }} />
 
                         </div>
                         <div className="md:col-span-5 relative">
@@ -37,7 +37,7 @@ const PharmaFranchise = async () => {
                                 src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${pageData.customFields[0].image}` || "https://placehold.co/800x800.png?text=No\nImage"}
                                 width={800}
                                 height={800}
-                                className='w-full h-auto object-cover rounded-2xl'
+                                className='w-full h-auto object-cover rounded-2xl aspect-[4/5]'
                                 alt='About Us'
                                 priority
                             />
