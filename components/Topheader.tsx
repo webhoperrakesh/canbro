@@ -42,7 +42,7 @@ const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
                         />
                     </div>
                     <div className='flex flex-col gap-1'>
-                        <div className="text-[14px] font-semibold text-[#000]">Working Days</div>
+                        <div className="text-[14px] font-bold text-[#000]">Working Days</div>
                         <div className="text-[14px] font-normal text-[#3C3C3C]">{workingHour}</div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const TopHeader = ({ logo, workingHour, email, phone }: TopHeaderProps) => {
                     />
                     </div>
                     <div className="flex flex-col gap-1">
-                    <div className="text-[14px] font-semibold text-[#000]">
+                    <div className="text-[14px] font-bold text-[#000]">
                         PCD Pharma Franchise
                     </div>
                     {email && <div className="text-[14px] font-normal text-[#3C3C3C]">{email}</div>}
