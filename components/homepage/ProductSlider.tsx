@@ -41,7 +41,7 @@ export default async function ProductSlider() {
         {/* Title */}
         <div className="text-center mb-8">
          <h2 className='text-2xl md:text-3xl lg:text-[45px] text-[#212088] font-semibold capitalize mb-6 leading-12 text-center'>
-            Our <span className='text-[#38A0A7]'>Featured Products</span>
+            Our Featured<span className='text-[#38A0A7]'> Products</span>
           </h2>
         </div>
 
