@@ -246,7 +246,7 @@ custom-font-style p {
 }
 
 /* Extra extra large (≥1400px, Bootstrap 5 style) */
-@media (min-width: 1500px) {
+@media (min-width: 1600px) {
   .container {
     max-width: 1400px !important;
   }
