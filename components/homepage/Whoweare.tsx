@@ -27,7 +27,7 @@ const Whoweare = ({ WhoWeAreData }: WhoWeAreSectionProps) => {
                             src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${image}` || "https://placehold.co/800x800.png?text=No\nImage"}
                             width={500}
                             height={500}
-                            className='w-full h-auto object-cover rounded-2xl aspect-[2/2]'
+                            className='w-full h-auto rounded-2xl aspect-[2/2]'
                             alt='Who We Are'
                             priority
                         />
