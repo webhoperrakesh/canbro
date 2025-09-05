@@ -57,7 +57,7 @@ const SpecilizationSection = async () => {
                             key={index} className='relative card flex rounded-2xl group transition-all duration-300 border-0 bg-white lg:bg-transparent lg:bg-[url(/images/card-bg.png)] lg:bg-center lg:bg-no-repeat bg-cover lg:bg-[length:100%_100%] hover:bg-[url(/images/hover-bg.png)]'>
                             <div className="p-6 flex flex-col justify-between w-full">
                                 {/* Icon */}
-                                <div className="flex justify-start items-end mb-3">
+                                <div className="flex justify-between items-end mb-3">
                                    
                                     {/* <div className="mb-3"> */}
                                     <span className='text-sm lg:text-[14px] font-medium text-[#38a0a7] group-hover:text-white'>

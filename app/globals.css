@@ -23,7 +23,7 @@
 body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
-  padding-top: 140px;
+  padding-top: 190px;
 }
 
 @keyframes fade-in-up {
@@ -149,7 +149,7 @@ custom-font-style p {
   /* Firefox */
 }
 
-.product-description ul{
+.product-description ul {
   margin-left: 15px;
 }
 
@@ -157,7 +157,7 @@ custom-font-style p {
   background-color: #ef7f1b !important;
 }
 
-.text-\[\#EF7F1B\]{
+.text-\[\#EF7F1B\] {
   color: #ef7f1b !important
 }
 
@@ -181,14 +181,26 @@ custom-font-style p {
   }
 }
 
-@media (min-width: 481px) and (max-width: 1024px){
- .main-logo {
+@media (max-width: 767px) {
+  body {
+    padding-top: 140px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  body {
+    padding-top: 160px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .main-logo {
     width: 155px;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1200px){
- .main-logo {
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .main-logo {
     width: 200px;
   }
 }
