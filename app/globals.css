@@ -245,8 +245,15 @@ custom-font-style p {
   }
 }
 
-/* Extra extra large */
-@media (min-width: 1400px) {
+/* Extra extra large (≥1320px) */
+@media (min-width: 1320px) {
+  .container {
+    max-width: 1320px !important;
+  }
+}
+
+/* Super large (≥1400px) */
+@media (min-width: 1600px) {
   .container {
     max-width: 1400px !important;
   }
