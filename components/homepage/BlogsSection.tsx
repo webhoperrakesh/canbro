@@ -28,7 +28,7 @@ const allPosts = postData.data || [];
   return (
   allPosts.length > 0 && (
     <section id='latest-blogs'>
-      <div className='container mx-auto px-4 py-10 md:py-10 lg:py-0'>
+      <div className='container mx-auto px-4 py-10 md:py-10 lg:py-0 mb-6'>
         {/* Header Section */}
         <div className="text-center lg:text-left mb-8">
           <p className="mx-auto lg:mx-0 text-sm lg:font-[16px] font-medium text-white uppercase bg-[#38A0A7] rounded-full w-fit py-2 px-4 mb-4">

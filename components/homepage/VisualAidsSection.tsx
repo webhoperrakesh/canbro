@@ -36,7 +36,7 @@ export default async function AmplurCVSlider() {
 
   const productsWithVisualAids = products.filter(
   (p) => p.visual_aids_image
-).slice(0, 5);
+).slice(0, 4);
 
   return (
     <section id='visual-aids'>

@@ -74,9 +74,9 @@ export default function NewHeroSlider({ sliderData }: HeroSectionProps) {
             </div>
 
             {/* Slide Counter */}
-            <div className="absolute top-6 right-6 z-30 bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+            {/* <div className="absolute top-6 right-6 z-30 bg-black/30 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
                 {currentSlide + 1} / {sliderItems.length}
-            </div>
+            </div> */}
         </section>
 
     )

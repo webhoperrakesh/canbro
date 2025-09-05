@@ -23,7 +23,7 @@ const PharmaDivision = ({ DivisionsData }: DivisionsSectionProps) => {
 
     return (
         <section className='bg-[#F6F6F6]' id='pharma-division'>
-            <div className='container mx-auto px-4 py-8'>
+            <div className='container mx-auto px-4 py-10'>
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
                     {/* Left side - Text content */}
                     <div className="text-center lg:text-left flex-2">

@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
 
               <div className="mb-6">
                 {footerData?.settings?.site_description &&
-                  <p className="md:mr-20 text-[#fff] text-sm lg:text-[14px] font-medium leading-relaxed" style={{ hyphens: "auto" }} dangerouslySetInnerHTML={{ __html: footerData?.settings?.site_description }} />
+                  <p className="md:mr-20 text-[#fff] text-sm lg:text-[14px] font-normal leading-relaxed" style={{ hyphens: "auto" }} dangerouslySetInnerHTML={{ __html: footerData?.settings?.site_description }} />
                 }
               </div>
 
@@ -112,7 +112,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                         key={index}
                         href={item.url}
                         target="_blank"
-                        className="w-10 h-10 mt-[6px] bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                        className="w-8 h-8 mt-[6px] bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
                       >
                         {Icon && (
                           <span className="w-5 h-5 text-[#212088]">
@@ -132,13 +132,13 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
             <div className="lg:col-span-1">
               {footerMenu[1] &&
                 <>
-                  <h3 className="text-[16px] font-medium mb-6 text-white uppercase">company</h3>
+                  <h3 className="text-[16px] font-normal mb-6 text-white uppercase">company</h3>
                   <ul className="space-y-3">
                     {footerMenu[1]?.items?.map((link, index) => (
                       <li key={index}>
                         <Link
                           href={link.url}
-                          className="text-white capitalize transition-colors text-sm lg:[14px] font-medium flex items-center"
+                          className="text-white capitalize transition-colors text-sm lg:[14px] font-normal flex items-center"
                         >
                           <span className="mr-2 text-cyan-300">
                             <Image
@@ -162,7 +162,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
             <div className="lg:col-span-1">
               {footerMenu[2] &&
                 <>
-                  <h3 className="text-[16px] font-medium mb-6 text-white uppercase">quick links</h3>
+                  <h3 className="text-[16px] font-normal mb-6 text-white uppercase">quick links</h3>
                   <ul className="space-y-3">
                     {footerMenu[2]?.items?.map((link, index) => (
                       <li key={index}>
@@ -194,7 +194,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                     <>
                       <PiMapPinLineBold className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
                       <div>
-                        <p className="text-white text-sm lg:text-[16px] font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: footerData?.settings?.address }} />
+                        <p className="text-white text-sm lg:text-[16px] font-normal leading-relaxed" dangerouslySetInnerHTML={{ __html: footerData?.settings?.address }} />
                       </div>
                     </>
                   }
@@ -206,8 +206,8 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                     <>
                       <BsTelephone className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
                       <div>
-                        <p className="text-white text-sm lg:text-[16px] font-medium mb-1">PCD Pharma Franchise</p>
-                        <p className="text-white text-sm lg:text-[16px] font-medium">
+                        <p className="text-white text-sm lg:text-[16px] font-normal mb-1">PCD Pharma Franchise</p>
+                        <p className="text-white text-sm lg:text-[16px] font-normal">
                           <Link href={`tel:${footerData?.settings?.phone.split(',')[0].replace(/-/g, "")}`}>{footerData?.settings?.phone.split(',')[0]}</Link>, <Link href={`tel:${footerData?.settings?.phone.split(',')[1].replace(/-/g, "")}`}>{footerData?.settings?.phone.split(',')[1]}</Link>
                         </p>
                       </div>
@@ -223,7 +223,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                       <div>
                         <Link
                           href={`mailto:${footerData?.settings?.contact_email}`}
-                          className="text-white transition-colors text-sm lg:text-[16px] font-medium"
+                          className="text-white transition-colors text-sm lg:text-[16px] font-normal"
                         >
                           {footerData?.settings?.contact_email}
                         </Link>
@@ -242,7 +242,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
       {footerData?.settings?.copyright &&
         <div className="bg-[#19065f] py-4" style={{ marginTop: "-1px" }}>
           <div className="container mx-auto px-4">
-            <p className="text-center text-white text-sm">
+            <p className="text-center text-white text-[12px]">
               {footerData?.settings?.copyright
                 ? footerData.settings.copyright.replace("%Y", new Date().getFullYear().toString())
                 : `© ${new Date().getFullYear()} All rights reserved.`} | Web Development and Marketing By{" "}
