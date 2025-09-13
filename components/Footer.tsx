@@ -253,20 +253,22 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
       <div className="hidden fixed md:-right-[30px] md:top-1/2 md:transform md:-translate-y-1/2 z-50 md:flex flex-col gap-3 call-to-action">
         {/* WhatsApp Button */}
         <button
+          id="whatsapp-button"
           onClick={handleWhatsAppClick}
           className="w-[100px] h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-start group hover:cursor-pointer"
           aria-label="Contact via WhatsApp"
         >
-          <FaWhatsapp className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+          <FaWhatsapp id="whatsapp-button" className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
         </button>
 
         {/* Email Button */}
         <button
+          id="call-button"
           onClick={handleCallClick}
           className="w-[100px] h-14 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-start group hover:cursor-pointer"
           aria-label="Contact via Email"
         >
-          <PiPhoneCallFill className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
+          <PiPhoneCallFill id="call-button" className="ml-[15px] w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
         </button>
       </div>
 

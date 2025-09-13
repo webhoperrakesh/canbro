@@ -75,7 +75,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ downloadOnSuccess = false }) 
           }
 
           // Redirect in both cases
-          router.push("/thank-you");
+          window.location.href = "/thank-you";
         }, 2000);
 
       } else {
