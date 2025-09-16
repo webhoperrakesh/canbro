@@ -52,9 +52,7 @@ export default async function Blogs() {
                             </div>
                         )}
                         </div>
-
                         <Sidebar />
-
                     </div>
                     </div>
                 </section>
