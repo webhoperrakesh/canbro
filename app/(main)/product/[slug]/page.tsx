@@ -9,6 +9,7 @@ import ProductImage from '../ProductImage';
 import RelatedProducts from '@/components/RelatedProducts';
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata"
 import { getAbsoluteUrl } from "@/utils/helper"
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 type Params = Promise<{ slug: string }>;
 
@@ -99,6 +100,10 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
     const product = prodJson.data;
 
     return (
+<>
+
+      <Breadcrumbs title={`${product.title}`} bgImage="/images/slider-bg-1.png" />
+
         <div className='container mx-auto px-4 py-12 md:py-15'>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -107,7 +112,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
                         {/* Product Image */}
                         <div>
-                            <nav className="text-sm text-gray-600 mb-6">
+                            {/* <nav className="text-sm text-gray-600 mb-6">
                                 <ol className="list-reset flex items-center space-x-2 text-sm md:text-lg">
                                     <li>
                                         <Link href="/" className="hover:underline text-[#212088]">Home</Link>
@@ -119,7 +124,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                                     <RiArrowRightDoubleFill size={20} color='text-white' />
                                     <li className="text-gray-900 font-medium">{product.title}</li>
                                 </ol>
-                            </nav>
+                            </nav> */}
                             {/* <div className="rounded-2xl bg-white shadow overflow-hidden"> */}
                             {/* <Image
                                     src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}/${product.image}` || 'https://placehold.co/600x400.png?text=No+Image'}
@@ -135,7 +140,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
                         {/* Product Info */}
                         <div>
-                            <h1 className="text-3xl font-bold mb-3 text-[#19065f]">{product.title}</h1>
+                            <h2 className="text-3xl font-bold mb-3 text-[#19065f]">{product.title}</h2>
                             {/* <div className="text-2xl text-green-600 font-semibold mb-4">₹{product.price}</div> */}
 
                             {product.desc &&
@@ -215,6 +220,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
             </div>
         </div>
+        </>
     );
 };
 

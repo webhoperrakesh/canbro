@@ -23,7 +23,7 @@ export default async function RootLayout({
       {mainMenu && (
           <Header mainMenu = {mainMenu} logo = {menusRes.logo} topHeaderData = {settings}/>
         )}
-      <body>{children}</body>
+      {children}
       <Footer footerMenu = {footerMenus} footerData = {settings}/>
     </>
   );

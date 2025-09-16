@@ -23,37 +23,24 @@ const Page = async ({ params }: { params: Params }) => {
   const { slug } = await params;
 
   try {
-    // Fetch data with proper caching and timeout
-    const [postRes, latestRes] = await Promise.allSettled([
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${slug}`, {
+    // Fetch single post
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/posts/${slug}`,
+      {
         next: { revalidate: 300 }, // Cache for 5 minutes
         headers: {
-          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
         },
-      }),
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?per_page=6`, {
-        next: { revalidate: 300 }, // Cache for 5 minutes
-        headers: {
-          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
-        },
-      })
-    ]);
+      }
+    );
 
-    // Handle failed requests
-    if (postRes.status === 'rejected' || !postRes.value.ok) {
-      console.error('Failed to fetch post data:', postRes.status === 'rejected' ? postRes.reason : postRes.value.statusText);
+    if (!res.ok) {
+      console.error("Failed to fetch post data:", res.statusText);
       notFound();
     }
 
-    const postData = await postRes.value.json();
-    const post = postData.data;
-
-    // Handle latest posts (optional - don't fail if this fails)
-    let latestPosts = [];
-    if (latestRes.status === 'fulfilled' && latestRes.value.ok) {
-      const latestData = await latestRes.value.json();
-      latestPosts = latestData.data || [];
-    }
+    const data = await res.json();
+    const post = data.data;
     return (
       <>
         <Breadcrumbs title={post.name} bgImage="/images/slider-bg-1.png" />
@@ -81,7 +68,7 @@ const Page = async ({ params }: { params: Params }) => {
             </div>
 
             {/* Sidebar */}
-            <Sidebar latestPosts={latestPosts} />
+           <Sidebar />
           </div>
         </div>
       </>

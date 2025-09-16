@@ -7,9 +7,9 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { PiMapPinLineBold, PiPhoneCallFill } from "react-icons/pi";
 import { BsTelephone } from "react-icons/bs";
 import { TfiEmail } from "react-icons/tfi";
-import { BiMessageRoundedDetail } from "react-icons/bi";
 import getIconComponent from '@/utils/getIconComponent';
 import ContactForm from './ContactForm';
+import MapEmbed from './MapEmbed';
 
 type MenuItem = {
   id: number;
@@ -130,7 +130,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
             <div className="lg:col-span-1">
               {footerMenu[1] &&
                 <>
-                  <h3 className="text-[16px] font-normal mb-6 text-white uppercase">company</h3>
+                  <h4 className="text-[16px] font-normal mb-6 text-white uppercase">quick links</h4>
                   <ul className="space-y-3">
                     {footerMenu[1]?.items?.map((link, index) => (
                       <li key={index}>
@@ -158,9 +158,11 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
 
             {/* Quick Links */}
             <div className="lg:col-span-1">
-              {footerMenu[2] &&
+              <h4 className="text-[16px] font-normal mb-6 text-white uppercase">visit us</h4>
+              <MapEmbed height="200" address="Canbro Healthcare | Dermatology Company | PCD Pharma Franchise in Derma Plot No.374,Phase 3,Sector 3,Industrial Area, HSIIDC, Karnal, Haryana 132001, India" />
+              {/* {footerMenu[2] &&
                 <>
-                  <h3 className="text-[16px] font-normal mb-6 text-white uppercase">quick links</h3>
+                  <h4 className="text-[16px] font-normal mb-6 text-white uppercase">quick links</h4>
                   <ul className="space-y-3">
                     {footerMenu[2]?.items?.map((link, index) => (
                       <li key={index}>
@@ -180,25 +182,14 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                     ))}
                   </ul>
                 </>
-              }
+              } */}
             </div>
 
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <div className="space-y-6">
-                {/* Address */}
-                <div className="flex items-start space-x-3">
-                  {footerData?.settings?.address &&
-                    <>
-                      <PiMapPinLineBold className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-white text-sm lg:text-[16px] font-normal leading-relaxed" dangerouslySetInnerHTML={{ __html: footerData?.settings?.address }} />
-                      </div>
-                    </>
-                  }
-                </div>
 
-                {/* Phone */}
+               {/* Phone */}
                 <div className="flex items-start space-x-3">
                   {footerData?.settings?.phone &&
                     <>
@@ -208,6 +199,18 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                         <p className="text-white text-sm lg:text-[16px] font-normal">
                           <Link href={`tel:${footerData?.settings?.phone.split(',')[0].replace(/-/g, "")}`}>{footerData?.settings?.phone.split(',')[0]}</Link>, <Link href={`tel:${footerData?.settings?.phone.split(',')[1].replace(/-/g, "")}`}>{footerData?.settings?.phone.split(',')[1]}</Link>
                         </p>
+                      </div>
+                    </>
+                  }
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start space-x-3">
+                  {footerData?.settings?.address &&
+                    <>
+                      <PiMapPinLineBold className="w-5 h-5 text-[#38A0A7] mt-1 flex-shrink-0" />
+                      <div>
+                        <p className="text-white text-sm lg:text-[16px] font-normal leading-relaxed" dangerouslySetInnerHTML={{ __html: footerData?.settings?.address }} />
                       </div>
                     </>
                   }
@@ -229,6 +232,9 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
                     </>
                   }
                 </div>
+
+                 
+
               </div>
             </div>
 

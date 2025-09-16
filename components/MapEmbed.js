@@ -1,10 +1,10 @@
 import React from 'react';
 
-const MapEmbed = ({ address }) => {
+const MapEmbed = ({ address, height }) => {
   const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
 
   return (
-    <div className="w-full h-[400px]">
+    <div className="w-full" style={{ height: `${height}px` }}>
       <iframe
         src={mapSrc}
         width="100%"

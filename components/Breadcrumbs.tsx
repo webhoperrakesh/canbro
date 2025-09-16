@@ -27,17 +27,26 @@ const Breadcrumbs: React.FC<BannerProps> = ({ title, bgImage }) => {
     //     return { href, label };
     // });
 
-    const breadcrumbs = [];
+    const breadcrumbs: Breadcrumb[] = [];
 
-if (pathSegments.length > 0) {
-
-  // Add only the last segment
-  const lastSegment = pathSegments[pathSegments.length - 1];
-  breadcrumbs.push({
-    href: pathname,
-    label: decodeURIComponent(lastSegment.replace(/-/g, " ")),
-  });
-}
+if (pathname.includes("/product/")) {
+    // Insert "Products" before the last segment
+    if (pathSegments.length > 1) {
+      breadcrumbs.push({ href: "/products", label: "Products" });
+      const lastSegment = pathSegments[pathSegments.length - 1];
+      breadcrumbs.push({
+        href: pathname,
+        label: decodeURIComponent(lastSegment.replace(/-/g, " ")),
+      });
+    }
+  } else if (pathSegments.length > 0) {
+    // Default: only add the last segment
+    const lastSegment = pathSegments[pathSegments.length - 1];
+    breadcrumbs.push({
+      href: pathname,
+      label: decodeURIComponent(lastSegment.replace(/-/g, " ")),
+    });
+  }
 
     const backgroundStyle = bgImage
         ? { backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center" }
@@ -74,7 +83,6 @@ if (pathSegments.length > 0) {
                     ))}
                 </ol>
             </nav>
-
         </div>
     )
 }

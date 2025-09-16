@@ -172,7 +172,7 @@ const ContactUs = async () => {
           </div>
 
           <div className="relative h-96 w-full rounded-lg overflow-hidden border border-gray-200">
-            <MapEmbed address="Canbro Healthcare | Dermatology Company | PCD Pharma Franchise in Derma Plot No.374,Phase 3,Sector 3,Industrial Area, HSIIDC, Karnal, Haryana 132001, India" />
+            <MapEmbed height="400" address="Canbro Healthcare | Dermatology Company | PCD Pharma Franchise in Derma Plot No.374,Phase 3,Sector 3,Industrial Area, HSIIDC, Karnal, Haryana 132001, India" />
           </div>
 
           {/* </div> */}

@@ -4,24 +4,13 @@ import ClientLoadMore from './LoadMorePosts'
 import { getMetaData } from '@/utils/getMetaData'
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata"
 import { getAbsoluteUrl } from "@/utils/helper"
-
-// export async function generateMetadata(): Promise<Metadata> {
-
-//     const data = await getMetaData('blog','Page');
-//     const seo = data.seo_meta;
-
-//     return {
-//         title: seo.seo_title || 'Default Title',
-//         description: seo.seo_description || 'Default Description',
-//         robots: seo.index === 'index' ? 'index,follow' : 'noindex,nofollow',
-//     };
-// }
+import Sidebar from '@/components/Sidebar'
 
 
 export const generateMetadata = async () => {
 
   const data = await getMetaData('blog','Page');;
-  const pageUrl = getAbsoluteUrl("/about-us");
+  const pageUrl = getAbsoluteUrl("/blog");
 
   return generateSeoMetadata(data.seo_meta, pageUrl, "article");
 };
@@ -30,10 +19,10 @@ export default async function Blogs() {
 
     try {
         const [postRes] = await Promise.allSettled([
-            fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?per_page=100`, {
-                next: { revalidate: 3600 },
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+                next: { revalidate: 600 },
                 headers: {
-                    'Cache-Control': 'public, max-age=3600, stale-while-revalidate=7200',
+                    'Cache-Control': 'public, max-age=600, stale-while-revalidate=7200',
                 },
             })
         ]);
@@ -50,8 +39,11 @@ export default async function Blogs() {
             <>
                 <Breadcrumbs title="Blog" bgImage="/images/slider-bg-1.png" />
                 <section id="our-blogs-section">
-                    <div className='container mx-auto px-4 py-12 md:py-15'>
 
+                    <div className='container mx-auto px-4 py-12 md:py-15'>
+                        <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+                       
+                       <div className="lg:col-span-2">
                         {allPosts.length > 0 ? (
                             <ClientLoadMore allPosts={allPosts} />
                         ) : (
@@ -59,7 +51,11 @@ export default async function Blogs() {
                                 No blog posts found.
                             </div>
                         )}
+                        </div>
 
+                        <Sidebar />
+
+                    </div>
                     </div>
                 </section>
             </>
