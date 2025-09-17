@@ -187,6 +187,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenu, footerData }) => {
 
             {/* Contact Info */}
             <div className="lg:col-span-1">
+               <h4 className="text-[16px] font-normal mb-6 text-white uppercase">contact us</h4>
               <div className="space-y-6">
 
                {/* Phone */}
