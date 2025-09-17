@@ -140,7 +140,10 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
                         {/* Product Info */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-3 text-[#19065f]">{product.title}</h2>
+                            
+                            {product.brand_name && (
+                            <h2 className="text-3xl font-bold mb-3 text-[#19065f]">{product.brand_name}</h2>
+                            )}
                             {/* <div className="text-2xl text-green-600 font-semibold mb-4">₹{product.price}</div> */}
 
                             {product.desc &&
@@ -150,7 +153,7 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                             {/* Categories */}
                             {product.categories.length > 0 &&
                                 <div className="mb-6">
-                                    <h3 className="text-[#19065f] text-[18px] font-bold mt-4 mb-2">Categories:</h3>
+                                    <p className="text-[#19065f] text-[18px] font-bold mt-4 mb-2">Categories:</p>
                                     <div className="flex flex-wrap gap-2 mt-2">
                                         {product.categories.map((cat, index) => (
                                             <Link
@@ -169,13 +172,8 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
 
                             {(product.brand_name || product.composition || product.pack) && (
                                 <div className="mt-4">
-                                    <h3 className="text-[#19065f] text-lg font-bold mb-2">Additional Info</h3>
+                                    <p className="text-[#19065f] text-lg font-bold mb-2">Additional Info</p>
                                     <div className="space-y-2 text-sm text-[#3C3C3C] md:text-base font-medium">
-                                        {product.brand_name && (
-                                            <p>
-                                                <span className="text-[#19065f] font-semibold">Brand:</span> {product.brand_name}
-                                            </p>
-                                        )}
                                         {product.composition && (
                                             <p>
                                                 <span className="text-[#19065f] font-semibold">Composition:</span> {product.composition}
@@ -203,9 +201,9 @@ const ProductDetailPage = async ({ params }: { params: Params }) => {
                     {/* Optional: Full Description */}
                     {product.long_dec && (
                         <div className="mt-12 space-y-4">
-                            <h2 className="text-2xl md:text-3xl lg:text-[45px] text-[#212088] font-semibold capitalize leading-tight">
+                            <h3 className="text-2xl md:text-3xl lg:text-[45px] text-[#212088] font-semibold capitalize leading-tight">
                                 Product <span className="text-[#38A0A7]">Description</span>
-                            </h2>
+                            </h3>
                             <div className="text-[#3C3C3C] text-sm md:text-[16px] lg:font-[16px] font-normal leading-relaxed product-description" dangerouslySetInnerHTML={{ __html: product.long_dec }} />
                         </div>
                     )}

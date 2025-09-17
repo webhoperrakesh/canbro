@@ -29,9 +29,6 @@ export default function RelatedProducts({ slug }: { slug: string }) {
         <>
         {related.length > 0 &&
         <div className="mt-12">
-            <h2 className='text-2xl md:text-3xl lg:text-[45px] text-[#212088] font-semibold capitalize leading-12'>
-                Related <span className='text-[#38A0A7]'>Products</span>
-            </h2>
             {related.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mt-4">
                     {related.map((product) => (

@@ -8,18 +8,15 @@ import ContactForm from '@/components/ContactForm';
 import getIconComponent from '@/utils/getIconComponent';
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata"
 import { getAbsoluteUrl } from "@/utils/helper"
+import { getPageData } from '@/utils/getPageData';
 
 
 export const generateMetadata = async () => {
 
-  const defaultSeo = {
-    seo_title: "Contact Us | Canbro",
-    seo_description:
-      "Get in touch with inquiries. Reach us at our offices or send us a message online.",
-  };
+  const data = await getPageData('contact');
   const pageUrl = getAbsoluteUrl("/contact");
 
-  return generateSeoMetadata(defaultSeo, pageUrl, "article");
+  return generateSeoMetadata(data.meta.seo_meta, pageUrl, "article");
 };
 
 const ContactUs = async () => {
