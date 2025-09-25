@@ -59,13 +59,13 @@ export default function RelatedPosts({
     if (post) fetchRelated();
   }, [post]);
 
-  if (relatedPosts.length === 0) return null;
+//   if (relatedPosts.length === 0) return null;
 
   return (
    <aside className="lg:border-l lg:pl-6 lg:border-[#022169]">
       <div className="flex items-center justify-between cursor-pointer p-4 bg-[#19065f] text-white mb-4">
         <h2 className="lg:text-[16px] xl:text-lg font-medium">
-          Ralated Posts
+          Related Posts
         </h2>
       </div>
       {relatedPosts.length > 0 ? (

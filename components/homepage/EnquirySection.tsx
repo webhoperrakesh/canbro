@@ -15,6 +15,15 @@ const [contactInfo, socialLinks] = await Promise.all([
     }).then((res) => res.json()),
 ]);
 
+const cssColor: any = {
+    0: 'bg-blue-600',
+    1: 'bg-blue-700',
+    2: 'bg-red-500',
+    3: 'bg-black',
+    4: 'bg-red-500',
+    5: 'bg-pink-500',
+}
+
 
 const EnquirySection = () => {
     return (
@@ -98,12 +107,13 @@ const EnquirySection = () => {
 
                                     {socialLinks.items.map((item: any, index: number) => {
                                         const Icon = getIconComponent(item.icon);
+                                        const itemCssClass = cssColor[index] || 'bg-gray-500';
                                         return (
                                             <Link
                                                 key={index}
                                                 href={item.url}
                                                 target="_blank"
-                                                className={`w-10 h-10 text-white ${item.css_class} rounded-full flex items-center justify-center transition-colors cursor-pointer`}
+                                                className={`w-10 h-10 text-white ${itemCssClass} rounded-full flex items-center justify-center transition-colors cursor-pointer`}
                                             >
                                                 {Icon && (
                                                     <span className="text-white">
