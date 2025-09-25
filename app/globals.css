@@ -26,6 +26,10 @@ body {
   padding-top: 188px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -95,7 +99,7 @@ custom-font-style p {
   margin-top: 1rem;
 }
 
-.custom-font-style p {
+.custom-font-style p:not(#mains-srvc p) {
   margin-bottom: 1.5rem;
   font-size: 16px;
   color: #3C3C3C;
@@ -159,6 +163,24 @@ custom-font-style p {
 
 .text-\[\#EF7F1B\] {
   color: #ef7f1b !important
+}
+
+#mains-srvc {
+  display: table;
+  border: 1px solid #aaa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+#mains-srvc img.tglclass {
+  width: 25px;
+}
+
+#lists-srvc {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {

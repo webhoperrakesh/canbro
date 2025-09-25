@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import Sidebar from '@/components/Sidebar'
 import { getMetaData } from '@/utils/getMetaData'
 import { notFound } from 'next/navigation'
 import { getAbsoluteUrl } from "@/utils/helper";
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata";
-
+import RelatedPosts from '@/components/RelatedPosts'
+import { generateToc } from '@/utils/generateToc'
+import parse from 'html-react-parser';
 
 type Params = Promise<{ slug: string }>;
 
@@ -41,10 +42,17 @@ const Page = async ({ params }: { params: Params }) => {
 
     const data = await res.json();
     const post = data.data;
+    const contentWithTOC = generateToc(post.content);
+
+    const catRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product-categories`, {
+    next: { revalidate: 600 },
+  })
+
+  const { data: categories = [] } = await catRes.json()
     return (
       <>
         <Breadcrumbs title={post.name} bgImage="/images/slider-bg-1.png" />
-        <div className="container mx-auto px-4 md:px-6 py-12">
+        <div className="container mx-auto px-4 py-12 md:py-15">
           <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
 
             {/* Main Post */}
@@ -62,13 +70,13 @@ const Page = async ({ params }: { params: Params }) => {
               )}
 
               <div
-                className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] prose prose-lg max-w-none custom-font-style"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
+                className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] prose prose-lg max-w-none custom-font-style">
+                  {parse(contentWithTOC)}
+                </div>
+            
             </div>
 
-            {/* Sidebar */}
-           <Sidebar />
+            <RelatedPosts post = {post} productscat ={categories} />
           </div>
         </div>
       </>
