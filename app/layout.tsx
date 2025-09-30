@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import RecaptchaProvider from "@/components/RecaptchaProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -78,7 +79,9 @@ export default function RootLayout({
             `,
           }}
         />
-        {children}
+        <RecaptchaProvider>
+         {children}
+        </RecaptchaProvider>
       </body>
     </html>
   );

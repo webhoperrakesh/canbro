@@ -42,7 +42,7 @@ const Page = async ({ params }: { params: Params }) => {
 
     const data = await res.json();
     const post = data.data;
-    const contentWithTOC = generateToc(post.content);
+    const ContentWithToc = generateToc(post.content);
 
     const catRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product-categories`, {
     next: { revalidate: 600 },
@@ -71,7 +71,7 @@ const Page = async ({ params }: { params: Params }) => {
 
               <div
                 className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] prose prose-lg max-w-none custom-font-style">
-                  {parse(contentWithTOC)}
+                  {parse(ContentWithToc)}
                 </div>
             
             </div>

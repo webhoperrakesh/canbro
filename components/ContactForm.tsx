@@ -4,6 +4,7 @@ import React from 'react'
 import { useForm, Controller } from "react-hook-form"
 import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 
 type ContactFormValues = {
@@ -25,6 +26,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ downloadOnSuccess = false }) 
   const [response, setResponse] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(false);
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha(); // 👈 use reCAPTCHA
 
   const form = useForm<ContactFormValues>({
     defaultValues: {
@@ -42,6 +44,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ downloadOnSuccess = false }) 
     setLoading(true); // Show loading state
     setResponse(null);
     try {
+     
+      if (!executeRecaptcha) {
+        setResponse("reCAPTCHA not ready. Please try again.");
+        return;
+      }
+
+      // 🔑 Get token from Google
+      const token = await executeRecaptcha("contact_form");
+      console.log(token);
+
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact/inquiry`, {
         method: 'POST',
         headers: {
@@ -56,6 +68,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ downloadOnSuccess = false }) 
           message: values.message,
           drugLicense: values.drugLicense,
           gstNo: values.gstNo,
+          recaptcha_token: token,
         }),
       });
 
