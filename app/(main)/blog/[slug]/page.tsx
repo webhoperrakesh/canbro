@@ -8,6 +8,7 @@ import { generateSeoMetadata } from "@/utils/generateSeoMetadata";
 import RelatedPosts from '@/components/RelatedPosts'
 import { generateToc } from '@/utils/generateToc'
 import parse from 'html-react-parser';
+import TocWrapper from '@/components/TocWrapper'
 
 type Params = Promise<{ slug: string }>;
 
@@ -42,7 +43,7 @@ const Page = async ({ params }: { params: Params }) => {
 
     const data = await res.json();
     const post = data.data;
-    const ContentWithToc = generateToc(post.content);
+    const htmlWithToc = generateToc(post.content);
 
     const catRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product-categories`, {
     next: { revalidate: 600 },
@@ -71,7 +72,7 @@ const Page = async ({ params }: { params: Params }) => {
 
               <div
                 className="mb-6 text-sm text-[#3C3C3C] md:text-[16px] font-normal leading-[1.8rem] prose prose-lg max-w-none custom-font-style">
-                  {parse(ContentWithToc)}
+                  <TocWrapper html={htmlWithToc} />;
                 </div>
             
             </div>
