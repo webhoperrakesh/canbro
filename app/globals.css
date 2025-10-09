@@ -183,6 +183,10 @@ custom-font-style p {
   overflow: hidden;
 }
 
+.accordion-shadow {
+  box-shadow: 0 0 18.6px #286ed01a;
+}
+
 @media (max-width: 600px) {
   .breadcrumbs-section {
     padding: 40px 10px;

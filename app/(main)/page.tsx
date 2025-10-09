@@ -11,6 +11,7 @@ import PharmaDivision from "@/components/homepage/PharmaDivision"
 import ProductSlider from "@/components/homepage/ProductSlider"
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata"
 import { getAbsoluteUrl } from "@/utils/helper"
+import Accordion from "@/components/Accordion"
 
 export const generateMetadata = async () => {
 
@@ -54,6 +55,9 @@ export default async function Home() {
       }
       <EnquirySection />
       <BlogsSection />
+      {data.homefaqs &&
+      <Accordion faqItems = {data.homefaqs} />
+      } 
       {data.pharmadivisions &&
         <PharmaDivision DivisionsData={data.pharmadivisions} />
       }
