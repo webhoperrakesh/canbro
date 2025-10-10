@@ -1,4 +1,5 @@
 import ProductSliderClient from "../ProductSliderClient"
+import SlickSlider from "../Slider"
 
 type Product = {
   id: number;
@@ -13,10 +14,11 @@ type ProductResponse = {
   success: boolean;
   data: Product[];
   showText?: boolean;
+  ShowSlider?: boolean;
   message: string;
 };
 
-export default async function ProductSlider( {showText = true} ) {
+export default async function ProductSlider( {showText = true, ShowSlider = true} ) {
 
   let products: Product[] = [];
 
@@ -37,7 +39,7 @@ export default async function ProductSlider( {showText = true} ) {
   if(products.length === 0) return null;
 
   return (
-    <section id="feature-products" className="lg:mb-16">
+    <section id="feature-products" className={`${ShowSlider ? '' : 'lg:mb-16'}`}>
       <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
         {/* Title */}
         <div className="text-center mb-8">
@@ -47,7 +49,14 @@ export default async function ProductSlider( {showText = true} ) {
         </div>
 
         {/* Slider Container */}
-        <ProductSliderClient products = {products} showText={showText} />
+        {!ShowSlider && 
+         <ProductSliderClient products = {products} showText={showText} />
+        }
+         
+         {ShowSlider && 
+          <SlickSlider products = {products} />
+         }
+
       </div>
     </section>
   )

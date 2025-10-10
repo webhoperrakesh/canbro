@@ -45,7 +45,7 @@ export default async function Home() {
       {data.whoweare &&
         <Whoweare WhoWeAreData={data.whoweare} />
       }
-      <ProductSlider showText />
+      <ProductSlider showText ShowSlider={false} />
       {data.ourcertification &&
         <OurCertification OurCertificationData={data.ourcertification} />
       }

@@ -99,7 +99,7 @@ const PharmaFranchise = async () => {
                 {commitment &&
                     <OurCommitment CommitmentData={commitment} />
                 }
-                <ProductSlider showText={false} />
+                <ProductSlider showText={false} ShowSlider = {true} />
 
                 {certificates &&
                     <OurCertification OurCertificationData={certificates} />
