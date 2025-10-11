@@ -12,6 +12,8 @@ import ProductSlider from "@/components/homepage/ProductSlider"
 import { generateSeoMetadata } from "@/utils/generateSeoMetadata"
 import { getAbsoluteUrl } from "@/utils/helper"
 import Accordion from "@/components/Accordion"
+import WhyChooseUs from "@/components/homepage/WhyChooseUs"
+import Advantages from "@/components/homepage/Advantages"
 
 export const generateMetadata = async () => {
 
@@ -33,6 +35,8 @@ export default async function Home() {
 
   const data = blockData.data || {};
 
+  console.log(data)
+
   return (
     <>
       {data.heroslider &&
@@ -53,6 +57,15 @@ export default async function Home() {
       {data.ourcommitment &&
         <OurCommitment CommitmentData={data.ourcommitment} />
       }
+
+      {data.homewhychooseus &&
+        <WhyChooseUs ChooseUsData = {data.homewhychooseus} />
+      }
+
+      {data.homeadvantages &&
+        <Advantages AdvantagesData = {data.homeadvantages} />
+      }
+
       <EnquirySection />
       <BlogsSection />
       {data.homefaqs &&

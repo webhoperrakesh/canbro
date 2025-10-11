@@ -100,9 +100,9 @@ const SpecilizationSection = async () => {
 
                                 {/* Read More Button */}
                                 <div className="flex items-center justify-between">
-                                    <Link href={`/product-category/${category.slug}`} className='text-sm font-medium text-[#19065f] group-hover:text-white'>
+                                    {/* <Link href={`/product-category/${category.slug}`} className='text-sm font-medium text-[#19065f] group-hover:text-white'>
                                         <span className='w-[10px] h-[10px] inline-block bg-[#19065f] rounded-full hover:cursor-pointer group-hover:bg-white'></span> Read More
-                                    </Link>
+                                    </Link> */}
                                     <Link href={`/product-category/${category.slug}`} className='lg:absolute right-0 bottom-0 flex items-center justify-center w-10 h-10 rounded-full p-0 bg-orange-500 text-white hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:cursor-pointer'>
                                         <GoArrowUpRight className="w-4 h-4" />
                                     </Link>
